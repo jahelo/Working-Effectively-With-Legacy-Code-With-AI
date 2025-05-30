@@ -30,6 +30,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 12
+      - name: Downgrade npm to v6 (for GitBook compatibility)
+        run: npm install -g npm@6
       - name: Install gitbook-cli
         run: npm install -g gitbook-cli
       - name: Install GitBook plugins
