@@ -1,3 +1,8 @@
+# Working Effectively with Legacy Code with The Help of AI
+## A Comprehensive Guide for Modern Development Teams
+
+---
+
 # Introduction
 
 Every software development team has faced this moment: staring at a screen full of unfamiliar code, written by developers who are no longer with the company, implementing business rules that aren't documented anywhere, and knowing that this code is critical to your business operations. Making changes feels risky. Understanding the full impact of modifications seems impossible. Yet the pressure to deliver new features, fix bugs, and modernize the system never stops.
