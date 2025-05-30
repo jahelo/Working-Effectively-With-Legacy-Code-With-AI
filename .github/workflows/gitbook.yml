@@ -26,22 +26,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Needed for gh-pages deploy
-      - name: Use Node.js 12
-        uses: actions/setup-node@v4
-        with:
-          node-version: 12
-      - name: Downgrade npm to v6 (for GitBook compatibility)
-        run: npm install -g npm@6
-      - name: Check Node and npm version
+      - name: Build and Deploy GitBook in Docker
         run: |
-          node -v
-          npm -v
-      - name: Install gitbook-cli
-        run: npm install -g gitbook-cli
-      - name: Generate SUMMARY.md
-        run: node scripts/generate-summary.js
-      - name: Build GitBook
-        run: gitbook build
+          docker run --rm -v ${{ github.workspace }}:/book -w /book node:12-buster bash -c "
+            npm install -g npm@6 &&
+            npm install -g gitbook-cli &&
+            node scripts/generate-summary.js &&
+            gitbook build
+          "
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
