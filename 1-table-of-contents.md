@@ -1,7 +1,4 @@
-# Working Effectively with Legacy Code with The Help of AI
-## A Comprehensive Guide for Modern Development Teams
 
----
 
 ## Table of Contents
 
