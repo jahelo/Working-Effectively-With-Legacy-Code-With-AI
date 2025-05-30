@@ -17,13 +17,13 @@ jobs:
         node-version: '18'
         
     - name: Install HonKit
-      run: npm install honkit --save-dev
+      run: npm install -g honkit
       
     - name: Install HonKit plugins
-      run: npx honkit install
+      run: honkit install
       
     - name: Build HonKit Book
-      run: npx honkit build
+      run: honkit build
       
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
