@@ -16,14 +16,14 @@ jobs:
       with:
         node-version: '18'
         
-    - name: Install GitBook CLI
-      run: npm install -g gitbook-cli
+    - name: Install HonKit
+      run: npm install honkit --save-dev
       
-    - name: Install GitBook plugins
-      run: gitbook install
+    - name: Install HonKit plugins
+      run: npx honkit install
       
-    - name: Build GitBook
-      run: gitbook build
+    - name: Build HonKit Book
+      run: npx honkit build
       
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
