@@ -32,10 +32,12 @@ jobs:
           node-version: 12
       - name: Downgrade npm to v6 (for GitBook compatibility)
         run: npm install -g npm@6
+      - name: Check Node and npm version
+        run: |
+          node -v
+          npm -v
       - name: Install gitbook-cli
         run: npm install -g gitbook-cli
-      - name: Install GitBook plugins
-        run: gitbook install
       - name: Generate SUMMARY.md
         run: node scripts/generate-summary.js
       - name: Build GitBook
