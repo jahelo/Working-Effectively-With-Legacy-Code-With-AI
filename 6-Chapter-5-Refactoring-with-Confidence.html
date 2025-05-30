@@ -1,0 +1,1072 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Chapter 5 Refactoring With Confidence · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="5-Chapter-4-Breaking-Dependencies-with-AI-Assistance.md.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1-table-of-contents.html">
+            
+                <a href="1-table-of-contents.html">
+            
+                    
+                    Table Of Contents
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="2-Chapter-1-The-Legacy-Code-Reality.html">
+            
+                <a href="2-Chapter-1-The-Legacy-Code-Reality.html">
+            
+                    
+                    Chapter 1 The Legacy Code Reality
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="3-Chapter-2-Understanding-Your-Legacy-Codebase-with-AI.html">
+            
+                <a href="3-Chapter-2-Understanding-Your-Legacy-Codebase-with-AI.html">
+            
+                    
+                    Chapter 2 Understanding Your Legacy Codebase With AI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="4-Chapter-3-The-Safety-Net-AI-Enhanced-Testing.html">
+            
+                <a href="4-Chapter-3-The-Safety-Net-AI-Enhanced-Testing.html">
+            
+                    
+                    Chapter 3 The Safety Net AI Enhanced Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="5-Chapter-4-Breaking-Dependencies-with-AI-Assistance.md.html">
+            
+                <a href="5-Chapter-4-Breaking-Dependencies-with-AI-Assistance.md.html">
+            
+                    
+                    Chapter 4 Breaking Dependencies With AI Assistance.Md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="6-Chapter-5-Refactoring-with-Confidence.html">
+            
+                <a href="6-Chapter-5-Refactoring-with-Confidence.html">
+            
+                    
+                    Chapter 5 Refactoring With Confidence
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Chapter 5 Refactoring With Confidence</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="chapter-5-refactoring-with-confidence">Chapter 5: Refactoring with Confidence</h2>
+<p>Once you have a safety net of tests and have identified seams in your code, you can begin the actual refactoring process. AI can guide this process, suggest improvements, and help ensure that refactoring efforts provide maximum benefit with minimum risk.</p>
+<h3 id="ai-guided-refactoring-strategies">AI-Guided Refactoring Strategies</h3>
+<p>Refactoring legacy code requires a systematic approach. AI can help identify the most important refactoring opportunities and suggest the safest way to implement them.</p>
+<h4 id="safe-refactoring-step-identification">Safe Refactoring Step Identification</h4>
+<p>AI can break down complex refactoring tasks into safe, incremental steps.</p>
+<p><strong>AI Refactoring Plan Example</strong>:</p>
+<pre><code>Refactoring Target: Large processOrder() method (247 lines, cyclomatic complexity: 23)
+
+AI-Generated Refactoring Plan:
+
+Step 1 (Risk: Low): Extract validation logic
+- Extract order validation into validateOrder() method
+- Estimated time: 2 hours
+- Tests affected: 3 unit tests need updates
+
+Step 2 (Risk: Low): Extract pricing calculation  
+- Extract pricing logic into calculateOrderTotal() method
+- Estimated time: 3 hours
+- Tests affected: 5 unit tests need updates
+
+Step 3 (Risk: Medium): Extract payment processing
+- Extract payment logic into processPayment() method
+- Estimated time: 4 hours
+- Tests affected: 8 unit tests need updates
+- External dependency: PaymentGateway interface
+
+Step 4 (Risk: Medium): Extract inventory management
+- Extract inventory updates into updateInventory() method
+- Estimated time: 3 hours  
+- Tests affected: 6 unit tests need updates
+- Database schema dependency: inventory table
+
+Step 5 (Risk: High): Break circular dependency with CustomerService
+- Introduce OrderEventPublisher for customer notifications
+- Estimated time: 8 hours
+- Tests affected: 15 unit tests, 4 integration tests
+- Requires coordination with CustomerService team
+
+Total estimated effort: 20 hours over 2-3 sprints
+</code></pre><h4 id="automated-code-smell-detection">Automated Code Smell Detection</h4>
+<p>AI can identify code smells that indicate refactoring opportunities.</p>
+<p><strong>AI Code Smell Report</strong>:</p>
+<pre><code>Code Smell Analysis Report:
+
+Long Method (Critical):
+- OrderProcessor.processOrder(): 247 lines (threshold: 50)
+- CustomerService.updateCustomer(): 156 lines (threshold: 50)
+- ReportGenerator.generateSalesReport(): 189 lines (threshold: 50)
+
+Large Class (High):
+- CustomerManager: 1,247 lines, 34 methods (threshold: 500 lines)
+- OrderService: 892 lines, 28 methods (threshold: 500 lines)
+
+Duplicate Code (High):
+- Database connection logic duplicated in 23 files
+- Error handling pattern repeated 47 times
+- Date formatting logic duplicated in 15 files
+
+Feature Envy (Medium):
+- OrderService accesses CustomerService data 15 times
+- ReportService accesses OrderService data 12 times
+
+Data Class (Medium):
+- CustomerData: only getters/setters, no behavior
+- OrderInfo: only data, behavior in other classes
+
+Shotgun Surgery (Medium):
+- Adding new payment type requires changes in 8 files
+- Adding new customer type requires changes in 12 files
+</code></pre><h4 id="refactoring-impact-prediction">Refactoring Impact Prediction</h4>
+<p>Before making changes, AI can predict the impact of refactoring efforts.</p>
+<p><strong>Impact Analysis Example</strong>:</p>
+<pre><code>Refactoring Impact Analysis: Extract PaymentProcessor Interface
+
+Affected Components:
+- OrderService (direct usage)
+- PaymentService (implementation)
+- RefundService (indirect usage)
+- TestOrderProcessor (test double needed)
+
+Risk Assessment:
+- Low risk: Interface extraction is generally safe
+- Medium risk: 23 existing tests will need updates
+- High risk: Integration with external payment gateway
+
+Benefits:
+- Improved testability (can mock payment processing)
+- Better separation of concerns
+- Easier to add new payment methods
+- Reduced coupling between order and payment logic
+
+Recommended Approach:
+1. Create PaymentProcessor interface
+2. Update OrderService to use interface
+3. Update all tests to use test doubles
+4. Verify integration tests still pass
+5. Extract concrete implementation
+</code></pre><h3 id="extract-method-and-class-techniques">Extract Method and Class Techniques</h3>
+<p>Two of the most common and valuable refactoring techniques are Extract Method and Extract Class. AI can help identify optimal extraction points and suggest good names and interfaces.</p>
+<h4 id="ai-suggested-method-boundaries">AI-Suggested Method Boundaries</h4>
+<p>AI can analyze long methods and suggest logical boundaries for extraction.</p>
+<p><strong>Before Refactoring</strong>:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">processOrder</span><span class="hljs-params">(Order order)</span> {
+    <span class="hljs-comment">// Validation logic (20 lines)</span>
+    <span class="hljs-keyword">if</span> (order == <span class="hljs-literal">null</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(<span class="hljs-string">"Order cannot be null"</span>);
+    <span class="hljs-keyword">if</span> (order.getCustomerId() == <span class="hljs-literal">null</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(<span class="hljs-string">"Customer ID required"</span>);
+    <span class="hljs-keyword">if</span> (order.getItems().isEmpty()) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(<span class="hljs-string">"Order must have items"</span>);
+
+    <span class="hljs-keyword">for</span> (OrderItem item : order.getItems()) {
+        <span class="hljs-keyword">if</span> (item.getQuantity() &lt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(<span class="hljs-string">"Invalid quantity"</span>);
+        <span class="hljs-keyword">if</span> (item.getProductId() == <span class="hljs-literal">null</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(<span class="hljs-string">"Product ID required"</span>);
+    }
+
+    <span class="hljs-type">Customer</span> <span class="hljs-variable">customer</span> <span class="hljs-operator">=</span> customerService.findById(order.getCustomerId());
+    <span class="hljs-keyword">if</span> (customer == <span class="hljs-literal">null</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(<span class="hljs-string">"Customer not found"</span>);
+    <span class="hljs-keyword">if</span> (!customer.isActive()) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(<span class="hljs-string">"Customer account inactive"</span>);
+
+    <span class="hljs-comment">// Pricing calculation logic (35 lines)</span>
+    <span class="hljs-type">double</span> <span class="hljs-variable">subtotal</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (OrderItem item : order.getItems()) {
+        <span class="hljs-type">Product</span> <span class="hljs-variable">product</span> <span class="hljs-operator">=</span> productService.findById(item.getProductId());
+        <span class="hljs-type">double</span> <span class="hljs-variable">itemPrice</span> <span class="hljs-operator">=</span> product.getPrice() * item.getQuantity();
+
+        <span class="hljs-comment">// Apply quantity discounts</span>
+        <span class="hljs-keyword">if</span> (item.getQuantity() &gt; <span class="hljs-number">10</span>) {
+            itemPrice *= <span class="hljs-number">0.95</span>; <span class="hljs-comment">// 5% discount</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (item.getQuantity() &gt; <span class="hljs-number">5</span>) {
+            itemPrice *= <span class="hljs-number">0.97</span>; <span class="hljs-comment">// 3% discount</span>
+        }
+
+        subtotal += itemPrice;
+    }
+
+    <span class="hljs-comment">// Apply customer tier discounts</span>
+    <span class="hljs-type">double</span> <span class="hljs-variable">discount</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">if</span> (customer.getTier() == CustomerTier.PREMIUM) {
+        discount = subtotal * <span class="hljs-number">0.15</span>;
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (customer.getTier() == CustomerTier.GOLD) {
+        discount = subtotal * <span class="hljs-number">0.10</span>;
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (customer.getTier() == CustomerTier.SILVER) {
+        discount = subtotal * <span class="hljs-number">0.05</span>;
+    }
+
+    <span class="hljs-type">double</span> <span class="hljs-variable">tax</span> <span class="hljs-operator">=</span> (subtotal - discount) * <span class="hljs-number">0.08</span>; <span class="hljs-comment">// 8% tax rate</span>
+    <span class="hljs-type">double</span> <span class="hljs-variable">total</span> <span class="hljs-operator">=</span> subtotal - discount + tax;
+    order.setSubtotal(subtotal);
+    order.setDiscount(discount);
+    order.setTax(tax);
+    order.setTotal(total);
+
+    <span class="hljs-comment">// Inventory check and update logic (25 lines)</span>
+    <span class="hljs-keyword">for</span> (OrderItem item : order.getItems()) {
+        <span class="hljs-type">InventoryItem</span> <span class="hljs-variable">inventory</span> <span class="hljs-operator">=</span> inventoryService.findByProductId(item.getProductId());
+        <span class="hljs-keyword">if</span> (inventory.getAvailableQuantity() &lt; item.getQuantity()) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">InsufficientInventoryException</span>(<span class="hljs-string">"Not enough inventory for "</span> + item.getProductId());
+        }
+    }
+
+    <span class="hljs-keyword">for</span> (OrderItem item : order.getItems()) {
+        inventoryService.reserveInventory(item.getProductId(), item.getQuantity());
+    }
+
+    <span class="hljs-comment">// Payment processing logic (30 lines)</span>
+    <span class="hljs-type">PaymentInfo</span> <span class="hljs-variable">paymentInfo</span> <span class="hljs-operator">=</span> order.getPaymentInfo();
+    <span class="hljs-keyword">if</span> (paymentInfo.getType() == PaymentType.CREDIT_CARD) {
+        <span class="hljs-type">CreditCardPayment</span> <span class="hljs-variable">ccPayment</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CreditCardPayment</span>();
+        ccPayment.setCardNumber(paymentInfo.getCardNumber());
+        ccPayment.setExpiryDate(paymentInfo.getExpiryDate());
+        ccPayment.setCvv(paymentInfo.getCvv());
+        ccPayment.setAmount(total);
+
+        <span class="hljs-type">PaymentResult</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> creditCardGateway.processPayment(ccPayment);
+        <span class="hljs-keyword">if</span> (!result.isSuccess()) {
+            <span class="hljs-comment">// Rollback inventory reservations</span>
+            <span class="hljs-keyword">for</span> (OrderItem item : order.getItems()) {
+                inventoryService.releaseReservation(item.getProductId(), item.getQuantity());
+            }
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">PaymentFailedException</span>(<span class="hljs-string">"Payment failed: "</span> + result.getErrorMessage());
+        }
+        order.setPaymentTransactionId(result.getTransactionId());
+    }
+
+    <span class="hljs-comment">// Order persistence and notification logic (15 lines)</span>
+    order.setStatus(OrderStatus.CONFIRMED);
+    order.setOrderDate(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>());
+    orderRepository.save(order);
+
+    <span class="hljs-comment">// Send confirmation email</span>
+    <span class="hljs-type">EmailTemplate</span> <span class="hljs-variable">template</span> <span class="hljs-operator">=</span> emailService.getTemplate(<span class="hljs-string">"order_confirmation"</span>);
+    template.setVariable(<span class="hljs-string">"customerName"</span>, customer.getName());
+    template.setVariable(<span class="hljs-string">"orderNumber"</span>, order.getOrderNumber());
+    template.setVariable(<span class="hljs-string">"orderTotal"</span>, String.format(<span class="hljs-string">"$%.2f"</span>, total));
+    emailService.sendEmail(customer.getEmail(), template);
+
+    <span class="hljs-comment">// Update customer loyalty points</span>
+    <span class="hljs-type">int</span> <span class="hljs-variable">pointsEarned</span> <span class="hljs-operator">=</span> (<span class="hljs-type">int</span>) (total / <span class="hljs-number">10</span>); <span class="hljs-comment">// 1 point per $10 spent</span>
+    customerService.addLoyaltyPoints(customer.getId(), pointsEarned);
+}
+</code></pre>
+<p><strong>AI-Suggested Method Extraction</strong>:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">processOrder</span><span class="hljs-params">(Order order)</span> {
+    validateOrder(order);
+    <span class="hljs-type">Customer</span> <span class="hljs-variable">customer</span> <span class="hljs-operator">=</span> validateCustomer(order.getCustomerId());
+
+    calculateOrderPricing(order, customer);
+    reserveInventory(order);
+
+    <span class="hljs-keyword">try</span> {
+        processPayment(order);
+        finalizeOrder(order, customer);
+    } <span class="hljs-keyword">catch</span> (PaymentFailedException e) {
+        rollbackInventoryReservations(order);
+        <span class="hljs-keyword">throw</span> e;
+    }
+}
+
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">validateOrder</span><span class="hljs-params">(Order order)</span> {
+    <span class="hljs-keyword">if</span> (order == <span class="hljs-literal">null</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(<span class="hljs-string">"Order cannot be null"</span>);
+    <span class="hljs-keyword">if</span> (order.getCustomerId() == <span class="hljs-literal">null</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(<span class="hljs-string">"Customer ID required"</span>);
+    <span class="hljs-keyword">if</span> (order.getItems().isEmpty()) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(<span class="hljs-string">"Order must have items"</span>);
+
+    <span class="hljs-keyword">for</span> (OrderItem item : order.getItems()) {
+        <span class="hljs-keyword">if</span> (item.getQuantity() &lt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(<span class="hljs-string">"Invalid quantity"</span>);
+        <span class="hljs-keyword">if</span> (item.getProductId() == <span class="hljs-literal">null</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(<span class="hljs-string">"Product ID required"</span>);
+    }
+}
+
+<span class="hljs-keyword">private</span> Customer <span class="hljs-title function_">validateCustomer</span><span class="hljs-params">(String customerId)</span> {
+    <span class="hljs-type">Customer</span> <span class="hljs-variable">customer</span> <span class="hljs-operator">=</span> customerService.findById(customerId);
+    <span class="hljs-keyword">if</span> (customer == <span class="hljs-literal">null</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(<span class="hljs-string">"Customer not found"</span>);
+    <span class="hljs-keyword">if</span> (!customer.isActive()) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(<span class="hljs-string">"Customer account inactive"</span>);
+    <span class="hljs-keyword">return</span> customer;
+}
+
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">calculateOrderPricing</span><span class="hljs-params">(Order order, Customer customer)</span> {
+    <span class="hljs-type">double</span> <span class="hljs-variable">subtotal</span> <span class="hljs-operator">=</span> calculateSubtotal(order);
+    <span class="hljs-type">double</span> <span class="hljs-variable">discount</span> <span class="hljs-operator">=</span> calculateDiscount(subtotal, customer);
+    <span class="hljs-type">double</span> <span class="hljs-variable">tax</span> <span class="hljs-operator">=</span> calculateTax(subtotal - discount);
+
+    order.setSubtotal(subtotal);
+    order.setDiscount(discount);
+    order.setTax(tax);
+    order.setTotal(subtotal - discount + tax);
+}
+
+<span class="hljs-keyword">private</span> <span class="hljs-type">double</span> <span class="hljs-title function_">calculateSubtotal</span><span class="hljs-params">(Order order)</span> {
+    <span class="hljs-type">double</span> <span class="hljs-variable">subtotal</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (OrderItem item : order.getItems()) {
+        <span class="hljs-type">Product</span> <span class="hljs-variable">product</span> <span class="hljs-operator">=</span> productService.findById(item.getProductId());
+        <span class="hljs-type">double</span> <span class="hljs-variable">itemPrice</span> <span class="hljs-operator">=</span> product.getPrice() * item.getQuantity();
+        itemPrice = applyQuantityDiscount(itemPrice, item.getQuantity());
+        subtotal += itemPrice;
+    }
+    <span class="hljs-keyword">return</span> subtotal;
+}
+
+<span class="hljs-keyword">private</span> <span class="hljs-type">double</span> <span class="hljs-title function_">applyQuantityDiscount</span><span class="hljs-params">(<span class="hljs-type">double</span> itemPrice, <span class="hljs-type">int</span> quantity)</span> {
+    <span class="hljs-keyword">if</span> (quantity &gt; <span class="hljs-number">10</span>) {
+        <span class="hljs-keyword">return</span> itemPrice * <span class="hljs-number">0.95</span>; <span class="hljs-comment">// 5% discount</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (quantity &gt; <span class="hljs-number">5</span>) {
+        <span class="hljs-keyword">return</span> itemPrice * <span class="hljs-number">0.97</span>; <span class="hljs-comment">// 3% discount</span>
+    }
+    <span class="hljs-keyword">return</span> itemPrice;
+}
+
+<span class="hljs-keyword">private</span> <span class="hljs-type">double</span> <span class="hljs-title function_">calculateDiscount</span><span class="hljs-params">(<span class="hljs-type">double</span> subtotal, Customer customer)</span> {
+    <span class="hljs-keyword">switch</span> (customer.getTier()) {
+        <span class="hljs-keyword">case</span> PREMIUM: <span class="hljs-keyword">return</span> subtotal * <span class="hljs-number">0.15</span>;
+        <span class="hljs-keyword">case</span> GOLD: <span class="hljs-keyword">return</span> subtotal * <span class="hljs-number">0.10</span>;
+        <span class="hljs-keyword">case</span> SILVER: <span class="hljs-keyword">return</span> subtotal * <span class="hljs-number">0.05</span>;
+        <span class="hljs-keyword">default</span>: <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+}
+
+<span class="hljs-keyword">private</span> <span class="hljs-type">double</span> <span class="hljs-title function_">calculateTax</span><span class="hljs-params">(<span class="hljs-type">double</span> taxableAmount)</span> {
+    <span class="hljs-keyword">return</span> taxableAmount * <span class="hljs-number">0.08</span>; <span class="hljs-comment">// 8% tax rate</span>
+}
+
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">reserveInventory</span><span class="hljs-params">(Order order)</span> {
+    <span class="hljs-comment">// Check availability first</span>
+    <span class="hljs-keyword">for</span> (OrderItem item : order.getItems()) {
+        <span class="hljs-type">InventoryItem</span> <span class="hljs-variable">inventory</span> <span class="hljs-operator">=</span> inventoryService.findByProductId(item.getProductId());
+        <span class="hljs-keyword">if</span> (inventory.getAvailableQuantity() &lt; item.getQuantity()) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">InsufficientInventoryException</span>(<span class="hljs-string">"Not enough inventory for "</span> + item.getProductId());
+        }
+    }
+
+    <span class="hljs-comment">// Reserve inventory</span>
+    <span class="hljs-keyword">for</span> (OrderItem item : order.getItems()) {
+        inventoryService.reserveInventory(item.getProductId(), item.getQuantity());
+    }
+}
+
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">processPayment</span><span class="hljs-params">(Order order)</span> {
+    <span class="hljs-type">PaymentInfo</span> <span class="hljs-variable">paymentInfo</span> <span class="hljs-operator">=</span> order.getPaymentInfo();
+    <span class="hljs-keyword">if</span> (paymentInfo.getType() == PaymentType.CREDIT_CARD) {
+        <span class="hljs-type">PaymentResult</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> processCreditCardPayment(paymentInfo, order.getTotal());
+        <span class="hljs-keyword">if</span> (!result.isSuccess()) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">PaymentFailedException</span>(<span class="hljs-string">"Payment failed: "</span> + result.getErrorMessage());
+        }
+        order.setPaymentTransactionId(result.getTransactionId());
+    }
+}
+
+<span class="hljs-keyword">private</span> PaymentResult <span class="hljs-title function_">processCreditCardPayment</span><span class="hljs-params">(PaymentInfo paymentInfo, <span class="hljs-type">double</span> amount)</span> {
+    <span class="hljs-type">CreditCardPayment</span> <span class="hljs-variable">ccPayment</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CreditCardPayment</span>();
+    ccPayment.setCardNumber(paymentInfo.getCardNumber());
+    ccPayment.setExpiryDate(paymentInfo.getExpiryDate());
+    ccPayment.setCvv(paymentInfo.getCvv());
+    ccPayment.setAmount(amount);
+
+    <span class="hljs-keyword">return</span> creditCardGateway.processPayment(ccPayment);
+}
+
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">rollbackInventoryReservations</span><span class="hljs-params">(Order order)</span> {
+    <span class="hljs-keyword">for</span> (OrderItem item : order.getItems()) {
+        inventoryService.releaseReservation(item.getProductId(), item.getQuantity());
+    }
+}
+
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">finalizeOrder</span><span class="hljs-params">(Order order, Customer customer)</span> {
+    order.setStatus(OrderStatus.CONFIRMED);
+    order.setOrderDate(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>());
+    orderRepository.save(order);
+
+    sendOrderConfirmation(order, customer);
+    updateCustomerLoyaltyPoints(customer, order.getTotal());
+}
+
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sendOrderConfirmation</span><span class="hljs-params">(Order order, Customer customer)</span> {
+    <span class="hljs-type">EmailTemplate</span> <span class="hljs-variable">template</span> <span class="hljs-operator">=</span> emailService.getTemplate(<span class="hljs-string">"order_confirmation"</span>);
+    template.setVariable(<span class="hljs-string">"customerName"</span>, customer.getName());
+    template.setVariable(<span class="hljs-string">"orderNumber"</span>, order.getOrderNumber());
+    template.setVariable(<span class="hljs-string">"orderTotal"</span>, String.format(<span class="hljs-string">"$%.2f"</span>, order.getTotal()));
+    emailService.sendEmail(customer.getEmail(), template);
+}
+
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">updateCustomerLoyaltyPoints</span><span class="hljs-params">(Customer customer, <span class="hljs-type">double</span> orderTotal)</span> {
+    <span class="hljs-type">int</span> <span class="hljs-variable">pointsEarned</span> <span class="hljs-operator">=</span> (<span class="hljs-type">int</span>) (orderTotal / <span class="hljs-number">10</span>); <span class="hljs-comment">// 1 point per $10 spent</span>
+    customerService.addLoyaltyPoints(customer.getId(), pointsEarned);
+}
+</code></pre>
+<h4 id="class-responsibility-analysis">Class Responsibility Analysis</h4>
+<p>AI can analyze classes to determine if they have too many responsibilities and suggest how to split them.</p>
+<p><strong>AI Class Analysis Example</strong>:</p>
+<pre><code>Class Analysis: CustomerManager
+
+Current Responsibilities:
+1. Customer data persistence (CRUD operations)
+2. Customer authentication and authorization  
+3. Customer communication (emails, notifications)
+4. Loyalty program management
+5. Customer reporting and analytics
+6. Customer import/export functionality
+7. Customer billing and payment history
+
+Single Responsibility Principle Violations:
+- Class has 7 distinct responsibilities
+- 347 lines of code (recommended max: 200)
+- 23 public methods (recommended max: 10)
+- Dependencies on 12 different services
+
+Suggested Decomposition:
+
+1. CustomerRepository
+   - Customer data persistence
+   - Basic CRUD operations
+   - Data validation
+
+2. CustomerAuthenticationService  
+   - Login/logout functionality
+   - Password management
+   - Session management
+
+3. CustomerCommunicationService
+   - Email notifications
+   - SMS messaging  
+   - Communication preferences
+
+4. CustomerLoyaltyService
+   - Points calculation
+   - Reward redemption
+   - Tier management
+
+5. CustomerReportingService
+   - Analytics and reporting
+   - Data export functionality
+   - Custom report generation
+
+6. CustomerBillingService
+   - Payment history
+   - Billing address management
+   - Invoice generation
+
+Migration Strategy:
+- Start with CustomerRepository (lowest risk, highest reuse)
+- Move to CustomerCommunicationService (clear boundaries)
+- Extract CustomerLoyaltyService (complex but isolated)
+- Finish with authentication and billing (highest integration complexity)
+</code></pre><h4 id="cohesion-and-coupling-optimization">Cohesion and Coupling Optimization</h4>
+<p>AI can suggest improvements to increase cohesion within classes and reduce coupling between classes.</p>
+<p><strong>Cohesion Improvement Example</strong>:</p>
+<pre><code class="lang-java"><span class="hljs-comment">// Low cohesion: Methods don't work together</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OrderUtilities</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">calculateTax</span><span class="hljs-params">(<span class="hljs-type">double</span> amount)</span> { <span class="hljs-comment">/* tax logic */</span> }
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">formatCurrency</span><span class="hljs-params">(<span class="hljs-type">double</span> amount)</span> { <span class="hljs-comment">/* formatting logic */</span> }
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isValidEmail</span><span class="hljs-params">(String email)</span> { <span class="hljs-comment">/* validation logic */</span> }
+    <span class="hljs-keyword">public</span> Date <span class="hljs-title function_">parseOrderDate</span><span class="hljs-params">(String dateString)</span> { <span class="hljs-comment">/* parsing logic */</span> }
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sendEmail</span><span class="hljs-params">(String to, String subject, String body)</span> { <span class="hljs-comment">/* email logic */</span> }
+}
+
+<span class="hljs-comment">// AI-suggested high cohesion classes</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TaxCalculator</span> {
+    <span class="hljs-keyword">private</span> <span class="hljs-type">double</span> taxRate;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">calculateTax</span><span class="hljs-params">(<span class="hljs-type">double</span> amount)</span> { <span class="hljs-comment">/* tax logic */</span> }
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">calculateTaxWithExemptions</span><span class="hljs-params">(<span class="hljs-type">double</span> amount, List&lt;TaxExemption&gt; exemptions)</span> { <span class="hljs-comment">/* logic */</span> }
+    <span class="hljs-keyword">public</span> TaxBreakdown <span class="hljs-title function_">getDetailedTaxBreakdown</span><span class="hljs-params">(<span class="hljs-type">double</span> amount)</span> { <span class="hljs-comment">/* logic */</span> }
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CurrencyFormatter</span> {
+    <span class="hljs-keyword">private</span> Locale locale;
+    <span class="hljs-keyword">private</span> Currency currency;
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">formatAmount</span><span class="hljs-params">(<span class="hljs-type">double</span> amount)</span> { <span class="hljs-comment">/* formatting logic */</span> }
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">formatAmountWithSymbol</span><span class="hljs-params">(<span class="hljs-type">double</span> amount)</span> { <span class="hljs-comment">/* formatting logic */</span> }
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">parseAmount</span><span class="hljs-params">(String formattedAmount)</span> { <span class="hljs-comment">/* parsing logic */</span> }
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">EmailValidator</span> {
+    <span class="hljs-keyword">private</span> List&lt;String&gt; validDomains;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isValid</span><span class="hljs-params">(String email)</span> { <span class="hljs-comment">/* validation logic */</span> }
+    <span class="hljs-keyword">public</span> ValidationResult <span class="hljs-title function_">validateWithDetails</span><span class="hljs-params">(String email)</span> { <span class="hljs-comment">/* detailed validation */</span> }
+    <span class="hljs-keyword">public</span> List&lt;String&gt; <span class="hljs-title function_">extractEmailsFromText</span><span class="hljs-params">(String text)</span> { <span class="hljs-comment">/* extraction logic */</span> }
+}
+</code></pre>
+<h3 id="data-structure-modernization">Data Structure Modernization</h3>
+<p>Legacy systems often use outdated data structures and patterns. AI can help modernize these while maintaining backward compatibility.</p>
+<h4 id="schema-evolution-with-ai-planning">Schema Evolution with AI Planning</h4>
+<p>AI can analyze database schemas and suggest modernization strategies.</p>
+<p><strong>Database Schema Modernization Example</strong>:</p>
+<pre><code class="lang-sql"><span class="hljs-comment">-- Legacy schema (problematic design)</span>
+<span class="hljs-keyword">CREATE TABLE</span> customers (
+    id <span class="hljs-type">INT</span> <span class="hljs-keyword">PRIMARY KEY</span>,
+    name <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>),
+    address TEXT,  <span class="hljs-comment">-- Multiple address components in one field</span>
+    phone_numbers TEXT,  <span class="hljs-comment">-- Multiple phones as comma-separated values</span>
+    preferences TEXT,  <span class="hljs-comment">-- JSON blob without schema</span>
+    created_date <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>),  <span class="hljs-comment">-- Date stored as string</span>
+    status <span class="hljs-type">CHAR</span>(<span class="hljs-number">1</span>)  <span class="hljs-comment">-- Cryptic status codes</span>
+);
+
+<span class="hljs-comment">-- AI-suggested modern schema</span>
+<span class="hljs-keyword">CREATE TABLE</span> customers (
+    id UUID <span class="hljs-keyword">PRIMARY KEY</span> <span class="hljs-keyword">DEFAULT</span> gen_random_uuid(),
+    first_name <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">NOT NULL</span>,
+    last_name <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">NOT NULL</span>,
+    email <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">UNIQUE</span> <span class="hljs-keyword">NOT NULL</span>,
+    created_at <span class="hljs-type">TIMESTAMP</span> <span class="hljs-keyword">WITH</span> <span class="hljs-type">TIME</span> ZONE <span class="hljs-keyword">DEFAULT</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span>,
+    updated_at <span class="hljs-type">TIMESTAMP</span> <span class="hljs-keyword">WITH</span> <span class="hljs-type">TIME</span> ZONE <span class="hljs-keyword">DEFAULT</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span>,
+    status customer_status <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">'ACTIVE'</span>,
+    version <span class="hljs-type">INTEGER</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-number">1</span>  <span class="hljs-comment">-- For optimistic locking</span>
+);
+
+<span class="hljs-keyword">CREATE</span> TYPE customer_status <span class="hljs-keyword">AS</span> ENUM (<span class="hljs-string">'ACTIVE'</span>, <span class="hljs-string">'INACTIVE'</span>, <span class="hljs-string">'SUSPENDED'</span>, <span class="hljs-string">'PENDING'</span>);
+
+<span class="hljs-keyword">CREATE TABLE</span> customer_addresses (
+    id UUID <span class="hljs-keyword">PRIMARY KEY</span> <span class="hljs-keyword">DEFAULT</span> gen_random_uuid(),
+    customer_id UUID <span class="hljs-keyword">REFERENCES</span> customers(id) <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> CASCADE,
+    address_type address_type_enum <span class="hljs-keyword">NOT NULL</span>,
+    street_line1 <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>) <span class="hljs-keyword">NOT NULL</span>,
+    street_line2 <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>),
+    city <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">NOT NULL</span>,
+    state_province <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">50</span>),
+    postal_code <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">NOT NULL</span>,
+    country <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">2</span>) <span class="hljs-keyword">NOT NULL</span>,
+    is_primary <span class="hljs-type">BOOLEAN</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">FALSE</span>,
+    created_at <span class="hljs-type">TIMESTAMP</span> <span class="hljs-keyword">WITH</span> <span class="hljs-type">TIME</span> ZONE <span class="hljs-keyword">DEFAULT</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span>
+);
+
+<span class="hljs-keyword">CREATE TABLE</span> customer_phone_numbers (
+    id UUID <span class="hljs-keyword">PRIMARY KEY</span> <span class="hljs-keyword">DEFAULT</span> gen_random_uuid(),
+    customer_id UUID <span class="hljs-keyword">REFERENCES</span> customers(id) <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> CASCADE,
+    phone_type phone_type_enum <span class="hljs-keyword">NOT NULL</span>,
+    country_code <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">5</span>) <span class="hljs-keyword">NOT NULL</span>,
+    phone_number <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">NOT NULL</span>,
+    is_primary <span class="hljs-type">BOOLEAN</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">FALSE</span>,
+    is_verified <span class="hljs-type">BOOLEAN</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">FALSE</span>,
+    created_at <span class="hljs-type">TIMESTAMP</span> <span class="hljs-keyword">WITH</span> <span class="hljs-type">TIME</span> ZONE <span class="hljs-keyword">DEFAULT</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span>
+);
+
+<span class="hljs-keyword">CREATE TABLE</span> customer_preferences (
+    id UUID <span class="hljs-keyword">PRIMARY KEY</span> <span class="hljs-keyword">DEFAULT</span> gen_random_uuid(),
+    customer_id UUID <span class="hljs-keyword">REFERENCES</span> customers(id) <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> CASCADE,
+    preference_category <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">NOT NULL</span>,
+    preference_key <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>) <span class="hljs-keyword">NOT NULL</span>,
+    preference_value TEXT <span class="hljs-keyword">NOT NULL</span>,
+    created_at <span class="hljs-type">TIMESTAMP</span> <span class="hljs-keyword">WITH</span> <span class="hljs-type">TIME</span> ZONE <span class="hljs-keyword">DEFAULT</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span>,
+    <span class="hljs-keyword">UNIQUE</span>(customer_id, preference_category, preference_key)
+);
+</code></pre>
+<p><strong>AI Migration Strategy</strong>:</p>
+<pre><code>Schema Migration Plan:
+
+Phase 1: Add new tables alongside legacy table
+- Create new normalized tables
+- Add triggers to sync data during transition
+- Implement dual-write pattern in application
+
+Phase 2: Migrate application layer gradually  
+- Update CustomerRepository to read from new tables
+- Maintain writes to both old and new schemas
+- Add comprehensive validation and reconciliation
+
+Phase 3: Data migration and validation
+- Migrate historical data with data quality checks
+- Validate data consistency between old and new schemas
+- Performance testing with production-like data volume
+
+Phase 4: Switch to new schema
+- Update application to read/write only new schema
+- Remove dual-write logic
+- Archive legacy table
+
+Rollback Strategy:
+- Keep legacy table for 30 days after migration
+- Maintain data sync triggers for quick rollback
+- Automated data consistency checks
+</code></pre><h4 id="data-migration-strategy-development">Data Migration Strategy Development</h4>
+<p>AI can help develop comprehensive data migration strategies that minimize risk and downtime.</p>
+<p><strong>AI-Generated Migration Plan</strong>:</p>
+<pre><code class="lang-java"><span class="hljs-comment">// AI-suggested migration service</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomerDataMigrator</span> {
+    <span class="hljs-keyword">private</span> LegacyCustomerRepository legacyRepo;
+    <span class="hljs-keyword">private</span> ModernCustomerRepository modernRepo;
+    <span class="hljs-keyword">private</span> MigrationLogger logger;
+
+    <span class="hljs-keyword">public</span> MigrationResult <span class="hljs-title function_">migrateCustomers</span><span class="hljs-params">(MigrationConfig config)</span> {
+        <span class="hljs-type">MigrationResult</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MigrationResult</span>();
+
+        <span class="hljs-keyword">try</span> {
+            List&lt;LegacyCustomer&gt; customers = legacyRepo.findBatch(
+                config.getBatchSize(), 
+                config.getStartId()
+            );
+
+            <span class="hljs-keyword">for</span> (LegacyCustomer legacyCustomer : customers) {
+                <span class="hljs-keyword">try</span> {
+                    <span class="hljs-type">ModernCustomer</span> <span class="hljs-variable">modernCustomer</span> <span class="hljs-operator">=</span> transformCustomer(legacyCustomer);
+                    validateModernCustomer(modernCustomer);
+                    modernRepo.save(modernCustomer);
+
+                    result.incrementSuccessCount();
+                    logger.logSuccess(legacyCustomer.getId(), modernCustomer.getId());
+
+                } <span class="hljs-keyword">catch</span> (Exception e) {
+                    result.incrementErrorCount();
+                    logger.logError(legacyCustomer.getId(), e);
+
+                    <span class="hljs-keyword">if</span> (config.isStopOnError()) {
+                        <span class="hljs-keyword">break</span>;
+                    }
+                }
+            }
+
+        } <span class="hljs-keyword">catch</span> (Exception e) {
+            result.setFatalError(e);
+        }
+
+        <span class="hljs-keyword">return</span> result;
+    }
+
+    <span class="hljs-keyword">private</span> ModernCustomer <span class="hljs-title function_">transformCustomer</span><span class="hljs-params">(LegacyCustomer legacy)</span> {
+        <span class="hljs-type">ModernCustomer</span> <span class="hljs-variable">modern</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ModernCustomer</span>();
+
+        <span class="hljs-comment">// AI-identified transformation logic</span>
+        String[] nameParts = parseFullName(legacy.getName());
+        modern.setFirstName(nameParts[<span class="hljs-number">0</span>]);
+        modern.setLastName(nameParts[<span class="hljs-number">1</span>]);
+
+        <span class="hljs-comment">// Parse legacy address field</span>
+        List&lt;Address&gt; addresses = parseAddressField(legacy.getAddress());
+        modern.setAddresses(addresses);
+
+        <span class="hljs-comment">// Parse comma-separated phone numbers</span>
+        List&lt;PhoneNumber&gt; phones = parsePhoneNumbers(legacy.getPhoneNumbers());
+        modern.setPhoneNumbers(phones);
+
+        <span class="hljs-comment">// Convert legacy preferences JSON</span>
+        Map&lt;String, Object&gt; preferences = parsePreferences(legacy.getPreferences());
+        modern.setPreferences(preferences);
+
+        <span class="hljs-comment">// Convert status codes</span>
+        <span class="hljs-type">CustomerStatus</span> <span class="hljs-variable">status</span> <span class="hljs-operator">=</span> convertLegacyStatus(legacy.getStatus());
+        modern.setStatus(status);
+
+        <span class="hljs-keyword">return</span> modern;
+    }
+}
+</code></pre>
+<h4 id="api-contract-analysis-and-updates">API Contract Analysis and Updates</h4>
+<p>AI can analyze existing API contracts and suggest improvements for better design and backward compatibility.</p>
+<p><strong>API Evolution Example</strong>:</p>
+<pre><code class="lang-java"><span class="hljs-comment">// Legacy API (problematic design)</span>
+<span class="hljs-meta">@RestController</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomerController</span> {
+
+    <span class="hljs-meta">@GetMapping("/customer/{id}")</span>
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getCustomer</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable</span> String id)</span> {
+        <span class="hljs-comment">// Returns raw JSON string, no versioning, no error handling</span>
+        <span class="hljs-type">Customer</span> <span class="hljs-variable">customer</span> <span class="hljs-operator">=</span> customerService.findById(id);
+        <span class="hljs-keyword">return</span> customer.toJson();
+    }
+
+    <span class="hljs-meta">@PostMapping("/customer")</span>
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">createCustomer</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> String customerData)</span> {
+        <span class="hljs-comment">// Accepts raw JSON string, no validation</span>
+        <span class="hljs-type">Customer</span> <span class="hljs-variable">customer</span> <span class="hljs-operator">=</span> Customer.fromJson(customerData);
+        customerService.save(customer);
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"OK"</span>;
+    }
+}
+
+<span class="hljs-comment">// AI-suggested modern API</span>
+<span class="hljs-meta">@RestController</span>
+<span class="hljs-meta">@RequestMapping("/api/v2/customers")</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomerApiController</span> {
+
+    <span class="hljs-meta">@GetMapping("/{id}")</span>
+    <span class="hljs-keyword">public</span> ResponseEntity&lt;ApiResponse&lt;CustomerDto&gt;&gt; <span class="hljs-title function_">getCustomer</span><span class="hljs-params">(
+            <span class="hljs-meta">@PathVariable</span> <span class="hljs-meta">@Valid</span> UUID id,
+            <span class="hljs-meta">@RequestHeader(value = "API-Version", defaultValue = "2.0")</span> String apiVersion)</span> {
+
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-type">Customer</span> <span class="hljs-variable">customer</span> <span class="hljs-operator">=</span> customerService.findById(id);
+            <span class="hljs-keyword">if</span> (customer == <span class="hljs-literal">null</span>) {
+                <span class="hljs-keyword">return</span> ResponseEntity.notFound().build();
+            }
+
+            <span class="hljs-type">CustomerDto</span> <span class="hljs-variable">dto</span> <span class="hljs-operator">=</span> customerMapper.toDto(customer, apiVersion);
+            ApiResponse&lt;CustomerDto&gt; response = ApiResponse.success(dto);
+
+            <span class="hljs-keyword">return</span> ResponseEntity.ok()
+                .cacheControl(CacheControl.maxAge(<span class="hljs-number">5</span>, TimeUnit.MINUTES))
+                .body(response);
+
+        } <span class="hljs-keyword">catch</span> (Exception e) {
+            logger.error(<span class="hljs-string">"Error retrieving customer {}"</span>, id, e);
+            ApiResponse&lt;CustomerDto&gt; errorResponse = ApiResponse.error(
+                <span class="hljs-string">"CUSTOMER_RETRIEVAL_ERROR"</span>, 
+                <span class="hljs-string">"Unable to retrieve customer"</span>
+            );
+            <span class="hljs-keyword">return</span> ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(errorResponse);
+        }
+    }
+
+    <span class="hljs-meta">@PostMapping</span>
+    <span class="hljs-keyword">public</span> ResponseEntity&lt;ApiResponse&lt;CustomerDto&gt;&gt; <span class="hljs-title function_">createCustomer</span><span class="hljs-params">(
+            <span class="hljs-meta">@RequestBody</span> <span class="hljs-meta">@Valid</span> CreateCustomerRequest request,
+            <span class="hljs-meta">@RequestHeader(value = "Idempotency-Key", required = false)</span> String idempotencyKey)</span> {
+
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-comment">// Check for duplicate requests</span>
+            <span class="hljs-keyword">if</span> (idempotencyKey != <span class="hljs-literal">null</span> &amp;&amp; idempotencyService.isDuplicate(idempotencyKey)) {
+                <span class="hljs-type">CustomerDto</span> <span class="hljs-variable">existing</span> <span class="hljs-operator">=</span> idempotencyService.getResult(idempotencyKey);
+                <span class="hljs-keyword">return</span> ResponseEntity.ok(ApiResponse.success(existing));
+            }
+
+            <span class="hljs-type">Customer</span> <span class="hljs-variable">customer</span> <span class="hljs-operator">=</span> customerMapper.fromCreateRequest(request);
+            customer = customerService.create(customer);
+
+            <span class="hljs-type">CustomerDto</span> <span class="hljs-variable">dto</span> <span class="hljs-operator">=</span> customerMapper.toDto(customer, <span class="hljs-string">"2.0"</span>);
+            ApiResponse&lt;CustomerDto&gt; response = ApiResponse.success(dto);
+
+            <span class="hljs-keyword">if</span> (idempotencyKey != <span class="hljs-literal">null</span>) {
+                idempotencyService.store(idempotencyKey, dto);
+            }
+
+            <span class="hljs-keyword">return</span> ResponseEntity.status(HttpStatus.CREATED)
+                .location(URI.create(<span class="hljs-string">"/api/v2/customers/"</span> + customer.getId()))
+                .body(response);
+
+        } <span class="hljs-keyword">catch</span> (ValidationException e) {
+            ApiResponse&lt;CustomerDto&gt; errorResponse = ApiResponse.validationError(e.getErrors());
+            <span class="hljs-keyword">return</span> ResponseEntity.badRequest().body(errorResponse);
+
+        } <span class="hljs-keyword">catch</span> (Exception e) {
+            logger.error(<span class="hljs-string">"Error creating customer"</span>, e);
+            ApiResponse&lt;CustomerDto&gt; errorResponse = ApiResponse.error(
+                <span class="hljs-string">"CUSTOMER_CREATION_ERROR"</span>, 
+                <span class="hljs-string">"Unable to create customer"</span>
+            );
+            <span class="hljs-keyword">return</span> ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(errorResponse);
+        }
+    }
+}
+
+<span class="hljs-comment">// AI-suggested backward compatibility layer</span>
+<span class="hljs-meta">@RestController</span>
+<span class="hljs-meta">@RequestMapping("/customer")</span>  <span class="hljs-comment">// Legacy endpoint</span>
+<span class="hljs-meta">@Deprecated</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LegacyCustomerController</span> {
+
+    <span class="hljs-keyword">private</span> CustomerApiController modernController;
+    <span class="hljs-keyword">private</span> LegacyResponseMapper legacyMapper;
+
+    <span class="hljs-meta">@GetMapping("/{id}")</span>
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getCustomer</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable</span> String id)</span> {
+        <span class="hljs-comment">// Delegate to modern controller and transform response</span>
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-type">UUID</span> <span class="hljs-variable">customerId</span> <span class="hljs-operator">=</span> UUID.fromString(id);
+            ResponseEntity&lt;ApiResponse&lt;CustomerDto&gt;&gt; response = 
+                modernController.getCustomer(customerId, <span class="hljs-string">"1.0"</span>);
+
+            <span class="hljs-keyword">if</span> (response.getStatusCode().is2xxSuccessful() &amp;&amp; response.getBody() != <span class="hljs-literal">null</span>) {
+                <span class="hljs-keyword">return</span> legacyMapper.toJsonString(response.getBody().getData());
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">return</span> <span class="hljs-string">"ERROR"</span>;
+            }
+        } <span class="hljs-keyword">catch</span> (Exception e) {
+            <span class="hljs-keyword">return</span> <span class="hljs-string">"ERROR"</span>;
+        }
+    }
+}
+</code></pre>
+<p>This completes Part II of the book, which focuses on safe transformation techniques. The content provides practical, AI-enhanced approaches to testing, dependency breaking, and refactoring legacy code. Each technique is presented with real-world examples and specific AI prompts that teams can adapt for their own situations.</p>
+<p>The progression from establishing safety nets through testing, to breaking dependencies, and finally to confident refactoring creates a systematic approach that minimizes risk while maximizing the benefits of modernization efforts.</p>
+<p>Would you like me to continue with Part III (Strategic Modernization), or would you prefer to refine any aspects of Part II?</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="5-Chapter-4-Breaking-Dependencies-with-AI-Assistance.md.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Chapter 4 Breaking Dependencies With AI Assistance.Md">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Chapter 5 Refactoring With Confidence","level":"1.7","depth":1,"previous":{"title":"Chapter 4 Breaking Dependencies With AI Assistance.Md","level":"1.6","depth":1,"path":"5-Chapter-4-Breaking-Dependencies-with-AI-Assistance.md.md","ref":"5-Chapter-4-Breaking-Dependencies-with-AI-Assistance.md.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"6-Chapter-5-Refactoring-with-Confidence.md","mtime":"2025-05-30T20:56:50.605Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-05-30T20:57:01.710Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

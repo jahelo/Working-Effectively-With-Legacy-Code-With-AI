@@ -1,0 +1,689 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Chapter 4 Breaking Dependencies With AI Assistance.Md · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="6-Chapter-5-Refactoring-with-Confidence.html" />
+    
+    
+    <link rel="prev" href="4-Chapter-3-The-Safety-Net-AI-Enhanced-Testing.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1-table-of-contents.html">
+            
+                <a href="1-table-of-contents.html">
+            
+                    
+                    Table Of Contents
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="2-Chapter-1-The-Legacy-Code-Reality.html">
+            
+                <a href="2-Chapter-1-The-Legacy-Code-Reality.html">
+            
+                    
+                    Chapter 1 The Legacy Code Reality
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="3-Chapter-2-Understanding-Your-Legacy-Codebase-with-AI.html">
+            
+                <a href="3-Chapter-2-Understanding-Your-Legacy-Codebase-with-AI.html">
+            
+                    
+                    Chapter 2 Understanding Your Legacy Codebase With AI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="4-Chapter-3-The-Safety-Net-AI-Enhanced-Testing.html">
+            
+                <a href="4-Chapter-3-The-Safety-Net-AI-Enhanced-Testing.html">
+            
+                    
+                    Chapter 3 The Safety Net AI Enhanced Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="5-Chapter-4-Breaking-Dependencies-with-AI-Assistance.md.html">
+            
+                <a href="5-Chapter-4-Breaking-Dependencies-with-AI-Assistance.md.html">
+            
+                    
+                    Chapter 4 Breaking Dependencies With AI Assistance.Md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="6-Chapter-5-Refactoring-with-Confidence.html">
+            
+                <a href="6-Chapter-5-Refactoring-with-Confidence.html">
+            
+                    
+                    Chapter 5 Refactoring With Confidence
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Chapter 4 Breaking Dependencies With AI Assistance.Md</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="chapter-4-breaking-dependencies-with-ai-assistance">Chapter 4: Breaking Dependencies with AI Assistance</h2>
+<p>Legacy code is often difficult to work with because everything is connected to everything else. Breaking these dependencies is essential for making the code testable, maintainable, and modular. AI can help identify dependencies, suggest refactoring strategies, and even automate parts of the dependency-breaking process.</p>
+<h3 id="dependency-analysis-and-visualization">Dependency Analysis and Visualization</h3>
+<p>Understanding the dependency structure of legacy code is the first step toward breaking it apart safely. AI can provide insights that would take human analysts weeks to discover manually.</p>
+<h4 id="ai-generated-dependency-graphs">AI-Generated Dependency Graphs</h4>
+<p>AI can analyze codebases and create visual representations of dependencies at various levels of detail.</p>
+<p><strong>System-Level Dependencies</strong>:</p>
+<pre><code class="lang-mermaid">graph TB
+    A[User Interface] --&gt; B[Business Logic Layer]
+    A --&gt; C[Data Access Layer]
+    B --&gt; C
+    B --&gt; D[External API Client]
+    B --&gt; E[Email Service]
+    C --&gt; F[(Database)]
+    D --&gt; G[Payment API]
+    E --&gt; H[SMTP Server]
+
+    style A fill:#e1f5fe
+    style B fill:#fff3e0
+    style C fill:#f3e5f5
+    style F fill:#ffebee
+</code></pre>
+<p><strong>Class-Level Dependencies</strong>:
+AI can identify specific classes that have too many dependencies or are depended upon by too many other classes.</p>
+<pre><code>Dependency Analysis Report:
+
+High Fan-Out Classes (depend on many others):
+- OrderProcessor: 23 dependencies
+- UserManager: 19 dependencies  
+- ReportGenerator: 17 dependencies
+
+High Fan-In Classes (many others depend on them):
+- DatabaseConnection: used by 34 classes
+- ConfigurationManager: used by 28 classes
+- Logger: used by 26 classes
+
+Circular Dependencies Detected:
+- OrderService ↔ CustomerService ↔ InventoryService
+- EmailTemplate ↔ UserPreferences ↔ NotificationSettings
+</code></pre><h4 id="circular-dependency-detection">Circular Dependency Detection</h4>
+<p>Circular dependencies are particularly problematic in legacy systems. AI can not only detect them but suggest strategies for breaking them.</p>
+<p><strong>AI-Powered Circular Dependency Analysis</strong>:</p>
+<pre><code>Prompt: "Analyze this codebase for circular dependencies and suggest specific refactoring strategies to break each cycle while maintaining functionality."
+
+Response:
+Circular Dependency: OrderService ↔ CustomerService
+
+Current Problem:
+- OrderService.processOrder() calls CustomerService.validateCustomer()
+- CustomerService.updateLoyaltyPoints() calls OrderService.calculateOrderValue()
+
+Suggested Solutions:
+1. Extract Common Interface: Create CustomerValidator interface
+2. Event-Driven Approach: Use events for loyalty point updates
+3. Dependency Injection: Inject OrderCalculator into CustomerService
+4. Service Mediator: Create OrderProcessingMediator
+
+Recommended Approach: Event-driven (lowest risk, highest decoupling)
+</code></pre><h4 id="coupling-analysis-and-recommendations">Coupling Analysis and Recommendations</h4>
+<p>AI can analyze different types of coupling and provide specific recommendations for reducing it.</p>
+<p><strong>Types of Coupling AI Can Identify</strong>:</p>
+<ol>
+<li><strong>Data Coupling</strong>: Classes that share complex data structures</li>
+<li><strong>Stamp Coupling</strong>: Classes that pass unnecessary data</li>
+<li><strong>Control Coupling</strong>: Classes that control each other's behavior</li>
+<li><strong>Content Coupling</strong>: Classes that access each other's internal data</li>
+<li><strong>Common Coupling</strong>: Classes that share global data</li>
+</ol>
+<p><strong>AI Coupling Analysis Report</strong>:</p>
+<pre><code>Coupling Analysis for OrderProcessingSystem:
+
+Content Coupling Issues:
+- PaymentProcessor directly accesses OrderService.internalOrderState
+- ReportGenerator reads CustomerService.private_customer_cache
+Recommendation: Create proper public interfaces
+
+Control Coupling Issues:
+- OrderService passes control flags to ShippingService
+- CustomerService tells EmailService what template to use
+Recommendation: Use strategy pattern or dependency injection
+
+Data Coupling Improvements:
+- 15 classes pass entire Customer object when only ID is needed
+- OrderProcessor receives full Product catalog for single item lookup
+Recommendation: Create focused data transfer objects
+</code></pre><h3 id="seam-identification-and-creation">Seam Identification and Creation</h3>
+<p>Seams are places in code where you can change behavior without changing the code itself. They're essential for making legacy code testable. AI can help identify existing seams and suggest where to create new ones.</p>
+<h4 id="ai-suggested-refactoring-points">AI-Suggested Refactoring Points</h4>
+<p>AI can analyze code structure and suggest optimal places to introduce seams.</p>
+<p><strong>Seam Identification Process</strong>:</p>
+<ol>
+<li><strong>Interface Boundaries</strong>: Places where interfaces can be extracted</li>
+<li><strong>Dependency Injection Points</strong>: Where dependencies can be injected</li>
+<li><strong>Strategy Pattern Opportunities</strong>: Where algorithms can be made pluggable</li>
+<li><strong>Template Method Opportunities</strong>: Where common patterns can be abstracted</li>
+</ol>
+<p><strong>Example AI Seam Analysis</strong>:</p>
+<pre><code class="lang-java"><span class="hljs-comment">// Original tightly coupled code</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OrderProcessor</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">processOrder</span><span class="hljs-params">(Order order)</span> {
+        <span class="hljs-comment">// Direct database access - no seam</span>
+        <span class="hljs-type">Connection</span> <span class="hljs-variable">conn</span> <span class="hljs-operator">=</span> DriverManager.getConnection(<span class="hljs-string">"jdbc:mysql://localhost/orders"</span>);
+
+        <span class="hljs-comment">// Direct email service access - no seam</span>
+        <span class="hljs-type">EmailService</span> <span class="hljs-variable">emailService</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">EmailService</span>();
+
+        <span class="hljs-comment">// Hard-coded business logic - no seam</span>
+        <span class="hljs-keyword">if</span> (order.getAmount() &gt; <span class="hljs-number">1000</span>) {
+            order.setStatus(<span class="hljs-string">"REVIEW_REQUIRED"</span>);
+        } <span class="hljs-keyword">else</span> {
+            order.setStatus(<span class="hljs-string">"APPROVED"</span>);
+        }
+
+        <span class="hljs-comment">// Direct payment processing - no seam</span>
+        <span class="hljs-type">PaymentGateway</span> <span class="hljs-variable">gateway</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CreditCardGateway</span>();
+        gateway.processPayment(order.getPaymentInfo());
+    }
+}
+</code></pre>
+<p><strong>AI-Suggested Seam Creation</strong>:</p>
+<pre><code class="lang-java"><span class="hljs-comment">// Refactored code with seams</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OrderProcessor</span> {
+    <span class="hljs-keyword">private</span> OrderRepository orderRepository;
+    <span class="hljs-keyword">private</span> NotificationService notificationService;
+    <span class="hljs-keyword">private</span> OrderApprovalStrategy approvalStrategy;
+    <span class="hljs-keyword">private</span> PaymentProcessor paymentProcessor;
+
+    <span class="hljs-comment">// Constructor injection creates seams for all dependencies</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">OrderProcessor</span><span class="hljs-params">(OrderRepository orderRepository,
+                         NotificationService notificationService,
+                         OrderApprovalStrategy approvalStrategy,
+                         PaymentProcessor paymentProcessor)</span> {
+        <span class="hljs-built_in">this</span>.orderRepository = orderRepository;
+        <span class="hljs-built_in">this</span>.notificationService = notificationService;
+        <span class="hljs-built_in">this</span>.approvalStrategy = approvalStrategy;
+        <span class="hljs-built_in">this</span>.paymentProcessor = paymentProcessor;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">processOrder</span><span class="hljs-params">(Order order)</span> {
+        <span class="hljs-comment">// Seam: Repository can be mocked for testing</span>
+        orderRepository.save(order);
+
+        <span class="hljs-comment">// Seam: Strategy can be changed based on business rules</span>
+        <span class="hljs-type">OrderStatus</span> <span class="hljs-variable">status</span> <span class="hljs-operator">=</span> approvalStrategy.determineStatus(order);
+        order.setStatus(status);
+
+        <span class="hljs-comment">// Seam: Payment processor can be swapped for different payment types</span>
+        paymentProcessor.processPayment(order.getPaymentInfo());
+
+        <span class="hljs-comment">// Seam: Notification service can be mocked or replaced</span>
+        notificationService.sendOrderConfirmation(order);
+    }
+}
+</code></pre>
+<h4 id="interface-extraction-strategies">Interface Extraction Strategies</h4>
+<p>AI can suggest which interfaces to extract and how to design them for maximum flexibility.</p>
+<p><strong>AI Interface Design Recommendations</strong>:</p>
+<pre><code class="lang-java"><span class="hljs-comment">// AI-suggested interface extraction</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">OrderRepository</span> {
+    <span class="hljs-keyword">void</span> <span class="hljs-title function_">save</span><span class="hljs-params">(Order order)</span>;
+    Order <span class="hljs-title function_">findById</span><span class="hljs-params">(String orderId)</span>;
+    List&lt;Order&gt; <span class="hljs-title function_">findByCustomerId</span><span class="hljs-params">(String customerId)</span>;
+    List&lt;Order&gt; <span class="hljs-title function_">findByStatus</span><span class="hljs-params">(OrderStatus status)</span>;
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">NotificationService</span> {
+    <span class="hljs-keyword">void</span> <span class="hljs-title function_">sendOrderConfirmation</span><span class="hljs-params">(Order order)</span>;
+    <span class="hljs-keyword">void</span> <span class="hljs-title function_">sendShippingNotification</span><span class="hljs-params">(Order order, TrackingInfo tracking)</span>;
+    <span class="hljs-keyword">void</span> <span class="hljs-title function_">sendCancellationNotification</span><span class="hljs-params">(Order order, String reason)</span>;
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">OrderApprovalStrategy</span> {
+    OrderStatus <span class="hljs-title function_">determineStatus</span><span class="hljs-params">(Order order)</span>;
+    <span class="hljs-type">boolean</span> <span class="hljs-title function_">requiresManualReview</span><span class="hljs-params">(Order order)</span>;
+    String <span class="hljs-title function_">getApprovalReason</span><span class="hljs-params">(Order order)</span>;
+}
+</code></pre>
+<h4 id="mock-and-stub-generation">Mock and Stub Generation</h4>
+<p>AI can automatically generate mocks and stubs for testing, making it easier to test code in isolation.</p>
+<p><strong>AI-Generated Test Doubles</strong>:</p>
+<pre><code class="lang-java"><span class="hljs-comment">// AI-generated mock objects for testing</span>
+<span class="hljs-meta">@Test</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testOrderProcessingWithApprovedStatus</span><span class="hljs-params">()</span> {
+    <span class="hljs-comment">// Arrange - AI generates appropriate mocks</span>
+    <span class="hljs-type">OrderRepository</span> <span class="hljs-variable">mockRepository</span> <span class="hljs-operator">=</span> mock(OrderRepository.class);
+    <span class="hljs-type">NotificationService</span> <span class="hljs-variable">mockNotification</span> <span class="hljs-operator">=</span> mock(NotificationService.class);
+    <span class="hljs-type">OrderApprovalStrategy</span> <span class="hljs-variable">mockStrategy</span> <span class="hljs-operator">=</span> mock(OrderApprovalStrategy.class);
+    <span class="hljs-type">PaymentProcessor</span> <span class="hljs-variable">mockPayment</span> <span class="hljs-operator">=</span> mock(PaymentProcessor.class);
+
+    <span class="hljs-keyword">when</span>(mockStrategy.determineStatus(any(Order.class))).thenReturn(OrderStatus.APPROVED);
+    <span class="hljs-keyword">when</span>(mockPayment.processPayment(any(PaymentInfo.class))).thenReturn(PaymentResult.success());
+
+    <span class="hljs-type">OrderProcessor</span> <span class="hljs-variable">processor</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">OrderProcessor</span>(mockRepository, mockNotification, 
+                                                 mockStrategy, mockPayment);
+    <span class="hljs-type">Order</span> <span class="hljs-variable">testOrder</span> <span class="hljs-operator">=</span> createTestOrder();
+
+    <span class="hljs-comment">// Act</span>
+    processor.processOrder(testOrder);
+
+    <span class="hljs-comment">// Assert - AI generates comprehensive verification</span>
+    verify(mockRepository).save(testOrder);
+    verify(mockStrategy).determineStatus(testOrder);
+    verify(mockPayment).processPayment(testOrder.getPaymentInfo());
+    verify(mockNotification).sendOrderConfirmation(testOrder);
+    assertEquals(OrderStatus.APPROVED, testOrder.getStatus());
+}
+</code></pre>
+<h3 id="gradual-decoupling-techniques">Gradual Decoupling Techniques</h3>
+<p>Breaking dependencies in legacy systems must be done gradually to avoid breaking existing functionality. AI can help plan and execute these gradual transformations.</p>
+<h4 id="strangler-fig-pattern-implementation">Strangler Fig Pattern Implementation</h4>
+<p>The Strangler Fig pattern involves gradually replacing old functionality with new implementations. AI can help identify good candidates for this pattern and plan the implementation.</p>
+<p><strong>AI-Guided Strangler Fig Analysis</strong>:</p>
+<pre><code>Legacy Component Analysis: CustomerService
+
+Current Responsibilities:
+- Customer authentication (high complexity, low change frequency)
+- Customer data management (medium complexity, high change frequency)  
+- Loyalty program management (high complexity, high change frequency)
+- Customer reporting (low complexity, medium change frequency)
+
+Strangler Fig Recommendation:
+1. Start with Customer Reporting (lowest risk, good learning opportunity)
+2. Move to Customer Data Management (high business value)
+3. Tackle Loyalty Program Management (most complex, highest benefit)
+4. Finish with Authentication (most critical, needs careful planning)
+
+Implementation Plan:
+Phase 1: Create new ReportingService, route 10% of traffic
+Phase 2: Gradually increase traffic to new service (25%, 50%, 75%, 100%)
+Phase 3: Remove old reporting code from CustomerService
+</code></pre><p><strong>Strangler Fig Implementation with AI</strong>:</p>
+<pre><code class="lang-java"><span class="hljs-comment">// AI-suggested routing mechanism</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomerServiceProxy</span> {
+    <span class="hljs-keyword">private</span> LegacyCustomerService legacyService;
+    <span class="hljs-keyword">private</span> NewCustomerDataService newDataService;
+    <span class="hljs-keyword">private</span> FeatureToggleService featureToggle;
+
+    <span class="hljs-keyword">public</span> CustomerReport <span class="hljs-title function_">generateReport</span><span class="hljs-params">(String customerId)</span> {
+        <span class="hljs-comment">// AI helps determine routing logic</span>
+        <span class="hljs-keyword">if</span> (featureToggle.isEnabled(<span class="hljs-string">"new-reporting-service"</span>)) {
+            <span class="hljs-keyword">try</span> {
+                <span class="hljs-keyword">return</span> newDataService.generateReport(customerId);
+            } <span class="hljs-keyword">catch</span> (Exception e) {
+                <span class="hljs-comment">// Fallback to legacy service for safety</span>
+                logger.warn(<span class="hljs-string">"New service failed, falling back to legacy"</span>, e);
+                <span class="hljs-keyword">return</span> legacyService.generateReport(customerId);
+            }
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> legacyService.generateReport(customerId);
+        }
+    }
+}
+</code></pre>
+<h4 id="facade-pattern-with-ai-guidance">Facade Pattern with AI Guidance</h4>
+<p>The Facade pattern can simplify complex legacy interfaces. AI can help design facades that hide complexity while preserving functionality.</p>
+<p><strong>AI-Designed Facade</strong>:</p>
+<pre><code class="lang-java"><span class="hljs-comment">// Complex legacy interface</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LegacyOrderSystem</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">initializeOrder</span><span class="hljs-params">(String customerId, String productId, <span class="hljs-type">int</span> quantity)</span> { <span class="hljs-comment">/* complex logic */</span> }
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">validateInventory</span><span class="hljs-params">(String productId, <span class="hljs-type">int</span> quantity)</span> { <span class="hljs-comment">/* complex logic */</span> }
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">calculatePricing</span><span class="hljs-params">(String customerId, String productId, <span class="hljs-type">int</span> quantity)</span> { <span class="hljs-comment">/* complex logic */</span> }
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">validatePayment</span><span class="hljs-params">(String paymentToken)</span> { <span class="hljs-comment">/* complex logic */</span> }
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">processPayment</span><span class="hljs-params">(String paymentToken, <span class="hljs-type">double</span> amount)</span> { <span class="hljs-comment">/* complex logic */</span> }
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">updateInventory</span><span class="hljs-params">(String productId, <span class="hljs-type">int</span> quantity)</span> { <span class="hljs-comment">/* complex logic */</span> }
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sendConfirmation</span><span class="hljs-params">(String customerId, String orderId)</span> { <span class="hljs-comment">/* complex logic */</span> }
+}
+
+<span class="hljs-comment">// AI-suggested facade</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OrderFacade</span> {
+    <span class="hljs-keyword">private</span> LegacyOrderSystem legacySystem;
+
+    <span class="hljs-keyword">public</span> OrderResult <span class="hljs-title function_">processOrder</span><span class="hljs-params">(OrderRequest request)</span> {
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-comment">// AI identifies the correct sequence of legacy calls</span>
+            legacySystem.initializeOrder(request.getCustomerId(), 
+                                       request.getProductId(), 
+                                       request.getQuantity());
+
+            legacySystem.validateInventory(request.getProductId(), request.getQuantity());
+            legacySystem.calculatePricing(request.getCustomerId(), 
+                                        request.getProductId(), 
+                                        request.getQuantity());
+
+            legacySystem.validatePayment(request.getPaymentToken());
+            legacySystem.processPayment(request.getPaymentToken(), request.getAmount());
+            legacySystem.updateInventory(request.getProductId(), request.getQuantity());
+
+            <span class="hljs-type">String</span> <span class="hljs-variable">orderId</span> <span class="hljs-operator">=</span> generateOrderId();
+            legacySystem.sendConfirmation(request.getCustomerId(), orderId);
+
+            <span class="hljs-keyword">return</span> OrderResult.success(orderId);
+        } <span class="hljs-keyword">catch</span> (Exception e) {
+            <span class="hljs-keyword">return</span> OrderResult.failure(e.getMessage());
+        }
+    }
+}
+</code></pre>
+<h4 id="adapter-pattern-automation">Adapter Pattern Automation</h4>
+<p>AI can help create adapters that allow legacy components to work with modern interfaces.</p>
+<p><strong>AI-Generated Adapter Pattern</strong>:</p>
+<pre><code class="lang-java"><span class="hljs-comment">// Legacy interface</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">LegacyPaymentProcessor</span> {
+    <span class="hljs-type">boolean</span> <span class="hljs-title function_">processPayment</span><span class="hljs-params">(String cardNumber, String expiryDate, 
+                          String cvv, <span class="hljs-type">double</span> amount, String currency)</span>;
+}
+
+<span class="hljs-comment">// Modern interface</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">PaymentProcessor</span> {
+    PaymentResult <span class="hljs-title function_">processPayment</span><span class="hljs-params">(PaymentRequest request)</span>;
+}
+
+<span class="hljs-comment">// AI-generated adapter</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">PaymentProcessorAdapter</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">PaymentProcessor</span> {
+    <span class="hljs-keyword">private</span> LegacyPaymentProcessor legacyProcessor;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">PaymentProcessorAdapter</span><span class="hljs-params">(LegacyPaymentProcessor legacyProcessor)</span> {
+        <span class="hljs-built_in">this</span>.legacyProcessor = legacyProcessor;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> PaymentResult <span class="hljs-title function_">processPayment</span><span class="hljs-params">(PaymentRequest request)</span> {
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-comment">// AI handles the data transformation</span>
+            <span class="hljs-type">CreditCard</span> <span class="hljs-variable">card</span> <span class="hljs-operator">=</span> request.getCreditCard();
+            <span class="hljs-type">boolean</span> <span class="hljs-variable">success</span> <span class="hljs-operator">=</span> legacyProcessor.processPayment(
+                card.getNumber(),
+                card.getExpiryDate(),
+                card.getCvv(),
+                request.getAmount().getValue(),
+                request.getAmount().getCurrency()
+            );
+
+            <span class="hljs-keyword">if</span> (success) {
+                <span class="hljs-keyword">return</span> PaymentResult.success(generateTransactionId());
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">return</span> PaymentResult.failure(<span class="hljs-string">"Payment processing failed"</span>);
+            }
+        } <span class="hljs-keyword">catch</span> (Exception e) {
+            <span class="hljs-keyword">return</span> PaymentResult.error(<span class="hljs-string">"Payment system error: "</span> + e.getMessage());
+        }
+    }
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="4-Chapter-3-The-Safety-Net-AI-Enhanced-Testing.html" class="navigation navigation-prev " aria-label="Previous page: Chapter 3 The Safety Net AI Enhanced Testing">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="6-Chapter-5-Refactoring-with-Confidence.html" class="navigation navigation-next " aria-label="Next page: Chapter 5 Refactoring With Confidence">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Chapter 4 Breaking Dependencies With AI Assistance.Md","level":"1.6","depth":1,"next":{"title":"Chapter 5 Refactoring With Confidence","level":"1.7","depth":1,"path":"6-Chapter-5-Refactoring-with-Confidence.md","ref":"6-Chapter-5-Refactoring-with-Confidence.md","articles":[]},"previous":{"title":"Chapter 3 The Safety Net AI Enhanced Testing","level":"1.5","depth":1,"path":"4-Chapter-3-The-Safety-Net-AI-Enhanced-Testing.md","ref":"4-Chapter-3-The-Safety-Net-AI-Enhanced-Testing.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"5-Chapter-4-Breaking-Dependencies-with-AI-Assistance.md.md","mtime":"2025-05-30T20:56:50.605Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-05-30T20:57:01.710Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
