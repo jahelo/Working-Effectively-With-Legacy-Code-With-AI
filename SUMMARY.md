@@ -6,3 +6,4 @@
 * [Chapter 3 The Safety Net AI Enhanced Testing](4-Chapter-3-The-Safety-Net-AI-Enhanced-Testing.md)
 * [Chapter 4 Breaking Dependencies With AI Assistance](5-Chapter-4-Breaking-Dependencies-with-AI-Assistance.md)
 * [Chapter 5 Refactoring With Confidence](6-Chapter-5-Refactoring-with-Confidence.md)
+* [Chapter 6 Architecture Evolution With AI](7-Chapter-6-Architecture-Evolution-with-AI.md)
