@@ -1,0 +1,3006 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Chapter 6 Architecture Evolution With AI · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="6-Chapter-5-Refactoring-with-Confidence.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1-table-of-contents.html">
+            
+                <a href="1-table-of-contents.html">
+            
+                    
+                    Table Of Contents
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="2-Chapter-1-The-Legacy-Code-Reality.html">
+            
+                <a href="2-Chapter-1-The-Legacy-Code-Reality.html">
+            
+                    
+                    Chapter 1 The Legacy Code Reality
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="3-Chapter-2-Understanding-Your-Legacy-Codebase-with-AI.html">
+            
+                <a href="3-Chapter-2-Understanding-Your-Legacy-Codebase-with-AI.html">
+            
+                    
+                    Chapter 2 Understanding Your Legacy Codebase With AI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="4-Chapter-3-The-Safety-Net-AI-Enhanced-Testing.html">
+            
+                <a href="4-Chapter-3-The-Safety-Net-AI-Enhanced-Testing.html">
+            
+                    
+                    Chapter 3 The Safety Net AI Enhanced Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="5-Chapter-4-Breaking-Dependencies-with-AI-Assistance.html">
+            
+                <a href="5-Chapter-4-Breaking-Dependencies-with-AI-Assistance.html">
+            
+                    
+                    Chapter 4 Breaking Dependencies With AI Assistance
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="6-Chapter-5-Refactoring-with-Confidence.html">
+            
+                <a href="6-Chapter-5-Refactoring-with-Confidence.html">
+            
+                    
+                    Chapter 5 Refactoring With Confidence
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8" data-path="7-Chapter-6-Architecture-Evolution-with-AI.html">
+            
+                <a href="7-Chapter-6-Architecture-Evolution-with-AI.html">
+            
+                    
+                    Chapter 6 Architecture Evolution With AI
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Chapter 6 Architecture Evolution With AI</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="chapter-6-architecture-evolution-with-ai">Chapter 6: Architecture Evolution with AI</h1>
+<p>Legacy systems often start with clean, simple architectures that gradually become complex monoliths over time. As business requirements evolve and new features are added, the original architectural boundaries blur, dependencies multiply, and what was once a well-structured system becomes a tangled web of interconnected components. AI can help identify these architectural problems and guide the evolution toward more maintainable, scalable, and modern architectures.</p>
+<h2 id="from-monolith-to-modular">From Monolith to Modular</h2>
+<p>The journey from monolithic legacy systems to modular architectures is one of the most significant transformations teams undertake. AI can dramatically accelerate this process by analyzing code structure, identifying natural domain boundaries, and suggesting decomposition strategies that would take human architects weeks or months to develop.</p>
+<h3 id="ai-driven-domain-boundary-identification">AI-Driven Domain Boundary Identification</h3>
+<p>One of the most challenging aspects of breaking apart a monolith is determining where to draw the boundaries between different domains or services. AI can analyze codebases to identify cohesive groups of functionality that belong together and loose coupling points that suggest natural boundaries.</p>
+<h4 id="analyzing-code-cohesion-and-coupling">Analyzing Code Cohesion and Coupling</h4>
+<p>AI can perform sophisticated analysis of code relationships to identify potential service boundaries:</p>
+<p><strong>Code Analysis for Domain Boundaries</strong>:</p>
+<pre><code>AI Prompt: "Analyze this e-commerce codebase and identify potential domain boundaries for service decomposition. Consider data access patterns, business logic groupings, and coupling between different functional areas."
+
+AI Analysis Output:
+
+Domain Boundary Analysis for E-commerce System:
+
+1. Customer Management Domain
+   - High cohesion: CustomerService, CustomerRepository, CustomerValidator
+   - Strong internal coupling: Customer authentication, profile management, preferences
+   - Weak external coupling: Only customer ID passed to other domains
+   - Data ownership: customers, customer_addresses, customer_preferences tables
+   - Boundary strength: STRONG (95% confidence)
+
+2. Product Catalog Domain  
+   - High cohesion: ProductService, CategoryService, InventoryService
+   - Strong internal coupling: Product search, categorization, pricing
+   - Medium external coupling: Product IDs used by Order and Cart domains
+   - Data ownership: products, categories, inventory, pricing tables
+   - Boundary strength: STRONG (90% confidence)
+
+3. Order Processing Domain
+   - Medium cohesion: OrderService, PaymentService, ShippingService
+   - High internal coupling: Order workflow, payment processing, fulfillment
+   - High external coupling: Depends on Customer, Product, and Inventory domains
+   - Data ownership: orders, order_items, payments, shipments tables
+   - Boundary strength: MEDIUM (75% confidence)
+   - Recommendation: Consider further decomposition
+
+4. Shopping Cart Domain
+   - High cohesion: CartService, CartRepository, CartValidator
+   - Low external coupling: Communicates via events with Order domain
+   - Data ownership: shopping_carts, cart_items tables
+   - Boundary strength: STRONG (92% confidence)
+
+5. Notification Domain
+   - Medium cohesion: EmailService, SMSService, NotificationService
+   - Low coupling: Triggered by events from other domains
+   - Data ownership: notifications, notification_templates tables
+   - Boundary strength: STRONG (88% confidence)
+
+Problematic Cross-Domain Dependencies:
+- OrderService directly queries customer_preferences (should use Customer API)
+- ProductService updates inventory directly (should be separate service)
+- PaymentService accesses customer payment methods directly (boundary violation)
+
+Recommended Decomposition Order:
+1. Extract Notification Service (lowest risk, clear boundaries)
+2. Extract Shopping Cart Service (well-defined, low coupling)
+3. Extract Customer Management Service (clear domain, some refactoring needed)
+4. Extract Product Catalog Service (medium complexity)
+5. Decompose Order Processing (highest complexity, consider sub-services)
+</code></pre><h4 id="business-capability-mapping">Business Capability Mapping</h4>
+<p>AI can analyze business requirements and map them to technical implementations to identify service boundaries that align with business capabilities:</p>
+<p><strong>Business Capability Analysis</strong>:</p>
+<pre><code class="lang-java"><span class="hljs-comment">// AI-identified business capabilities from code analysis</span>
+
+<span class="hljs-comment">// Customer Management Capability</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomerManagementService</span> {
+    <span class="hljs-comment">// Capabilities identified by AI:</span>
+    <span class="hljs-comment">// - Customer registration and authentication</span>
+    <span class="hljs-comment">// - Profile management and preferences  </span>
+    <span class="hljs-comment">// - Customer support and account management</span>
+    <span class="hljs-comment">// - Loyalty program management</span>
+
+    <span class="hljs-comment">// Bounded context: Customer identity and lifecycle</span>
+    <span class="hljs-comment">// Data: Customer personal data, preferences, authentication</span>
+    <span class="hljs-comment">// Events published: CustomerRegistered, CustomerUpdated, CustomerDeactivated</span>
+    <span class="hljs-comment">// Events consumed: OrderCompleted (for loyalty points)</span>
+}
+
+<span class="hljs-comment">// Product Catalog Capability  </span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ProductCatalogService</span> {
+    <span class="hljs-comment">// Capabilities identified by AI:</span>
+    <span class="hljs-comment">// - Product information management</span>
+    <span class="hljs-comment">// - Category and taxonomy management</span>
+    <span class="hljs-comment">// - Pricing and promotion management</span>
+    <span class="hljs-comment">// - Product search and discovery</span>
+
+    <span class="hljs-comment">// Bounded context: Product information and organization</span>
+    <span class="hljs-comment">// Data: Product details, categories, pricing, search indexes</span>
+    <span class="hljs-comment">// Events published: ProductCreated, ProductUpdated, PriceChanged</span>
+    <span class="hljs-comment">// Events consumed: InventoryUpdated (for availability)</span>
+}
+
+<span class="hljs-comment">// Order Management Capability</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OrderManagementService</span> {
+    <span class="hljs-comment">// Capabilities identified by AI:</span>
+    <span class="hljs-comment">// - Order creation and modification</span>
+    <span class="hljs-comment">// - Order workflow and status tracking</span>
+    <span class="hljs-comment">// - Order history and reporting</span>
+    <span class="hljs-comment">// - Return and refund processing</span>
+
+    <span class="hljs-comment">// Bounded context: Order lifecycle management</span>
+    <span class="hljs-comment">// Data: Orders, order items, order status, order history</span>
+    <span class="hljs-comment">// Events published: OrderCreated, OrderShipped, OrderCancelled</span>
+    <span class="hljs-comment">// Events consumed: PaymentProcessed, InventoryReserved</span>
+}
+</code></pre>
+<h4 id="data-flow-analysis">Data Flow Analysis</h4>
+<p>AI can trace how data flows through the system to identify natural boundaries and potential areas of tight coupling:</p>
+<p><strong>Data Flow Mapping Example</strong>:</p>
+<pre><code class="lang-mermaid">graph TB
+    A[User Registration] --&gt; B[Customer Service]
+    B --&gt; C[(Customer DB)]
+
+    D[Product Browse] --&gt; E[Product Service]
+    E --&gt; F[(Product DB)]
+    E --&gt; G[Search Index]
+
+    H[Add to Cart] --&gt; I[Cart Service]
+    I --&gt; J[(Cart DB)]
+    I --&gt; E
+
+    K[Checkout] --&gt; L[Order Service]
+    L --&gt; M[Payment Service]
+    L --&gt; N[Inventory Service]
+    L --&gt; O[Shipping Service]
+
+    M --&gt; P[Payment Gateway]
+    N --&gt; Q[(Inventory DB)]
+    O --&gt; R[Shipping Provider]
+
+    L --&gt; S[(Order DB)]
+
+    style B fill:#e1f5fe
+    style E fill:#f3e5f5
+    style I fill:#fff3e0
+    style L fill:#ffebee
+</code></pre>
+<p><strong>AI Data Flow Analysis</strong>:</p>
+<pre><code>Data Flow Analysis Results:
+
+High-Frequency Data Paths:
+1. Customer ID: Used in 23 different services (over-shared)
+2. Product ID: Referenced in 15 services (acceptable sharing)
+3. Order data: Accessed by 8 services (some boundary violations)
+
+Data Hotspots (potential service boundaries):
+- Customer data: Centralized in CustomerService (good boundary)
+- Product data: Distributed across 6 services (needs consolidation)
+- Inventory data: Updated by 4 different services (coordination needed)
+
+Boundary Violations Detected:
+- OrderService directly updates customer loyalty points
+- ProductService directly decrements inventory
+- PaymentService reads customer billing preferences directly
+
+Recommended Data Ownership:
+- Customer Service: All customer personal data, preferences, authentication
+- Product Service: Product information, categories, basic inventory counts
+- Inventory Service: Detailed inventory tracking, reservations, fulfillment
+- Order Service: Order data, order workflow, order history
+- Payment Service: Payment transactions, payment methods (encrypted)
+</code></pre><h3 id="service-decomposition-strategies">Service Decomposition Strategies</h3>
+<p>Once domain boundaries are identified, AI can help plan the decomposition strategy, including the order of extraction, risk assessment, and migration approaches.</p>
+<h4 id="extraction-prioritization">Extraction Prioritization</h4>
+<p>AI can assess the risk and benefit of extracting different services to recommend an optimal sequence:</p>
+<p><strong>Service Extraction Priority Matrix</strong>:</p>
+<pre><code>AI-Generated Extraction Plan:
+
+Priority 1 (High Benefit, Low Risk):
+Service: Notification Service
+- Benefits: Clear boundaries, no business logic dependencies
+- Risks: Low - only sends notifications, easily reversible
+- Effort: 2-3 weeks
+- Dependencies: None (event-driven)
+- Rollback plan: Route events back to monolith
+
+Service: File Upload Service  
+- Benefits: Resource isolation, scalability improvements
+- Risks: Low - stateless operations, clear interface
+- Effort: 1-2 weeks
+- Dependencies: Storage configuration
+- Rollback plan: Proxy requests back to monolith
+
+Priority 2 (High Benefit, Medium Risk):
+Service: User Authentication Service
+- Benefits: Security isolation, reusability across applications
+- Risks: Medium - critical path, session management complexity
+- Effort: 4-6 weeks
+- Dependencies: Session store, identity provider integration
+- Rollback plan: Dual authentication during transition
+
+Service: Product Catalog Service
+- Benefits: Clear domain boundary, enables catalog team autonomy
+- Risks: Medium - search functionality complexity, data migration
+- Effort: 6-8 weeks
+- Dependencies: Search infrastructure, image storage
+- Rollback plan: Database synchronization during transition
+
+Priority 3 (High Benefit, High Risk):
+Service: Order Processing Service
+- Benefits: Critical business logic isolation, scalability
+- Risks: High - complex workflows, transaction management
+- Effort: 10-12 weeks  
+- Dependencies: Payment service, inventory service, messaging
+- Rollback plan: Parallel processing with reconciliation
+
+Service: Payment Processing Service
+- Benefits: PCI compliance isolation, security improvements
+- Risks: High - financial transactions, complex error handling
+- Effort: 8-10 weeks
+- Dependencies: Payment gateways, fraud detection, encryption
+- Rollback plan: Circuit breaker with monolith fallback
+</code></pre><h4 id="strangler-fig-implementation-for-services">Strangler Fig Implementation for Services</h4>
+<p>The Strangler Fig pattern can be applied at the service level to gradually replace monolithic functionality:</p>
+<p><strong>AI-Guided Strangler Fig for Service Extraction</strong>:</p>
+<pre><code class="lang-java"><span class="hljs-comment">// AI-suggested proxy pattern for gradual service extraction</span>
+<span class="hljs-meta">@RestController</span>
+<span class="hljs-meta">@RequestMapping("/api/customers")</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomerServiceProxy</span> {
+
+    <span class="hljs-keyword">private</span> MonolithCustomerService monolithService;
+    <span class="hljs-keyword">private</span> NewCustomerService newCustomerService;
+    <span class="hljs-keyword">private</span> FeatureToggleService featureToggle;
+    <span class="hljs-keyword">private</span> CustomerMigrationTracker migrationTracker;
+
+    <span class="hljs-meta">@GetMapping("/{customerId}")</span>
+    <span class="hljs-keyword">public</span> ResponseEntity&lt;Customer&gt; <span class="hljs-title function_">getCustomer</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable</span> String customerId)</span> {
+        <span class="hljs-comment">// AI-determined routing logic</span>
+        <span class="hljs-keyword">if</span> (shouldUseNewService(customerId)) {
+            <span class="hljs-keyword">try</span> {
+                <span class="hljs-type">Customer</span> <span class="hljs-variable">customer</span> <span class="hljs-operator">=</span> newCustomerService.getCustomer(customerId);
+                migrationTracker.recordSuccess(customerId, <span class="hljs-string">"READ"</span>);
+                <span class="hljs-keyword">return</span> ResponseEntity.ok(customer);
+            } <span class="hljs-keyword">catch</span> (Exception e) {
+                <span class="hljs-comment">// Fallback to monolith on any error</span>
+                migrationTracker.recordFallback(customerId, <span class="hljs-string">"READ"</span>, e);
+                <span class="hljs-keyword">return</span> getCustomerFromMonolith(customerId);
+            }
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> getCustomerFromMonolith(customerId);
+        }
+    }
+
+    <span class="hljs-meta">@PostMapping</span>
+    <span class="hljs-keyword">public</span> ResponseEntity&lt;Customer&gt; <span class="hljs-title function_">createCustomer</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> CreateCustomerRequest request)</span> {
+        <span class="hljs-keyword">if</span> (featureToggle.isEnabled(<span class="hljs-string">"new-customer-service-writes"</span>)) {
+            <span class="hljs-keyword">try</span> {
+                <span class="hljs-comment">// Dual write: create in both systems for safety</span>
+                <span class="hljs-type">Customer</span> <span class="hljs-variable">customer</span> <span class="hljs-operator">=</span> newCustomerService.createCustomer(request);
+                monolithService.createCustomer(request); <span class="hljs-comment">// Async backup</span>
+
+                migrationTracker.recordSuccess(customer.getId(), <span class="hljs-string">"CREATE"</span>);
+                <span class="hljs-keyword">return</span> ResponseEntity.ok(customer);
+            } <span class="hljs-keyword">catch</span> (Exception e) {
+                <span class="hljs-comment">// Fallback to monolith creation</span>
+                migrationTracker.recordFallback(<span class="hljs-literal">null</span>, <span class="hljs-string">"CREATE"</span>, e);
+                <span class="hljs-keyword">return</span> createCustomerInMonolith(request);
+            }
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> createCustomerInMonolith(request);
+        }
+    }
+
+    <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">shouldUseNewService</span><span class="hljs-params">(String customerId)</span> {
+        <span class="hljs-comment">// AI-suggested gradual rollout strategy</span>
+        <span class="hljs-keyword">if</span> (!featureToggle.isEnabled(<span class="hljs-string">"new-customer-service"</span>)) {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        }
+
+        <span class="hljs-comment">// Route based on customer ID hash for consistent experience</span>
+        <span class="hljs-type">int</span> <span class="hljs-variable">hash</span> <span class="hljs-operator">=</span> Math.abs(customerId.hashCode());
+        <span class="hljs-type">int</span> <span class="hljs-variable">rolloutPercentage</span> <span class="hljs-operator">=</span> featureToggle.getRolloutPercentage(<span class="hljs-string">"new-customer-service"</span>);
+        <span class="hljs-keyword">return</span> (hash % <span class="hljs-number">100</span>) &lt; rolloutPercentage;
+    }
+}
+
+<span class="hljs-comment">// AI-suggested monitoring and validation</span>
+<span class="hljs-meta">@Component</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ServiceMigrationValidator</span> {
+
+    <span class="hljs-meta">@Scheduled(fixedRate = 300000)</span> <span class="hljs-comment">// Every 5 minutes</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">validateDataConsistency</span><span class="hljs-params">()</span> {
+        List&lt;String&gt; recentCustomers = migrationTracker.getRecentlyMigratedCustomers();
+
+        <span class="hljs-keyword">for</span> (String customerId : recentCustomers) {
+            <span class="hljs-type">Customer</span> <span class="hljs-variable">monolithCustomer</span> <span class="hljs-operator">=</span> monolithService.getCustomer(customerId);
+            <span class="hljs-type">Customer</span> <span class="hljs-variable">newServiceCustomer</span> <span class="hljs-operator">=</span> newCustomerService.getCustomer(customerId);
+
+            <span class="hljs-keyword">if</span> (!customersAreEquivalent(monolithCustomer, newServiceCustomer)) {
+                alertingService.sendDataInconsistencyAlert(customerId);
+                <span class="hljs-comment">// Automatically trigger data reconciliation</span>
+                dataReconciliationService.reconcileCustomer(customerId);
+            }
+        }
+    }
+}
+</code></pre>
+<h4 id="event-driven-architecture-planning">Event-Driven Architecture Planning</h4>
+<p>AI can help design event-driven communication patterns between services:</p>
+<p><strong>AI-Designed Event Architecture</strong>:</p>
+<pre><code class="lang-java"><span class="hljs-comment">// AI-suggested event schema and flow</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomerEvents</span> {
+
+    <span class="hljs-meta">@Event</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomerRegistered</span> {
+        <span class="hljs-keyword">private</span> String customerId;
+        <span class="hljs-keyword">private</span> String email;
+        <span class="hljs-keyword">private</span> Instant registrationTime;
+        <span class="hljs-keyword">private</span> CustomerTier initialTier;
+        <span class="hljs-keyword">private</span> Map&lt;String, Object&gt; metadata;
+
+        <span class="hljs-comment">// AI determines what data other services need</span>
+        <span class="hljs-comment">// Avoids over-sharing sensitive information</span>
+    }
+
+    <span class="hljs-meta">@Event</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomerTierUpgraded</span> {
+        <span class="hljs-keyword">private</span> String customerId;
+        <span class="hljs-keyword">private</span> CustomerTier previousTier;
+        <span class="hljs-keyword">private</span> CustomerTier newTier;
+        <span class="hljs-keyword">private</span> Instant upgradeTime;
+        <span class="hljs-keyword">private</span> String reason; <span class="hljs-comment">// Purchase amount, manual upgrade, etc.</span>
+    }
+
+    <span class="hljs-meta">@Event</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomerDeactivated</span> {
+        <span class="hljs-keyword">private</span> String customerId;
+        <span class="hljs-keyword">private</span> Instant deactivationTime;
+        <span class="hljs-keyword">private</span> String reason;
+        <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> allowReactivation;
+    }
+}
+
+<span class="hljs-comment">// AI-suggested event handlers</span>
+<span class="hljs-meta">@EventHandler</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OrderServiceEventHandler</span> {
+
+    <span class="hljs-meta">@HandleEvent</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">handleCustomerTierUpgraded</span><span class="hljs-params">(CustomerTierUpgraded event)</span> {
+        <span class="hljs-comment">// Update pricing calculations for pending orders</span>
+        orderService.recalculatePendingOrderPricing(event.getCustomerId());
+
+        <span class="hljs-comment">// Send congratulatory email with tier benefits</span>
+        notificationService.sendTierUpgradeNotification(event);
+    }
+
+    <span class="hljs-meta">@HandleEvent</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">handleCustomerDeactivated</span><span class="hljs-params">(CustomerDeactivated event)</span> {
+        <span class="hljs-keyword">if</span> (!event.isAllowReactivation()) {
+            <span class="hljs-comment">// Cancel all pending orders for permanently deactivated customers</span>
+            orderService.cancelPendingOrders(event.getCustomerId(), <span class="hljs-string">"Customer deactivated"</span>);
+        }
+    }
+}
+
+<span class="hljs-comment">// AI-suggested event sourcing for complex business logic</span>
+<span class="hljs-meta">@EventSourcingAggregate</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Order</span> {
+    <span class="hljs-keyword">private</span> String orderId;
+    <span class="hljs-keyword">private</span> String customerId;
+    <span class="hljs-keyword">private</span> OrderStatus status;
+    <span class="hljs-keyword">private</span> List&lt;OrderItem&gt; items;
+    <span class="hljs-keyword">private</span> PaymentInfo paymentInfo;
+
+    <span class="hljs-comment">// AI identifies state changes that should be events</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">placeOrder</span><span class="hljs-params">(PlaceOrderCommand command)</span> {
+        <span class="hljs-comment">// Validate command</span>
+        validateOrderCommand(command);
+
+        <span class="hljs-comment">// Apply event</span>
+        apply(<span class="hljs-keyword">new</span> <span class="hljs-title class_">OrderPlaced</span>(
+            command.getOrderId(),
+            command.getCustomerId(),
+            command.getItems(),
+            Instant.now()
+        ));
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">confirmPayment</span><span class="hljs-params">(PaymentConfirmation confirmation)</span> {
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.status != OrderStatus.PENDING_PAYMENT) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalStateException</span>(<span class="hljs-string">"Cannot confirm payment for order in status: "</span> + <span class="hljs-built_in">this</span>.status);
+        }
+
+        apply(<span class="hljs-keyword">new</span> <span class="hljs-title class_">PaymentConfirmed</span>(
+            <span class="hljs-built_in">this</span>.orderId,
+            confirmation.getPaymentId(),
+            confirmation.getAmount(),
+            Instant.now()
+        ));
+    }
+}
+</code></pre>
+<h3 id="api-design-and-evolution">API Design and Evolution</h3>
+<p>As services are extracted from monoliths, well-designed APIs become critical for communication between components. AI can help design APIs that are consistent, evolvable, and performant.</p>
+<h4 id="restful-api-design-principles">RESTful API Design Principles</h4>
+<p>AI can analyze existing interfaces and suggest improvements based on REST principles and modern API design best practices:</p>
+<p><strong>AI-Improved API Design</strong>:</p>
+<pre><code class="lang-java"><span class="hljs-comment">// Legacy API (problematic design)</span>
+<span class="hljs-meta">@RestController</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomerController</span> {
+
+    <span class="hljs-meta">@GetMapping("/getCustomer")</span>
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getCustomer</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam</span> String id)</span> {
+        <span class="hljs-comment">// Problems: Non-RESTful URL, string return type, no error handling</span>
+        <span class="hljs-keyword">return</span> customerService.findById(id).toString();
+    }
+
+    <span class="hljs-meta">@PostMapping("/updateCustomer")</span>
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">updateCustomer</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam</span> String data)</span> {
+        <span class="hljs-comment">// Problems: POST for update, unstructured input, no validation</span>
+        <span class="hljs-type">Customer</span> <span class="hljs-variable">customer</span> <span class="hljs-operator">=</span> parseCustomerFromString(data);
+        customerService.update(customer);
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"success"</span>;
+    }
+}
+
+<span class="hljs-comment">// AI-suggested modern API design</span>
+<span class="hljs-meta">@RestController</span>
+<span class="hljs-meta">@RequestMapping("/api/v1/customers")</span>
+<span class="hljs-meta">@Validated</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomerApiController</span> {
+
+    <span class="hljs-keyword">private</span> CustomerService customerService;
+    <span class="hljs-keyword">private</span> CustomerMapper customerMapper;
+
+    <span class="hljs-meta">@GetMapping("/{customerId}")</span>
+    <span class="hljs-meta">@Operation(summary = "Get customer by ID", description = "Retrieves a customer's information by their unique identifier")</span>
+    <span class="hljs-meta">@ApiResponses({
+        @ApiResponse(responseCode = "200", description = "Customer found"),
+        @ApiResponse(responseCode = "404", description = "Customer not found"),
+        @ApiResponse(responseCode = "400", description = "Invalid customer ID format")
+    })</span>
+    <span class="hljs-keyword">public</span> ResponseEntity&lt;ApiResponse&lt;CustomerDto&gt;&gt; <span class="hljs-title function_">getCustomer</span><span class="hljs-params">(
+            <span class="hljs-meta">@PathVariable</span> 
+            <span class="hljs-meta">@Parameter(description = "Customer unique identifier", example = "123e4567-e89b-12d3-a456-426614174000")</span>
+            <span class="hljs-meta">@Valid</span> <span class="hljs-meta">@UUID</span> String customerId,
+            <span class="hljs-meta">@RequestHeader(value = "Accept-Language", defaultValue = "en")</span> String language)</span> {
+
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-type">Customer</span> <span class="hljs-variable">customer</span> <span class="hljs-operator">=</span> customerService.findById(customerId);
+            <span class="hljs-keyword">if</span> (customer == <span class="hljs-literal">null</span>) {
+                <span class="hljs-keyword">return</span> ResponseEntity.notFound().build();
+            }
+
+            <span class="hljs-type">CustomerDto</span> <span class="hljs-variable">dto</span> <span class="hljs-operator">=</span> customerMapper.toDto(customer, language);
+            ApiResponse&lt;CustomerDto&gt; response = ApiResponse.success(dto);
+
+            <span class="hljs-keyword">return</span> ResponseEntity.ok()
+                .cacheControl(CacheControl.maxAge(Duration.ofMinutes(<span class="hljs-number">5</span>)))
+                .eTag(customer.getVersion().toString())
+                .body(response);
+
+        } <span class="hljs-keyword">catch</span> (IllegalArgumentException e) {
+            ApiResponse&lt;CustomerDto&gt; errorResponse = ApiResponse.validationError(
+                <span class="hljs-string">"INVALID_CUSTOMER_ID"</span>, 
+                <span class="hljs-string">"Customer ID must be a valid UUID"</span>
+            );
+            <span class="hljs-keyword">return</span> ResponseEntity.badRequest().body(errorResponse);
+        }
+    }
+
+    <span class="hljs-meta">@PutMapping("/{customerId}")</span>
+    <span class="hljs-meta">@Operation(summary = "Update customer", description = "Updates an existing customer's information")</span>
+    <span class="hljs-keyword">public</span> ResponseEntity&lt;ApiResponse&lt;CustomerDto&gt;&gt; <span class="hljs-title function_">updateCustomer</span><span class="hljs-params">(
+            <span class="hljs-meta">@PathVariable</span> <span class="hljs-meta">@Valid</span> <span class="hljs-meta">@UUID</span> String customerId,
+            <span class="hljs-meta">@RequestBody</span> <span class="hljs-meta">@Valid</span> UpdateCustomerRequest request,
+            <span class="hljs-meta">@RequestHeader(value = "If-Match", required = false)</span> String ifMatch)</span> {
+
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-comment">// Optimistic locking support</span>
+            <span class="hljs-keyword">if</span> (ifMatch != <span class="hljs-literal">null</span>) {
+                customerService.validateVersion(customerId, ifMatch);
+            }
+
+            <span class="hljs-type">Customer</span> <span class="hljs-variable">updatedCustomer</span> <span class="hljs-operator">=</span> customerService.update(customerId, request);
+            <span class="hljs-type">CustomerDto</span> <span class="hljs-variable">dto</span> <span class="hljs-operator">=</span> customerMapper.toDto(updatedCustomer);
+
+            <span class="hljs-keyword">return</span> ResponseEntity.ok()
+                .eTag(updatedCustomer.getVersion().toString())
+                .body(ApiResponse.success(dto));
+
+        } <span class="hljs-keyword">catch</span> (CustomerNotFoundException e) {
+            <span class="hljs-keyword">return</span> ResponseEntity.notFound().build();
+        } <span class="hljs-keyword">catch</span> (OptimisticLockException e) {
+            ApiResponse&lt;CustomerDto&gt; errorResponse = ApiResponse.error(
+                <span class="hljs-string">"OPTIMISTIC_LOCK_ERROR"</span>,
+                <span class="hljs-string">"Customer was modified by another user. Please refresh and try again."</span>
+            );
+            <span class="hljs-keyword">return</span> ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponse);
+        } <span class="hljs-keyword">catch</span> (ValidationException e) {
+            ApiResponse&lt;CustomerDto&gt; errorResponse = ApiResponse.validationError(e.getErrors());
+            <span class="hljs-keyword">return</span> ResponseEntity.badRequest().body(errorResponse);
+        }
+    }
+
+    <span class="hljs-meta">@GetMapping</span>
+    <span class="hljs-meta">@Operation(summary = "Search customers", description = "Searches customers with pagination and filtering")</span>
+    <span class="hljs-keyword">public</span> ResponseEntity&lt;PagedApiResponse&lt;CustomerDto&gt;&gt; <span class="hljs-title function_">searchCustomers</span><span class="hljs-params">(
+            <span class="hljs-meta">@RequestParam(defaultValue = "0")</span> <span class="hljs-meta">@Min(0)</span> <span class="hljs-type">int</span> page,
+            <span class="hljs-meta">@RequestParam(defaultValue = "20")</span> <span class="hljs-meta">@Min(1)</span> <span class="hljs-meta">@Max(100)</span> <span class="hljs-type">int</span> size,
+            <span class="hljs-meta">@RequestParam(required = false)</span> String email,
+            <span class="hljs-meta">@RequestParam(required = false)</span> CustomerStatus status,
+            <span class="hljs-meta">@RequestParam(defaultValue = "createdAt")</span> String sortBy,
+            <span class="hljs-meta">@RequestParam(defaultValue = "desc")</span> String sortDirection)</span> {
+
+        <span class="hljs-type">CustomerSearchCriteria</span> <span class="hljs-variable">criteria</span> <span class="hljs-operator">=</span> CustomerSearchCriteria.builder()
+            .email(email)
+            .status(status)
+            .build();
+
+        <span class="hljs-type">Sort</span> <span class="hljs-variable">sort</span> <span class="hljs-operator">=</span> Sort.by(Sort.Direction.fromString(sortDirection), sortBy);
+        <span class="hljs-type">Pageable</span> <span class="hljs-variable">pageable</span> <span class="hljs-operator">=</span> PageRequest.of(page, size, sort);
+
+        Page&lt;Customer&gt; customers = customerService.search(criteria, pageable);
+        Page&lt;CustomerDto&gt; customerDtos = customers.map(customerMapper::toDto);
+
+        PagedApiResponse&lt;CustomerDto&gt; response = PagedApiResponse.of(customerDtos);
+
+        <span class="hljs-keyword">return</span> ResponseEntity.ok()
+            .cacheControl(CacheControl.maxAge(Duration.ofMinutes(<span class="hljs-number">1</span>)))
+            .body(response);
+    }
+}
+
+<span class="hljs-comment">// AI-suggested API response wrapper for consistency</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ApiResponse</span>&lt;T&gt; {
+    <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> success;
+    <span class="hljs-keyword">private</span> T data;
+    <span class="hljs-keyword">private</span> List&lt;ApiError&gt; errors;
+    <span class="hljs-keyword">private</span> Map&lt;String, Object&gt; metadata;
+    <span class="hljs-keyword">private</span> Instant timestamp;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; ApiResponse&lt;T&gt; <span class="hljs-title function_">success</span><span class="hljs-params">(T data)</span> {
+        <span class="hljs-keyword">return</span> ApiResponse.&lt;T&gt;builder()
+            .success(<span class="hljs-literal">true</span>)
+            .data(data)
+            .timestamp(Instant.now())
+            .build();
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; ApiResponse&lt;T&gt; <span class="hljs-title function_">error</span><span class="hljs-params">(String code, String message)</span> {
+        <span class="hljs-keyword">return</span> ApiResponse.&lt;T&gt;builder()
+            .success(<span class="hljs-literal">false</span>)
+            .errors(List.of(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ApiError</span>(code, message)))
+            .timestamp(Instant.now())
+            .build();
+    }
+}
+</code></pre>
+<h4 id="api-versioning-strategies">API Versioning Strategies</h4>
+<p>AI can help plan API evolution strategies that maintain backward compatibility while allowing for innovation:</p>
+<p><strong>AI-Suggested Versioning Strategy</strong>:</p>
+<pre><code class="lang-java"><span class="hljs-comment">// URL-based versioning with backward compatibility</span>
+<span class="hljs-meta">@RestController</span>
+<span class="hljs-meta">@RequestMapping("/api")</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">VersionedCustomerController</span> {
+
+    <span class="hljs-keyword">private</span> CustomerServiceV1 customerServiceV1;
+    <span class="hljs-keyword">private</span> CustomerServiceV2 customerServiceV2;
+    <span class="hljs-keyword">private</span> ApiVersionResolver versionResolver;
+
+    <span class="hljs-meta">@GetMapping({"/v1/customers/{id}", "/v2/customers/{id}"})</span>
+    <span class="hljs-keyword">public</span> ResponseEntity&lt;?&gt; getCustomer(
+            <span class="hljs-meta">@PathVariable</span> String id,
+            HttpServletRequest request) {
+
+        <span class="hljs-type">ApiVersion</span> <span class="hljs-variable">version</span> <span class="hljs-operator">=</span> versionResolver.resolveVersion(request);
+
+        <span class="hljs-keyword">switch</span> (version) {
+            <span class="hljs-keyword">case</span> V1:
+                <span class="hljs-type">CustomerV1Dto</span> <span class="hljs-variable">customerV1</span> <span class="hljs-operator">=</span> customerServiceV1.getCustomer(id);
+                <span class="hljs-keyword">return</span> ResponseEntity.ok(customerV1);
+
+            <span class="hljs-keyword">case</span> V2:
+                <span class="hljs-type">CustomerV2Dto</span> <span class="hljs-variable">customerV2</span> <span class="hljs-operator">=</span> customerServiceV2.getCustomer(id);
+                <span class="hljs-keyword">return</span> ResponseEntity.ok(ApiResponse.success(customerV2));
+
+            <span class="hljs-keyword">default</span>:
+                <span class="hljs-keyword">return</span> ResponseEntity.badRequest()
+                    .body(ApiResponse.error(<span class="hljs-string">"UNSUPPORTED_VERSION"</span>, <span class="hljs-string">"API version not supported"</span>));
+        }
+    }
+}
+
+<span class="hljs-comment">// AI-suggested header-based versioning for gradual migration</span>
+<span class="hljs-meta">@RestController</span>
+<span class="hljs-meta">@RequestMapping("/api/customers")</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HeaderVersionedController</span> {
+
+    <span class="hljs-meta">@GetMapping("/{id}")</span>
+    <span class="hljs-keyword">public</span> ResponseEntity&lt;?&gt; getCustomer(
+            <span class="hljs-meta">@PathVariable</span> String id,
+            <span class="hljs-meta">@RequestHeader(value = "API-Version", defaultValue = "1.0")</span> String apiVersion,
+            <span class="hljs-meta">@RequestHeader(value = "Accept", defaultValue = "application/json")</span> String acceptHeader) {
+
+        <span class="hljs-comment">// Support for content negotiation</span>
+        <span class="hljs-keyword">if</span> (acceptHeader.contains(<span class="hljs-string">"application/vnd.company.customer.v2+json"</span>)) {
+            <span class="hljs-keyword">return</span> getCustomerV2(id);
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (apiVersion.startsWith(<span class="hljs-string">"2."</span>)) {
+            <span class="hljs-keyword">return</span> getCustomerV2(id);
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> getCustomerV1(id);
+        }
+    }
+
+    <span class="hljs-keyword">private</span> ResponseEntity&lt;CustomerV2Dto&gt; <span class="hljs-title function_">getCustomerV2</span><span class="hljs-params">(String id)</span> {
+        <span class="hljs-comment">// Modern API implementation with full error handling</span>
+        <span class="hljs-type">CustomerV2Dto</span> <span class="hljs-variable">customer</span> <span class="hljs-operator">=</span> customerServiceV2.getCustomer(id);
+        <span class="hljs-keyword">return</span> ResponseEntity.ok()
+            .header(<span class="hljs-string">"API-Version"</span>, <span class="hljs-string">"2.0"</span>)
+            .header(<span class="hljs-string">"Content-Type"</span>, <span class="hljs-string">"application/vnd.company.customer.v2+json"</span>)
+            .body(customer);
+    }
+
+    <span class="hljs-keyword">private</span> ResponseEntity&lt;CustomerV1Dto&gt; <span class="hljs-title function_">getCustomerV1</span><span class="hljs-params">(String id)</span> {
+        <span class="hljs-comment">// Legacy API implementation for backward compatibility</span>
+        <span class="hljs-type">CustomerV1Dto</span> <span class="hljs-variable">customer</span> <span class="hljs-operator">=</span> customerServiceV1.getCustomer(id);
+        <span class="hljs-keyword">return</span> ResponseEntity.ok()
+            .header(<span class="hljs-string">"API-Version"</span>, <span class="hljs-string">"1.0"</span>)
+            .header(<span class="hljs-string">"Deprecation"</span>, <span class="hljs-string">"true"</span>)
+            .header(<span class="hljs-string">"Sunset"</span>, <span class="hljs-string">"2024-12-31"</span>)
+            .body(customer);
+    }
+}
+
+<span class="hljs-comment">// AI-suggested deprecation strategy</span>
+<span class="hljs-meta">@Component</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ApiDeprecationManager</span> {
+
+    <span class="hljs-keyword">private</span> ApiMetricsService metricsService;
+    <span class="hljs-keyword">private</span> NotificationService notificationService;
+
+    <span class="hljs-meta">@EventListener</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">handleApiRequest</span><span class="hljs-params">(ApiRequestEvent event)</span> {
+        <span class="hljs-keyword">if</span> (isDeprecatedVersion(event.getVersion())) {
+            <span class="hljs-comment">// Track usage of deprecated APIs</span>
+            metricsService.recordDeprecatedApiUsage(
+                event.getEndpoint(), 
+                event.getVersion(), 
+                event.getClientId()
+            );
+
+            <span class="hljs-comment">// Notify API consumers about deprecation</span>
+            <span class="hljs-keyword">if</span> (shouldNotifyClient(event.getClientId(), event.getVersion())) {
+                notificationService.sendDeprecationWarning(
+                    event.getClientId(),
+                    event.getVersion(),
+                    getDeprecationTimeline(event.getVersion())
+                );
+            }
+        }
+    }
+
+    <span class="hljs-meta">@Scheduled(cron = "0 0 9 * * MON")</span> <span class="hljs-comment">// Every Monday at 9 AM</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">generateDeprecationReport</span><span class="hljs-params">()</span> {
+        List&lt;ApiUsageReport&gt; reports = metricsService.getDeprecatedApiUsage();
+
+        <span class="hljs-keyword">for</span> (ApiUsageReport report : reports) {
+            <span class="hljs-keyword">if</span> (report.getUsageCount() &gt; <span class="hljs-number">0</span>) {
+                notificationService.sendWeeklyDeprecationReport(
+                    report.getClientId(),
+                    report
+                );
+            }
+        }
+    }
+}
+</code></pre>
+<h2 id="technology-stack-assessment">Technology Stack Assessment</h2>
+<p>Legacy systems often use outdated technology stacks that make development slower, security riskier, and maintenance more expensive. AI can help assess current technology choices and plan migration paths to modern alternatives.</p>
+<h3 id="framework-migration-planning">Framework Migration Planning</h3>
+<p>AI can analyze existing framework usage and suggest migration strategies that minimize risk while maximizing benefits.</p>
+<h4 id="framework-compatibility-analysis">Framework Compatibility Analysis</h4>
+<p>AI can assess the effort required to migrate between different frameworks:</p>
+<p><strong>Framework Migration Analysis Example</strong>:</p>
+<pre><code>AI Framework Migration Assessment:
+
+Current Stack: Spring Boot 1.5.x, Java 8, MySQL 5.7
+Target Stack: Spring Boot 3.x, Java 17, PostgreSQL 14
+
+Migration Complexity Analysis:
+
+CRITICAL (Breaking Changes):
+- Spring Security configuration format changed significantly
+- Javax → Jakarta namespace migration required
+- Spring Data repository query methods have new syntax
+- WebMvcConfigurer interface changes
+
+HIGH (Significant Effort):
+- Spring Boot configuration properties renamed/restructured
+- Actuator endpoints moved and secured differently  
+- Testing framework changes (JUnit 4 → JUnit 5)
+- Servlet API changes (3.1 → 5.0)
+
+MEDIUM (Moderate Effort):
+- New Spring Boot starter dependencies
+- Configuration property validation changes
+- Logging configuration updates
+- Database driver updates for PostgreSQL
+
+LOW (Minor Changes):
+- Import statement updates for Jakarta
+- Minor API method signature changes
+- Updated Maven/Gradle plugin versions
+
+Estimated Migration Effort:
+- Development time: 6-8 weeks
+- Testing time: 3-4 weeks  
+- Documentation updates: 1 week
+- Team training: 2 weeks
+
+Risk Mitigation Strategy:
+1. Create feature branch for migration
+2. Implement dual-stack testing (old vs new)
+3. Gradual rollout with canary deployments
+4. Maintain rollback capability for 30 days
+
+Recommended Migration Path:
+Phase 1: Java 8 → Java 11 (lower risk, valuable improvements)
+Phase 2: Spring Boot 1.5 → Spring Boot 2.7 (intermediate step)
+Phase 3: Javax → Jakarta migration
+Phase 4: Spring Boot 2.7 → Spring Boot 3.x
+Phase 5: Java 11 → Java 17
+Phase 6: MySQL → PostgreSQL (if desired)
+</code></pre><h4 id="automated-code-migration">Automated Code Migration</h4>
+<p>AI can help automate parts of the migration process by generating updated code:</p>
+<p><strong>AI-Assisted Migration Scripts</strong>:</p>
+<pre><code class="lang-java"><span class="hljs-comment">// Original Spring Boot 1.x configuration</span>
+<span class="hljs-meta">@Configuration</span>
+<span class="hljs-meta">@EnableWebSecurity</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SecurityConfig</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">WebSecurityConfigurerAdapter</span> {
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">configure</span><span class="hljs-params">(HttpSecurity http)</span> <span class="hljs-keyword">throws</span> Exception {
+        http
+            .authorizeRequests()
+                .antMatchers(<span class="hljs-string">"/public/**"</span>).permitAll()
+                .antMatchers(<span class="hljs-string">"/admin/**"</span>).hasRole(<span class="hljs-string">"ADMIN"</span>)
+                .anyRequest().authenticated()
+            .and()
+            .formLogin()
+                .loginPage(<span class="hljs-string">"/login"</span>)
+                .permitAll()
+            .and()
+            .logout()
+                .permitAll();
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">configure</span><span class="hljs-params">(AuthenticationManagerBuilder auth)</span> <span class="hljs-keyword">throws</span> Exception {
+        auth
+            .userDetailsService(userDetailsService)
+            .passwordEncoder(passwordEncoder());
+    }
+}
+
+<span class="hljs-comment">// AI-generated Spring Boot 3.x configuration</span>
+<span class="hljs-meta">@Configuration</span>
+<span class="hljs-meta">@EnableWebSecurity</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SecurityConfig</span> {
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> UserDetailsService userDetailsService;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> PasswordEncoder passwordEncoder;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">SecurityConfig</span><span class="hljs-params">(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder)</span> {
+        <span class="hljs-built_in">this</span>.userDetailsService = userDetailsService;
+        <span class="hljs-built_in">this</span>.passwordEncoder = passwordEncoder;
+    }
+
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-keyword">public</span> SecurityFilterChain <span class="hljs-title function_">filterChain</span><span class="hljs-params">(HttpSecurity http)</span> <span class="hljs-keyword">throws</span> Exception {
+        http
+            .authorizeHttpRequests(authz -&gt; authz
+                .requestMatchers(<span class="hljs-string">"/public/**"</span>).permitAll()
+                .requestMatchers(<span class="hljs-string">"/admin/**"</span>).hasRole(<span class="hljs-string">"ADMIN"</span>)
+                .anyRequest().authenticated()
+            )
+            .formLogin(form -&gt; form
+                .loginPage(<span class="hljs-string">"/login"</span>)
+                .permitAll()
+            )
+            .logout(logout -&gt; logout
+                .permitAll()
+            );
+
+        <span class="hljs-keyword">return</span> http.build();
+    }
+
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-keyword">public</span> AuthenticationManager <span class="hljs-title function_">authenticationManager</span><span class="hljs-params">()</span> {
+        <span class="hljs-type">DaoAuthenticationProvider</span> <span class="hljs-variable">provider</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">DaoAuthenticationProvider</span>();
+        provider.setUserDetailsService(userDetailsService);
+        provider.setPasswordEncoder(passwordEncoder);
+
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ProviderManager</span>(provider);
+    }
+}
+
+<span class="hljs-comment">// AI-generated migration utility</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SpringBootMigrationHelper</span> {
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">migrateSecurityConfiguration</span><span class="hljs-params">(String sourceFile, String targetFile)</span> {
+        <span class="hljs-comment">// AI-powered code transformation</span>
+        <span class="hljs-type">String</span> <span class="hljs-variable">sourceCode</span> <span class="hljs-operator">=</span> readFile(sourceFile);
+
+        <span class="hljs-comment">// Replace deprecated patterns</span>
+        <span class="hljs-type">String</span> <span class="hljs-variable">migratedCode</span> <span class="hljs-operator">=</span> sourceCode
+            .replaceAll(<span class="hljs-string">"extends WebSecurityConfigurerAdapter"</span>, <span class="hljs-string">""</span>)
+            .replaceAll(<span class="hljs-string">"@Override\\s+protected void configure\\(HttpSecurity http\\)"</span>, 
+                       <span class="hljs-string">"@Bean\\n    public SecurityFilterChain filterChain(HttpSecurity http)"</span>)
+            .replaceAll(<span class="hljs-string">"\\.authorizeRequests\\(\\)"</span>, 
+                       <span class="hljs-string">".authorizeHttpRequests(authz -&gt; authz"</span>)
+            .replaceAll(<span class="hljs-string">"\\.antMatchers\\("</span>, 
+                       <span class="hljs-string">".requestMatchers("</span>)
+            .replaceAll(<span class="hljs-string">"\\.and\\(\\)"</span>, <span class="hljs-string">")"</span>)
+            .replaceAll(<span class="hljs-string">"http\\.build\\(\\);"</span>, <span class="hljs-string">"return http.build();"</span>);
+
+        writeFile(targetFile, migratedCode);
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">migrateJavaxToJakarta</span><span class="hljs-params">(String projectPath)</span> {
+        <span class="hljs-comment">// Replace all javax imports with jakarta equivalents</span>
+        Map&lt;String, String&gt; replacements = Map.of(
+            <span class="hljs-string">"javax.servlet"</span>, <span class="hljs-string">"jakarta.servlet"</span>,
+            <span class="hljs-string">"javax.persistence"</span>, <span class="hljs-string">"jakarta.persistence"</span>,
+            <span class="hljs-string">"javax.validation"</span>, <span class="hljs-string">"jakarta.validation"</span>,
+            <span class="hljs-string">"javax.annotation"</span>, <span class="hljs-string">"jakarta.annotation"</span>
+        );
+
+        Files.walk(Paths.get(projectPath))
+            .filter(path -&gt; path.toString().endsWith(<span class="hljs-string">".java"</span>))
+            .forEach(path -&gt; {
+                <span class="hljs-keyword">try</span> {
+                    <span class="hljs-type">String</span> <span class="hljs-variable">content</span> <span class="hljs-operator">=</span> Files.readString(path);
+                    <span class="hljs-type">String</span> <span class="hljs-variable">updatedContent</span> <span class="hljs-operator">=</span> content;
+
+                    <span class="hljs-keyword">for</span> (Map.Entry&lt;String, String&gt; replacement : replacements.entrySet()) {
+                        updatedContent = updatedContent.replace(replacement.getKey(), replacement.getValue());
+                    }
+
+                    <span class="hljs-keyword">if</span> (!content.equals(updatedContent)) {
+                        Files.writeString(path, updatedContent);
+                        System.out.println(<span class="hljs-string">"Updated: "</span> + path);
+                    }
+                } <span class="hljs-keyword">catch</span> (IOException e) {
+                    System.err.println(<span class="hljs-string">"Failed to update: "</span> + path + <span class="hljs-string">" - "</span> + e.getMessage());
+                }
+            });
+    }
+}
+</code></pre>
+<h3 id="language-and-platform-modernization">Language and Platform Modernization</h3>
+<p>Legacy systems may be written in older versions of programming languages or run on outdated platforms. AI can help assess the benefits and risks of language modernization.</p>
+<h4 id="language-version-upgrade-analysis">Language Version Upgrade Analysis</h4>
+<p>AI can analyze codebases to identify which modern language features would provide the most benefit:</p>
+<p><strong>Java Version Upgrade Analysis</strong>:</p>
+<pre><code>AI Language Modernization Assessment:
+
+Current: Java 8
+Target: Java 17 (LTS)
+
+Feature Adoption Opportunities:
+
+HIGH IMPACT:
+1. Records (Java 14+)
+   - Found 47 data classes that could become records
+   - Reduces boilerplate by ~60% for DTOs
+   - Example: Customer, Order, Product data classes
+
+2. Switch Expressions (Java 14+)
+   - Found 23 traditional switch statements that could be modernized
+   - Improves readability and reduces bugs
+   - Example: Status mapping, type conversions
+
+3. Text Blocks (Java 15+)
+   - Found 15 multi-line string concatenations
+   - Improves SQL query and JSON template readability
+   - Reduces string escaping errors
+
+4. Pattern Matching for instanceof (Java 16+)
+   - Found 31 instanceof checks with manual casting
+   - Reduces code verbosity and potential ClassCastExceptions
+
+MEDIUM IMPACT:
+1. var keyword (Java 10+)
+   - Could reduce verbosity in 156 variable declarations
+   - Improves readability for complex generic types
+
+2. Optional improvements (Java 9-11)
+   - or(), ifPresentOrElse(), stream() methods available
+   - Found 23 places where new Optional methods could simplify code
+
+3. Collection factory methods (Java 9+)
+   - List.of(), Set.of(), Map.of() instead of builders
+   - Found 67 collection initializations that could be simplified
+
+LOW IMPACT:
+1. HTTP Client (Java 11+)
+   - Could replace Apache HttpClient in 5 locations
+   - Native solution, but migration effort may not be worth it
+
+2. Sealed Classes (Java 17+)
+   - Found 3 enum-like inheritance hierarchies
+   - Could improve type safety but requires design changes
+
+Migration Code Examples:
+
+// Before (Java 8)
+public class Customer {
+    private final String id;
+    private final String name;
+    private final String email;
+
+    public Customer(String id, String name, String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
+
+    public String getId() { return id; }
+    public String getName() { return name; }
+    public String getEmail() { return email; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return Objects.equals(id, customer.id) &amp;&amp;
+               Objects.equals(name, customer.name) &amp;&amp;
+               Objects.equals(email, customer.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, email);
+    }
+}
+
+// After (Java 17 with Records)
+public record Customer(String id, String name, String email) {
+    public Customer {
+        // Validation can be added in compact constructor
+        Objects.requireNonNull(id, "ID cannot be null");
+        Objects.requireNonNull(name, "Name cannot be null");
+        Objects.requireNonNull(email, "Email cannot be null");
+    }
+}
+
+// Before (Java 8 - Switch statement)
+public String getStatusMessage(OrderStatus status) {
+    switch (status) {
+        case PENDING:
+            return "Order is pending";
+        case PROCESSING:
+            return "Order is being processed";
+        case SHIPPED:
+            return "Order has been shipped";
+        case DELIVERED:
+            return "Order has been delivered";
+        case CANCELLED:
+            return "Order was cancelled";
+        default:
+            return "Unknown status";
+    }
+}
+
+// After (Java 17 - Switch expression)
+public String getStatusMessage(OrderStatus status) {
+    return switch (status) {
+        case PENDING -&gt; "Order is pending";
+        case PROCESSING -&gt; "Order is being processed";
+        case SHIPPED -&gt; "Order has been shipped";
+        case DELIVERED -&gt; "Order has been delivered";
+        case CANCELLED -&gt; "Order was cancelled";
+    };
+}
+
+// Before (Java 8 - Text concatenation)
+public String buildQuery(String customerId, String productId) {
+    return "SELECT o.id, o.total, o.created_date " +
+           "FROM orders o " +
+           "JOIN order_items oi ON o.id = oi.order_id " +
+           "WHERE o.customer_id = '" + customerId + "' " +
+           "AND oi.product_id = '" + productId + "' " +
+           "ORDER BY o.created_date DESC";
+}
+
+// After (Java 17 - Text blocks)
+public String buildQuery(String customerId, String productId) {
+    return """
+        SELECT o.id, o.total, o.created_date
+        FROM orders o
+        JOIN order_items oi ON o.id = oi.order_id
+        WHERE o.customer_id = '%s'
+        AND oi.product_id = '%s'
+        ORDER BY o.created_date DESC
+        """.formatted(customerId, productId);
+}
+
+Estimated Benefits:
+- Code reduction: ~15-20%
+- Improved readability: High
+- Reduced bugs: Medium (fewer manual implementations)
+- Developer productivity: +25%
+- Maintenance effort: -30%
+
+Migration Risks:
+- Learning curve: 2-3 weeks for team
+- Testing effort: High (need to verify behavior unchanged)
+- Tooling compatibility: Check IDE, build tools, static analysis
+</code></pre><h4 id="platform-migration-assessment">Platform Migration Assessment</h4>
+<p>AI can evaluate the benefits and challenges of migrating to different platforms:</p>
+<p><strong>Platform Migration Analysis</strong>:</p>
+<pre><code>Platform Migration Assessment:
+
+Current: Traditional JVM deployment on VMs
+Target Options: Container-based deployment
+
+Option 1: Docker + Kubernetes
+Benefits:
+- Resource efficiency: ~40% cost reduction
+- Deployment consistency: Eliminates "works on my machine"
+- Scalability: Auto-scaling based on demand
+- Development productivity: Local development mirrors production
+
+Challenges:
+- Container learning curve: 3-4 weeks for team
+- Kubernetes complexity: Requires DevOps expertise
+- Monitoring changes: Need container-aware monitoring
+- Persistent data handling: Database deployment strategy
+
+Migration Effort: 8-12 weeks
+
+Option 2: Serverless (AWS Lambda, Azure Functions)
+Benefits:
+- No infrastructure management
+- Pay-per-execution pricing
+- Automatic scaling to zero
+- Built-in high availability
+
+Challenges:
+- Cold start latency: 100-500ms delay
+- Execution time limits: 15 minutes max
+- Stateless requirement: Significant architecture changes
+- Vendor lock-in: Platform-specific APIs
+
+Migration Effort: 16-20 weeks (requires major refactoring)
+
+Option 3: Cloud-Native PaaS (Heroku, Cloud Foundry)
+Benefits:
+- Minimal infrastructure complexity
+- Fast deployment and scaling
+- Built-in monitoring and logging
+- Database and service integrations
+
+Challenges:
+- Higher per-unit cost than containers
+- Less configuration flexibility
+- Potential vendor lock-in
+- Limited customization options
+
+Migration Effort: 4-6 weeks
+
+Recommendation: Docker + Kubernetes
+- Best balance of benefits vs. complexity
+- Industry standard with broad ecosystem
+- Preserves application architecture
+- Skills transferable across cloud providers
+</code></pre><h3 id="performance-impact-analysis">Performance Impact Analysis</h3>
+<p>When modernizing technology stacks, it's crucial to understand the performance implications. AI can help predict and measure performance changes.</p>
+<h4 id="benchmarking-and-performance-prediction">Benchmarking and Performance Prediction</h4>
+<p>AI can analyze application patterns and predict performance impacts of technology changes:</p>
+<p><strong>Performance Impact Analysis Example</strong>:</p>
+<pre><code class="lang-java"><span class="hljs-comment">// AI-generated performance comparison framework</span>
+<span class="hljs-meta">@Component</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">PerformanceMigrationAnalyzer</span> {
+
+    <span class="hljs-keyword">private</span> MicrometerRegistry meterRegistry;
+    <span class="hljs-keyword">private</span> PerformanceTestExecutor testExecutor;
+
+    <span class="hljs-keyword">public</span> MigrationPerformanceReport <span class="hljs-title function_">analyzeFrameworkMigration</span><span class="hljs-params">(
+            String legacyVersion, String targetVersion)</span> {
+
+        <span class="hljs-comment">// AI-suggested performance test scenarios</span>
+        List&lt;PerformanceTestScenario&gt; scenarios = List.of(
+            <span class="hljs-keyword">new</span> <span class="hljs-title class_">PerformanceTestScenario</span>(<span class="hljs-string">"startup-time"</span>, <span class="hljs-built_in">this</span>::measureStartupTime),
+            <span class="hljs-keyword">new</span> <span class="hljs-title class_">PerformanceTestScenario</span>(<span class="hljs-string">"memory-usage"</span>, <span class="hljs-built_in">this</span>::measureMemoryUsage),
+            <span class="hljs-keyword">new</span> <span class="hljs-title class_">PerformanceTestScenario</span>(<span class="hljs-string">"request-throughput"</span>, <span class="hljs-built_in">this</span>::measureRequestThroughput),
+            <span class="hljs-keyword">new</span> <span class="hljs-title class_">PerformanceTestScenario</span>(<span class="hljs-string">"database-performance"</span>, <span class="hljs-built_in">this</span>::measureDatabasePerformance),
+            <span class="hljs-keyword">new</span> <span class="hljs-title class_">PerformanceTestScenario</span>(<span class="hljs-string">"gc-performance"</span>, <span class="hljs-built_in">this</span>::measureGarbageCollection)
+        );
+
+        <span class="hljs-type">MigrationPerformanceReport</span> <span class="hljs-variable">report</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MigrationPerformanceReport</span>();
+
+        <span class="hljs-keyword">for</span> (PerformanceTestScenario scenario : scenarios) {
+            <span class="hljs-type">PerformanceMetrics</span> <span class="hljs-variable">legacyMetrics</span> <span class="hljs-operator">=</span> testExecutor.execute(scenario, legacyVersion);
+            <span class="hljs-type">PerformanceMetrics</span> <span class="hljs-variable">targetMetrics</span> <span class="hljs-operator">=</span> testExecutor.execute(scenario, targetVersion);
+
+            <span class="hljs-type">PerformanceComparison</span> <span class="hljs-variable">comparison</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">PerformanceComparison</span>(
+                scenario.getName(),
+                legacyMetrics,
+                targetMetrics,
+                calculateImprovement(legacyMetrics, targetMetrics)
+            );
+
+            report.addComparison(comparison);
+        }
+
+        <span class="hljs-keyword">return</span> report;
+    }
+
+    <span class="hljs-keyword">private</span> PerformanceMetrics <span class="hljs-title function_">measureStartupTime</span><span class="hljs-params">()</span> {
+        Timer.<span class="hljs-type">Sample</span> <span class="hljs-variable">sample</span> <span class="hljs-operator">=</span> Timer.start(meterRegistry);
+
+        <span class="hljs-comment">// Simulate application startup</span>
+        <span class="hljs-type">long</span> <span class="hljs-variable">startTime</span> <span class="hljs-operator">=</span> System.currentTimeMillis();
+        <span class="hljs-comment">// ... startup simulation logic</span>
+        <span class="hljs-type">long</span> <span class="hljs-variable">endTime</span> <span class="hljs-operator">=</span> System.currentTimeMillis();
+
+        sample.stop(Timer.builder(<span class="hljs-string">"app.startup.time"</span>).register(meterRegistry));
+
+        <span class="hljs-keyword">return</span> PerformanceMetrics.builder()
+            .startupTimeMs(endTime - startTime)
+            .build();
+    }
+
+    <span class="hljs-keyword">private</span> PerformanceMetrics <span class="hljs-title function_">measureMemoryUsage</span><span class="hljs-params">()</span> {
+        System.gc(); <span class="hljs-comment">// Force garbage collection for accurate measurement</span>
+
+        <span class="hljs-type">MemoryMXBean</span> <span class="hljs-variable">memoryBean</span> <span class="hljs-operator">=</span> ManagementFactory.getMemoryMXBean();
+        <span class="hljs-type">MemoryUsage</span> <span class="hljs-variable">heapUsage</span> <span class="hljs-operator">=</span> memoryBean.getHeapMemoryUsage();
+        <span class="hljs-type">MemoryUsage</span> <span class="hljs-variable">nonHeapUsage</span> <span class="hljs-operator">=</span> memoryBean.getNonHeapMemoryUsage();
+
+        <span class="hljs-keyword">return</span> PerformanceMetrics.builder()
+            .heapMemoryUsedMB(heapUsage.getUsed() / <span class="hljs-number">1024</span> / <span class="hljs-number">1024</span>)
+            .heapMemoryMaxMB(heapUsage.getMax() / <span class="hljs-number">1024</span> / <span class="hljs-number">1024</span>)
+            .nonHeapMemoryUsedMB(nonHeapUsage.getUsed() / <span class="hljs-number">1024</span> / <span class="hljs-number">1024</span>)
+            .build();
+    }
+
+    <span class="hljs-keyword">private</span> PerformanceMetrics <span class="hljs-title function_">measureRequestThroughput</span><span class="hljs-params">()</span> {
+        <span class="hljs-comment">// AI-suggested load testing pattern</span>
+        <span class="hljs-type">LoadTestConfig</span> <span class="hljs-variable">config</span> <span class="hljs-operator">=</span> LoadTestConfig.builder()
+            .concurrentUsers(<span class="hljs-number">100</span>)
+            .durationMinutes(<span class="hljs-number">5</span>)
+            .rampUpTimeSeconds(<span class="hljs-number">30</span>)
+            .endpoints(List.of(<span class="hljs-string">"/api/customers"</span>, <span class="hljs-string">"/api/orders"</span>, <span class="hljs-string">"/api/products"</span>))
+            .build();
+
+        <span class="hljs-type">LoadTestResult</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> testExecutor.executeLoadTest(config);
+
+        <span class="hljs-keyword">return</span> PerformanceMetrics.builder()
+            .requestsPerSecond(result.getRequestsPerSecond())
+            .averageResponseTimeMs(result.getAverageResponseTime())
+            .p95ResponseTimeMs(result.getP95ResponseTime())
+            .p99ResponseTimeMs(result.getP99ResponseTime())
+            .errorRate(result.getErrorRate())
+            .build();
+    }
+}
+
+<span class="hljs-comment">// AI-suggested performance regression testing</span>
+<span class="hljs-meta">@Component</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">PerformanceRegressionDetector</span> {
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">double</span> <span class="hljs-variable">PERFORMANCE_THRESHOLD</span> <span class="hljs-operator">=</span> <span class="hljs-number">0.05</span>; <span class="hljs-comment">// 5% degradation threshold</span>
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">detectPerformanceRegressions</span><span class="hljs-params">(
+            PerformanceMetrics baseline, 
+            PerformanceMetrics current)</span> {
+
+        List&lt;PerformanceRegression&gt; regressions = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+
+        <span class="hljs-comment">// Check startup time regression</span>
+        <span class="hljs-keyword">if</span> (hasRegression(baseline.getStartupTimeMs(), current.getStartupTimeMs())) {
+            regressions.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">PerformanceRegression</span>(
+                <span class="hljs-string">"STARTUP_TIME_REGRESSION"</span>,
+                baseline.getStartupTimeMs(),
+                current.getStartupTimeMs(),
+                calculateRegressionPercentage(baseline.getStartupTimeMs(), current.getStartupTimeMs())
+            ));
+        }
+
+        <span class="hljs-comment">// Check memory usage regression</span>
+        <span class="hljs-keyword">if</span> (hasRegression(baseline.getHeapMemoryUsedMB(), current.getHeapMemoryUsedMB())) {
+            regressions.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">PerformanceRegression</span>(
+                <span class="hljs-string">"MEMORY_USAGE_REGRESSION"</span>,
+                baseline.getHeapMemoryUsedMB(),
+                current.getHeapMemoryUsedMB(),
+                calculateRegressionPercentage(baseline.getHeapMemoryUsedMB(), current.getHeapMemoryUsedMB())
+            ));
+        }
+
+        <span class="hljs-comment">// Check throughput regression (lower is worse)</span>
+        <span class="hljs-keyword">if</span> (hasRegression(current.getRequestsPerSecond(), baseline.getRequestsPerSecond())) {
+            regressions.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">PerformanceRegression</span>(
+                <span class="hljs-string">"THROUGHPUT_REGRESSION"</span>,
+                baseline.getRequestsPerSecond(),
+                current.getRequestsPerSecond(),
+                calculateRegressionPercentage(current.getRequestsPerSecond(), baseline.getRequestsPerSecond())
+            ));
+        }
+
+        <span class="hljs-keyword">if</span> (!regressions.isEmpty()) {
+            alertingService.sendPerformanceRegressionAlert(regressions);
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">PerformanceRegressionException</span>(<span class="hljs-string">"Performance regressions detected"</span>, regressions);
+        }
+    }
+
+    <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">hasRegression</span><span class="hljs-params">(<span class="hljs-type">double</span> baseline, <span class="hljs-type">double</span> current)</span> {
+        <span class="hljs-keyword">return</span> (current - baseline) / baseline &gt; PERFORMANCE_THRESHOLD;
+    }
+}
+</code></pre>
+<h2 id="cloud-native-transformation">Cloud-Native Transformation</h2>
+<p>Moving legacy applications to cloud-native architectures represents one of the most significant transformations organizations undertake. AI can help plan and execute this transformation systematically.</p>
+<h3 id="containerization-strategies">Containerization Strategies</h3>
+<p>The first step in cloud-native transformation is usually containerization. AI can help analyze applications and suggest optimal containerization approaches.</p>
+<h4 id="application-analysis-for-containerization">Application Analysis for Containerization</h4>
+<p>AI can analyze applications to identify containerization opportunities and challenges:</p>
+<p><strong>AI Containerization Assessment</strong>:</p>
+<pre><code class="lang-dockerfile"><span class="hljs-comment"># AI-generated Dockerfile based on application analysis</span>
+<span class="hljs-keyword">FROM</span> openjdk:<span class="hljs-number">17</span>-jre-slim as base
+
+<span class="hljs-comment"># AI identified these as required system packages</span>
+<span class="hljs-keyword">RUN</span><span class="language-bash"> apt-get update &amp;&amp; apt-get install -y \
+    curl \
+    jq \
+    &amp;&amp; <span class="hljs-built_in">rm</span> -rf /var/lib/apt/lists/*</span>
+
+<span class="hljs-comment"># Create non-root user for security</span>
+<span class="hljs-keyword">RUN</span><span class="language-bash"> addgroup --system appgroup &amp;&amp; adduser --system --group appuser</span>
+
+<span class="hljs-comment"># AI-suggested volume mounts based on file system analysis</span>
+<span class="hljs-keyword">VOLUME</span><span class="language-bash"> [<span class="hljs-string">"/app/logs"</span>, <span class="hljs-string">"/app/config"</span>, <span class="hljs-string">"/app/uploads"</span>]</span>
+
+<span class="hljs-comment"># Multi-stage build for optimization</span>
+<span class="hljs-keyword">FROM</span> base as dependencies
+<span class="hljs-keyword">COPY</span><span class="language-bash"> pom.xml .</span>
+<span class="hljs-keyword">COPY</span><span class="language-bash"> src/main/resources/application.yml ./src/main/resources/</span>
+<span class="hljs-keyword">RUN</span><span class="language-bash"> mvn dependency:go-offline -B</span>
+
+<span class="hljs-keyword">FROM</span> dependencies as build
+<span class="hljs-keyword">COPY</span><span class="language-bash"> src ./src</span>
+<span class="hljs-keyword">RUN</span><span class="language-bash"> mvn clean package -DskipTests</span>
+
+<span class="hljs-keyword">FROM</span> base as runtime
+
+<span class="hljs-comment"># AI identified these environment variables from code analysis</span>
+<span class="hljs-keyword">ENV</span> JAVA_OPTS=<span class="hljs-string">"-XX:+UseG1GC -XX:MaxRAMPercentage=75"</span> \
+    DATABASE_URL=<span class="hljs-string">""</span> \
+    REDIS_URL=<span class="hljs-string">""</span> \
+    LOG_LEVEL=<span class="hljs-string">"INFO"</span> \
+    PROFILE=<span class="hljs-string">"production"</span>
+
+<span class="hljs-comment"># Copy application</span>
+<span class="hljs-keyword">COPY</span><span class="language-bash"> --from=build target/app.jar app.jar</span>
+<span class="hljs-keyword">COPY</span><span class="language-bash"> docker-entrypoint.sh .</span>
+<span class="hljs-keyword">RUN</span><span class="language-bash"> <span class="hljs-built_in">chmod</span> +x docker-entrypoint.sh</span>
+
+<span class="hljs-comment"># Switch to non-root user</span>
+<span class="hljs-keyword">USER</span> appuser
+
+<span class="hljs-comment"># AI-suggested health check based on existing endpoints</span>
+<span class="hljs-keyword">HEALTHCHECK</span><span class="language-bash"> --interval=30s --<span class="hljs-built_in">timeout</span>=3s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost:8080/actuator/health || <span class="hljs-built_in">exit</span> 1</span>
+
+<span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">8080</span>
+
+<span class="hljs-keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="hljs-string">"./docker-entrypoint.sh"</span>]</span>
+<span class="hljs-keyword">CMD</span><span class="language-bash"> [<span class="hljs-string">"java"</span>, <span class="hljs-string">"-jar"</span>, <span class="hljs-string">"app.jar"</span>]</span>
+
+<span class="hljs-comment"># AI-generated entrypoint script</span>
+<span class="hljs-comment">#!/bin/bash</span>
+set -e
+
+<span class="hljs-comment"># Wait for dependencies (AI identified database dependency)</span>
+until curl -f <span class="hljs-string">"${DATABASE_URL}/health"</span> &gt; /dev/null <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span>; do
+    echo <span class="hljs-string">"Waiting for database..."</span>
+    sleep <span class="hljs-number">2</span>
+done
+
+<span class="hljs-comment"># Start application with dynamic configuration</span>
+exec java ${JAVA_OPTS} \
+    -Dspring.profiles.active=${PROFILE} \
+    -Dlogging.level.root=${LOG_LEVEL} \
+    -jar app.jar <span class="hljs-string">"$@"</span>
+</code></pre>
+<h4 id="container-optimization">Container Optimization</h4>
+<p>AI can suggest optimizations for container size, security, and performance:</p>
+<p><strong>AI Container Optimization Analysis</strong>:</p>
+<pre><code class="lang-yaml"><span class="hljs-comment"># AI-suggested docker-compose for development</span>
+<span class="hljs-attr">version:</span> <span class="hljs-string">'3.8'</span>
+
+<span class="hljs-attr">services:</span>
+  <span class="hljs-attr">app:</span>
+    <span class="hljs-attr">build:</span>
+      <span class="hljs-attr">context:</span> <span class="hljs-string">.</span>
+      <span class="hljs-attr">dockerfile:</span> <span class="hljs-string">Dockerfile</span>
+      <span class="hljs-attr">target:</span> <span class="hljs-string">runtime</span>
+    <span class="hljs-attr">ports:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"8080:8080"</span>
+    <span class="hljs-attr">environment:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">DATABASE_URL=jdbc:postgresql://db:5432/appdb</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">REDIS_URL=redis://redis:6379</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">PROFILE=development</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">LOG_LEVEL=DEBUG</span>
+    <span class="hljs-attr">depends_on:</span>
+      <span class="hljs-attr">db:</span>
+        <span class="hljs-attr">condition:</span> <span class="hljs-string">service_healthy</span>
+      <span class="hljs-attr">redis:</span>
+        <span class="hljs-attr">condition:</span> <span class="hljs-string">service_started</span>
+    <span class="hljs-attr">volumes:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">./logs:/app/logs</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">./config:/app/config</span>
+    <span class="hljs-attr">networks:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">app-network</span>
+    <span class="hljs-attr">restart:</span> <span class="hljs-string">unless-stopped</span>
+
+    <span class="hljs-comment"># AI-suggested resource limits based on profiling</span>
+    <span class="hljs-attr">deploy:</span>
+      <span class="hljs-attr">resources:</span>
+        <span class="hljs-attr">limits:</span>
+          <span class="hljs-attr">memory:</span> <span class="hljs-string">1G</span>
+          <span class="hljs-attr">cpus:</span> <span class="hljs-string">'0.5'</span>
+        <span class="hljs-attr">reservations:</span>
+          <span class="hljs-attr">memory:</span> <span class="hljs-string">512M</span>
+          <span class="hljs-attr">cpus:</span> <span class="hljs-string">'0.25'</span>
+
+  <span class="hljs-attr">db:</span>
+    <span class="hljs-attr">image:</span> <span class="hljs-string">postgres:14-alpine</span>
+    <span class="hljs-attr">environment:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">POSTGRES_DB=appdb</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">POSTGRES_USER=appuser</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">POSTGRES_PASSWORD=apppass</span>
+    <span class="hljs-attr">volumes:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">postgres_data:/var/lib/postgresql/data</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">./db/init:/docker-entrypoint-initdb.d</span>
+    <span class="hljs-attr">networks:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">app-network</span>
+    <span class="hljs-attr">healthcheck:</span>
+      <span class="hljs-attr">test:</span> [<span class="hljs-string">"CMD-SHELL"</span>, <span class="hljs-string">"pg_isready -U appuser -d appdb"</span>]
+      <span class="hljs-attr">interval:</span> <span class="hljs-string">10s</span>
+      <span class="hljs-attr">timeout:</span> <span class="hljs-string">5s</span>
+      <span class="hljs-attr">retries:</span> <span class="hljs-number">5</span>
+
+  <span class="hljs-attr">redis:</span>
+    <span class="hljs-attr">image:</span> <span class="hljs-string">redis:7-alpine</span>
+    <span class="hljs-attr">command:</span> <span class="hljs-string">redis-server</span> <span class="hljs-string">--appendonly</span> <span class="hljs-literal">yes</span>
+    <span class="hljs-attr">volumes:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">redis_data:/data</span>
+    <span class="hljs-attr">networks:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">app-network</span>
+
+<span class="hljs-attr">volumes:</span>
+  <span class="hljs-attr">postgres_data:</span>
+  <span class="hljs-attr">redis_data:</span>
+
+<span class="hljs-attr">networks:</span>
+  <span class="hljs-attr">app-network:</span>
+    <span class="hljs-attr">driver:</span> <span class="hljs-string">bridge</span>
+
+<span class="hljs-comment"># AI-suggested .dockerignore</span>
+<span class="hljs-string">.git</span>
+<span class="hljs-string">.gitignore</span>
+<span class="hljs-string">README.md</span>
+<span class="hljs-string">Dockerfile</span>
+<span class="hljs-string">docker-compose.yml</span>
+<span class="hljs-string">target/</span>
+<span class="hljs-type">!target/app.jar</span>
+<span class="hljs-string">src/test/</span>
+<span class="hljs-string">.mvn/</span>
+<span class="hljs-string">mvnw</span>
+<span class="hljs-string">mvnw.cmd</span>
+<span class="hljs-string">*.md</span>
+</code></pre>
+<h3 id="microservices-architecture-planning">Microservices Architecture Planning</h3>
+<p>AI can help design microservices architectures that align with business capabilities and technical constraints.</p>
+<h4 id="service-decomposition-strategy">Service Decomposition Strategy</h4>
+<p>Building on the domain boundary identification from earlier, AI can create detailed microservices architecture plans:</p>
+<p><strong>AI Microservices Architecture Design</strong>:</p>
+<pre><code class="lang-yaml"><span class="hljs-comment"># AI-generated microservices architecture specification</span>
+<span class="hljs-attr">apiVersion:</span> <span class="hljs-string">v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">ConfigMap</span>
+<span class="hljs-attr">metadata:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">microservices-architecture</span>
+<span class="hljs-attr">data:</span>
+  <span class="hljs-attr">architecture.yaml:</span> <span class="hljs-string">|
+    services:
+      customer-service:
+        domain: Customer Management
+        responsibilities:
+          - Customer registration and authentication
+          - Profile management
+          - Customer preferences
+          - Loyalty program management
+</span>
+        <span class="hljs-attr">apis:</span>
+          <span class="hljs-attr">rest:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">GET</span> <span class="hljs-string">/customers/{id}</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">POST</span> <span class="hljs-string">/customers</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">PUT</span> <span class="hljs-string">/customers/{id}</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">DELETE</span> <span class="hljs-string">/customers/{id}</span>
+          <span class="hljs-attr">events:</span>
+            <span class="hljs-attr">publishes:</span>
+              <span class="hljs-bullet">-</span> <span class="hljs-string">CustomerRegistered</span>
+              <span class="hljs-bullet">-</span> <span class="hljs-string">CustomerUpdated</span>
+              <span class="hljs-bullet">-</span> <span class="hljs-string">CustomerDeactivated</span>
+            <span class="hljs-attr">subscribes:</span>
+              <span class="hljs-bullet">-</span> <span class="hljs-string">OrderCompleted</span>
+
+        <span class="hljs-attr">data_stores:</span>
+          <span class="hljs-attr">primary:</span> <span class="hljs-string">PostgreSQL</span>
+          <span class="hljs-attr">cache:</span> <span class="hljs-string">Redis</span>
+          <span class="hljs-attr">search:</span> <span class="hljs-string">Elasticsearch</span>
+
+        <span class="hljs-attr">dependencies:</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">notification-service</span> <span class="hljs-string">(async)</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">audit-service</span> <span class="hljs-string">(async)</span>
+
+        <span class="hljs-attr">sla:</span>
+          <span class="hljs-attr">availability:</span> <span class="hljs-number">99.9</span><span class="hljs-string">%</span>
+          <span class="hljs-attr">response_time_p95:</span> <span class="hljs-string">200ms</span>
+          <span class="hljs-attr">throughput:</span> <span class="hljs-number">1000 </span><span class="hljs-string">req/sec</span>
+
+        <span class="hljs-attr">team:</span> <span class="hljs-string">Customer</span> <span class="hljs-string">Experience</span> <span class="hljs-string">Team</span>
+
+      <span class="hljs-attr">order-service:</span>
+        <span class="hljs-attr">domain:</span> <span class="hljs-string">Order</span> <span class="hljs-string">Management</span>
+        <span class="hljs-attr">responsibilities:</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">Order</span> <span class="hljs-string">creation</span> <span class="hljs-string">and</span> <span class="hljs-string">modification</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">Order</span> <span class="hljs-string">workflow</span> <span class="hljs-string">management</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">Order</span> <span class="hljs-string">history</span> <span class="hljs-string">and</span> <span class="hljs-string">reporting</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">Return</span> <span class="hljs-string">processing</span>
+
+        <span class="hljs-attr">apis:</span>
+          <span class="hljs-attr">rest:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">GET</span> <span class="hljs-string">/orders/{id}</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">POST</span> <span class="hljs-string">/orders</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">PUT</span> <span class="hljs-string">/orders/{id}/status</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">GET</span> <span class="hljs-string">/orders/customer/{customerId}</span>
+          <span class="hljs-attr">events:</span>
+            <span class="hljs-attr">publishes:</span>
+              <span class="hljs-bullet">-</span> <span class="hljs-string">OrderCreated</span>
+              <span class="hljs-bullet">-</span> <span class="hljs-string">OrderStatusChanged</span>
+              <span class="hljs-bullet">-</span> <span class="hljs-string">OrderCancelled</span>
+            <span class="hljs-attr">subscribes:</span>
+              <span class="hljs-bullet">-</span> <span class="hljs-string">PaymentProcessed</span>
+              <span class="hljs-bullet">-</span> <span class="hljs-string">InventoryReserved</span>
+              <span class="hljs-bullet">-</span> <span class="hljs-string">CustomerUpdated</span>
+
+        <span class="hljs-attr">data_stores:</span>
+          <span class="hljs-attr">primary:</span> <span class="hljs-string">PostgreSQL</span>
+          <span class="hljs-attr">events:</span> <span class="hljs-string">Event</span> <span class="hljs-string">Store</span>
+          <span class="hljs-attr">cache:</span> <span class="hljs-string">Redis</span>
+
+        <span class="hljs-attr">dependencies:</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">customer-service</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">product-service</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">payment-service</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">inventory-service</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">notification-service</span>
+
+        <span class="hljs-attr">sla:</span>
+          <span class="hljs-attr">availability:</span> <span class="hljs-number">99.95</span><span class="hljs-string">%</span>
+          <span class="hljs-attr">response_time_p95:</span> <span class="hljs-string">300ms</span>
+          <span class="hljs-attr">throughput:</span> <span class="hljs-number">500</span> <span class="hljs-string">req/sec</span>
+
+        <span class="hljs-attr">team:</span> <span class="hljs-string">Order</span> <span class="hljs-string">Management</span> <span class="hljs-string">Team</span>
+
+      <span class="hljs-attr">payment-service:</span>
+        <span class="hljs-attr">domain:</span> <span class="hljs-string">Payment</span> <span class="hljs-string">Processing</span>
+        <span class="hljs-attr">responsibilities:</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">Payment</span> <span class="hljs-string">processing</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">Payment</span> <span class="hljs-string">method</span> <span class="hljs-string">management</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">Refund</span> <span class="hljs-string">processing</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">Payment</span> <span class="hljs-string">fraud</span> <span class="hljs-string">detection</span>
+
+        <span class="hljs-attr">security_requirements:</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">PCI</span> <span class="hljs-string">DSS</span> <span class="hljs-string">compliance</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">Data</span> <span class="hljs-string">encryption</span> <span class="hljs-string">at</span> <span class="hljs-string">rest</span> <span class="hljs-string">and</span> <span class="hljs-string">in</span> <span class="hljs-string">transit</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">Audit</span> <span class="hljs-string">logging</span> <span class="hljs-string">for</span> <span class="hljs-string">all</span> <span class="hljs-string">transactions</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">Multi-factor</span> <span class="hljs-string">authentication</span> <span class="hljs-string">for</span> <span class="hljs-string">admin</span> <span class="hljs-string">access</span>
+
+        <span class="hljs-attr">apis:</span>
+          <span class="hljs-attr">rest:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">POST</span> <span class="hljs-string">/payments</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">GET</span> <span class="hljs-string">/payments/{id}</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">POST</span> <span class="hljs-string">/refunds</span>
+          <span class="hljs-attr">events:</span>
+            <span class="hljs-attr">publishes:</span>
+              <span class="hljs-bullet">-</span> <span class="hljs-string">PaymentProcessed</span>
+              <span class="hljs-bullet">-</span> <span class="hljs-string">PaymentFailed</span>
+              <span class="hljs-bullet">-</span> <span class="hljs-string">RefundProcessed</span>
+
+        <span class="hljs-attr">data_stores:</span>
+          <span class="hljs-attr">primary:</span> <span class="hljs-string">PostgreSQL</span> <span class="hljs-string">(encrypted)</span>
+          <span class="hljs-attr">audit:</span> <span class="hljs-string">Audit</span> <span class="hljs-string">Log</span> <span class="hljs-string">Service</span>
+
+        <span class="hljs-attr">external_dependencies:</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">Stripe</span> <span class="hljs-string">API</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">PayPal</span> <span class="hljs-string">API</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">Fraud</span> <span class="hljs-string">Detection</span> <span class="hljs-string">Service</span>
+
+        <span class="hljs-attr">sla:</span>
+          <span class="hljs-attr">availability:</span> <span class="hljs-number">99.99</span><span class="hljs-string">%</span>
+          <span class="hljs-attr">response_time_p95:</span> <span class="hljs-string">500ms</span>
+          <span class="hljs-attr">throughput:</span> <span class="hljs-number">200</span> <span class="hljs-string">req/sec</span>
+
+        <span class="hljs-attr">team:</span> <span class="hljs-string">Payments</span> <span class="hljs-string">Team</span>
+
+    <span class="hljs-attr">cross_cutting_concerns:</span>
+      <span class="hljs-attr">api_gateway:</span>
+        <span class="hljs-attr">purpose:</span> <span class="hljs-string">Request</span> <span class="hljs-string">routing,</span> <span class="hljs-string">authentication,</span> <span class="hljs-string">rate</span> <span class="hljs-string">limiting</span>
+        <span class="hljs-attr">technology:</span> <span class="hljs-string">Kong</span> <span class="hljs-string">or</span> <span class="hljs-string">AWS</span> <span class="hljs-string">API</span> <span class="hljs-string">Gateway</span>
+
+      <span class="hljs-attr">service_mesh:</span>
+        <span class="hljs-attr">purpose:</span> <span class="hljs-string">Service-to-service</span> <span class="hljs-string">communication,</span> <span class="hljs-string">observability</span>
+        <span class="hljs-attr">technology:</span> <span class="hljs-string">Istio</span>
+
+      <span class="hljs-attr">event_bus:</span>
+        <span class="hljs-attr">purpose:</span> <span class="hljs-string">Asynchronous</span> <span class="hljs-string">communication</span>
+        <span class="hljs-attr">technology:</span> <span class="hljs-string">Apache</span> <span class="hljs-string">Kafka</span>
+
+      <span class="hljs-attr">monitoring:</span>
+        <span class="hljs-attr">purpose:</span> <span class="hljs-string">Observability</span> <span class="hljs-string">and</span> <span class="hljs-string">alerting</span>
+        <span class="hljs-attr">technology:</span> <span class="hljs-string">Prometheus</span> <span class="hljs-string">+</span> <span class="hljs-string">Grafana</span>
+
+      <span class="hljs-attr">logging:</span>
+        <span class="hljs-attr">purpose:</span> <span class="hljs-string">Centralized</span> <span class="hljs-string">logging</span>
+        <span class="hljs-attr">technology:</span> <span class="hljs-string">ELK</span> <span class="hljs-string">Stack</span>
+
+      <span class="hljs-attr">configuration:</span>
+        <span class="hljs-attr">purpose:</span> <span class="hljs-string">External</span> <span class="hljs-string">configuration</span> <span class="hljs-string">management</span>
+        <span class="hljs-attr">technology:</span> <span class="hljs-string">Consul</span> <span class="hljs-string">or</span> <span class="hljs-string">Kubernetes</span> <span class="hljs-string">ConfigMaps</span>
+
+      <span class="hljs-attr">secrets:</span>
+        <span class="hljs-attr">purpose:</span> <span class="hljs-string">Secrets</span> <span class="hljs-string">management</span>
+        <span class="hljs-attr">technology:</span> <span class="hljs-string">HashiCorp</span> <span class="hljs-string">Vault</span> <span class="hljs-string">or</span> <span class="hljs-string">Kubernetes</span> <span class="hljs-string">Secrets</span>
+
+    <span class="hljs-attr">migration_strategy:</span>
+      <span class="hljs-attr">approach:</span> <span class="hljs-string">Strangler</span> <span class="hljs-string">Fig</span> <span class="hljs-string">Pattern</span>
+      <span class="hljs-attr">phases:</span>
+        <span class="hljs-attr">phase_1:</span>
+          <span class="hljs-attr">duration:</span> <span class="hljs-number">4</span><span class="hljs-number">-6</span> <span class="hljs-string">weeks</span>
+          <span class="hljs-attr">services:</span> [<span class="hljs-string">notification-service</span>]
+          <span class="hljs-attr">risk:</span> <span class="hljs-string">Low</span>
+
+        <span class="hljs-attr">phase_2:</span>
+          <span class="hljs-attr">duration:</span> <span class="hljs-number">6</span><span class="hljs-number">-8</span> <span class="hljs-string">weeks</span>
+          <span class="hljs-attr">services:</span> [<span class="hljs-string">customer-service</span>]
+          <span class="hljs-attr">risk:</span> <span class="hljs-string">Medium</span>
+          <span class="hljs-attr">dependencies:</span> [<span class="hljs-string">notification-service</span>]
+
+        <span class="hljs-attr">phase_3:</span>
+          <span class="hljs-attr">duration:</span> <span class="hljs-number">8</span><span class="hljs-number">-10</span> <span class="hljs-string">weeks</span>
+          <span class="hljs-attr">services:</span> [<span class="hljs-string">product-service</span>, <span class="hljs-string">inventory-service</span>]
+          <span class="hljs-attr">risk:</span> <span class="hljs-string">Medium</span>
+
+        <span class="hljs-attr">phase_4:</span>
+          <span class="hljs-attr">duration:</span> <span class="hljs-number">10</span><span class="hljs-number">-12</span> <span class="hljs-string">weeks</span>
+          <span class="hljs-attr">services:</span> [<span class="hljs-string">payment-service</span>]
+          <span class="hljs-attr">risk:</span> <span class="hljs-string">High</span>
+          <span class="hljs-attr">security_review:</span> <span class="hljs-string">Required</span>
+
+        <span class="hljs-attr">phase_5:</span>
+          <span class="hljs-attr">duration:</span> <span class="hljs-number">12</span><span class="hljs-number">-16</span> <span class="hljs-string">weeks</span>
+          <span class="hljs-attr">services:</span> [<span class="hljs-string">order-service</span>]
+          <span class="hljs-attr">risk:</span> <span class="hljs-string">High</span>
+          <span class="hljs-attr">dependencies:</span> [<span class="hljs-string">customer-service</span>, <span class="hljs-string">product-service</span>, <span class="hljs-string">payment-service</span>]
+</code></pre>
+<h4 id="inter-service-communication-patterns">Inter-Service Communication Patterns</h4>
+<p>AI can suggest appropriate communication patterns between microservices:</p>
+<p><strong>AI-Suggested Communication Patterns</strong>:</p>
+<pre><code class="lang-java"><span class="hljs-comment">// Synchronous communication for strong consistency requirements</span>
+<span class="hljs-meta">@FeignClient(name = "customer-service")</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">CustomerServiceClient</span> {
+
+    <span class="hljs-meta">@GetMapping("/customers/{id}")</span>
+    <span class="hljs-meta">@CircuitBreaker(name = "customer-service", fallbackMethod = "getCustomerFallback")</span>
+    <span class="hljs-meta">@Retry(name = "customer-service")</span>
+    <span class="hljs-meta">@TimeLimiter(name = "customer-service")</span>
+    CustomerDto <span class="hljs-title function_">getCustomer</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable</span> String id)</span>;
+
+    <span class="hljs-keyword">default</span> CustomerDto <span class="hljs-title function_">getCustomerFallback</span><span class="hljs-params">(String id, Exception ex)</span> {
+        <span class="hljs-comment">// AI-suggested fallback strategy</span>
+        <span class="hljs-keyword">return</span> CustomerDto.builder()
+            .id(id)
+            .name(<span class="hljs-string">"Unknown Customer"</span>)
+            .status(CustomerStatus.UNKNOWN)
+            .build();
+    }
+}
+
+<span class="hljs-comment">// Asynchronous communication for eventual consistency</span>
+<span class="hljs-meta">@EventHandler</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OrderEventHandler</span> {
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> CustomerLoyaltyService loyaltyService;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> NotificationService notificationService;
+
+    <span class="hljs-meta">@KafkaListener(topics = "order-events")</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">handleOrderCompleted</span><span class="hljs-params">(OrderCompletedEvent event)</span> {
+        <span class="hljs-comment">// AI-identified business logic that can be eventually consistent</span>
+
+        <span class="hljs-comment">// Update loyalty points asynchronously</span>
+        CompletableFuture.runAsync(() -&gt; {
+            <span class="hljs-keyword">try</span> {
+                loyaltyService.addPoints(event.getCustomerId(), event.getLoyaltyPoints());
+            } <span class="hljs-keyword">catch</span> (Exception e) {
+                <span class="hljs-comment">// AI-suggested error handling: retry with exponential backoff</span>
+                retryService.scheduleRetry(<span class="hljs-string">"add-loyalty-points"</span>, event, e);
+            }
+        });
+
+        <span class="hljs-comment">// Send confirmation email asynchronously</span>
+        CompletableFuture.runAsync(() -&gt; {
+            <span class="hljs-keyword">try</span> {
+                notificationService.sendOrderConfirmation(event);
+            } <span class="hljs-keyword">catch</span> (Exception e) {
+                <span class="hljs-comment">// AI-suggested error handling: dead letter queue</span>
+                deadLetterService.send(<span class="hljs-string">"notification-failures"</span>, event, e);
+            }
+        });
+    }
+}
+
+<span class="hljs-comment">// AI-suggested saga pattern for distributed transactions</span>
+<span class="hljs-meta">@SagaOrchestrationStart</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OrderProcessingSaga</span> {
+
+    <span class="hljs-meta">@Autowired</span>
+    <span class="hljs-keyword">private</span> SagaManager sagaManager;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">processOrder</span><span class="hljs-params">(ProcessOrderCommand command)</span> {
+        <span class="hljs-type">SagaTransaction</span> <span class="hljs-variable">saga</span> <span class="hljs-operator">=</span> sagaManager.beginSaga(<span class="hljs-string">"order-processing"</span>)
+            .step(<span class="hljs-string">"reserve-inventory"</span>)
+                .invoke(() -&gt; inventoryService.reserveItems(command.getItems()))
+                .withCompensation(() -&gt; inventoryService.releaseReservation(command.getItems()))
+            .step(<span class="hljs-string">"process-payment"</span>)
+                .invoke(() -&gt; paymentService.processPayment(command.getPaymentInfo()))
+                .withCompensation(() -&gt; paymentService.refundPayment(command.getPaymentInfo()))
+            .step(<span class="hljs-string">"create-order"</span>)
+                .invoke(() -&gt; orderService.createOrder(command))
+                .withCompensation(() -&gt; orderService.cancelOrder(command.getOrderId()))
+            .step(<span class="hljs-string">"send-confirmation"</span>)
+                .invoke(() -&gt; notificationService.sendConfirmation(command))
+                <span class="hljs-comment">// No compensation needed for notifications</span>
+            .build();
+
+        saga.execute();
+    }
+}
+
+<span class="hljs-comment">// AI-suggested event sourcing for audit and replay capabilities</span>
+<span class="hljs-meta">@EventSourcedAggregate</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Order</span> {
+
+    <span class="hljs-keyword">private</span> String orderId;
+    <span class="hljs-keyword">private</span> String customerId;
+    <span class="hljs-keyword">private</span> OrderStatus status;
+    <span class="hljs-keyword">private</span> List&lt;OrderItem&gt; items;
+    <span class="hljs-keyword">private</span> BigDecimal total;
+
+    <span class="hljs-meta">@CommandHandler</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">handle</span><span class="hljs-params">(CreateOrderCommand command)</span> {
+        <span class="hljs-comment">// AI-identified validation logic</span>
+        validateCreateOrderCommand(command);
+
+        apply(<span class="hljs-keyword">new</span> <span class="hljs-title class_">OrderCreatedEvent</span>(
+            command.getOrderId(),
+            command.getCustomerId(),
+            command.getItems(),
+            calculateTotal(command.getItems()),
+            Instant.now()
+        ));
+    }
+
+    <span class="hljs-meta">@EventSourcingHandler</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">on</span><span class="hljs-params">(OrderCreatedEvent event)</span> {
+        <span class="hljs-built_in">this</span>.orderId = event.getOrderId();
+        <span class="hljs-built_in">this</span>.customerId = event.getCustomerId();
+        <span class="hljs-built_in">this</span>.items = event.getItems();
+        <span class="hljs-built_in">this</span>.total = event.getTotal();
+        <span class="hljs-built_in">this</span>.status = OrderStatus.CREATED;
+    }
+
+    <span class="hljs-meta">@CommandHandler</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">handle</span><span class="hljs-params">(ConfirmPaymentCommand command)</span> {
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.status != OrderStatus.PENDING_PAYMENT) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalStateException</span>(<span class="hljs-string">"Cannot confirm payment for order in status: "</span> + <span class="hljs-built_in">this</span>.status);
+        }
+
+        apply(<span class="hljs-keyword">new</span> <span class="hljs-title class_">PaymentConfirmedEvent</span>(
+            <span class="hljs-built_in">this</span>.orderId,
+            command.getPaymentId(),
+            command.getAmount(),
+            Instant.now()
+        ));
+    }
+
+    <span class="hljs-meta">@EventSourcingHandler</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">on</span><span class="hljs-params">(PaymentConfirmedEvent event)</span> {
+        <span class="hljs-built_in">this</span>.status = OrderStatus.CONFIRMED;
+    }
+}
+</code></pre>
+<h3 id="infrastructure-as-code-generation">Infrastructure as Code Generation</h3>
+<p>AI can help generate Infrastructure as Code (IaC) templates that support microservices deployments.</p>
+<h4 id="kubernetes-deployment-generation">Kubernetes Deployment Generation</h4>
+<p>AI can analyze application requirements and generate Kubernetes manifests:</p>
+<p><strong>AI-Generated Kubernetes Manifests</strong>:</p>
+<pre><code class="lang-yaml"><span class="hljs-comment"># AI-generated deployment for customer service</span>
+<span class="hljs-attr">apiVersion:</span> <span class="hljs-string">apps/v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Deployment</span>
+<span class="hljs-attr">metadata:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">customer-service</span>
+  <span class="hljs-attr">labels:</span>
+    <span class="hljs-attr">app:</span> <span class="hljs-string">customer-service</span>
+    <span class="hljs-attr">version:</span> <span class="hljs-string">v1</span>
+<span class="hljs-attr">spec:</span>
+  <span class="hljs-attr">replicas:</span> <span class="hljs-number">3</span>
+  <span class="hljs-attr">selector:</span>
+    <span class="hljs-attr">matchLabels:</span>
+      <span class="hljs-attr">app:</span> <span class="hljs-string">customer-service</span>
+  <span class="hljs-attr">template:</span>
+    <span class="hljs-attr">metadata:</span>
+      <span class="hljs-attr">labels:</span>
+        <span class="hljs-attr">app:</span> <span class="hljs-string">customer-service</span>
+        <span class="hljs-attr">version:</span> <span class="hljs-string">v1</span>
+    <span class="hljs-attr">spec:</span>
+      <span class="hljs-attr">serviceAccountName:</span> <span class="hljs-string">customer-service</span>
+      <span class="hljs-attr">containers:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">customer-service</span>
+        <span class="hljs-attr">image:</span> <span class="hljs-string">myregistry/customer-service:1.0.0</span>
+        <span class="hljs-attr">ports:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-attr">containerPort:</span> <span class="hljs-number">8080</span>
+          <span class="hljs-attr">name:</span> <span class="hljs-string">http</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-attr">containerPort:</span> <span class="hljs-number">8081</span>
+          <span class="hljs-attr">name:</span> <span class="hljs-string">management</span>
+
+        <span class="hljs-comment"># AI-suggested resource requirements based on profiling</span>
+        <span class="hljs-attr">resources:</span>
+          <span class="hljs-attr">requests:</span>
+            <span class="hljs-attr">memory:</span> <span class="hljs-string">"512Mi"</span>
+            <span class="hljs-attr">cpu:</span> <span class="hljs-string">"250m"</span>
+          <span class="hljs-attr">limits:</span>
+            <span class="hljs-attr">memory:</span> <span class="hljs-string">"1Gi"</span>
+            <span class="hljs-attr">cpu:</span> <span class="hljs-string">"500m"</span>
+
+        <span class="hljs-comment"># AI-generated environment configuration</span>
+        <span class="hljs-attr">env:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">SPRING_PROFILES_ACTIVE</span>
+          <span class="hljs-attr">value:</span> <span class="hljs-string">"kubernetes"</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">DATABASE_URL</span>
+          <span class="hljs-attr">valueFrom:</span>
+            <span class="hljs-attr">secretKeyRef:</span>
+              <span class="hljs-attr">name:</span> <span class="hljs-string">customer-db-secret</span>
+              <span class="hljs-attr">key:</span> <span class="hljs-string">url</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">DATABASE_USERNAME</span>
+          <span class="hljs-attr">valueFrom:</span>
+            <span class="hljs-attr">secretKeyRef:</span>
+              <span class="hljs-attr">name:</span> <span class="hljs-string">customer-db-secret</span>
+              <span class="hljs-attr">key:</span> <span class="hljs-string">username</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">DATABASE_PASSWORD</span>
+          <span class="hljs-attr">valueFrom:</span>
+            <span class="hljs-attr">secretKeyRef:</span>
+              <span class="hljs-attr">name:</span> <span class="hljs-string">customer-db-secret</span>
+              <span class="hljs-attr">key:</span> <span class="hljs-string">password</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">REDIS_URL</span>
+          <span class="hljs-attr">valueFrom:</span>
+            <span class="hljs-attr">configMapKeyRef:</span>
+              <span class="hljs-attr">name:</span> <span class="hljs-string">customer-service-config</span>
+              <span class="hljs-attr">key:</span> <span class="hljs-string">redis.url</span>
+
+        <span class="hljs-comment"># AI-suggested health checks</span>
+        <span class="hljs-attr">livenessProbe:</span>
+          <span class="hljs-attr">httpGet:</span>
+            <span class="hljs-attr">path:</span> <span class="hljs-string">/actuator/health/liveness</span>
+            <span class="hljs-attr">port:</span> <span class="hljs-string">management</span>
+          <span class="hljs-attr">initialDelaySeconds:</span> <span class="hljs-number">60</span>
+          <span class="hljs-attr">periodSeconds:</span> <span class="hljs-number">30</span>
+          <span class="hljs-attr">timeoutSeconds:</span> <span class="hljs-number">5</span>
+          <span class="hljs-attr">failureThreshold:</span> <span class="hljs-number">3</span>
+
+        <span class="hljs-attr">readinessProbe:</span>
+          <span class="hljs-attr">httpGet:</span>
+            <span class="hljs-attr">path:</span> <span class="hljs-string">/actuator/health/readiness</span>
+            <span class="hljs-attr">port:</span> <span class="hljs-string">management</span>
+          <span class="hljs-attr">initialDelaySeconds:</span> <span class="hljs-number">30</span>
+          <span class="hljs-attr">periodSeconds:</span> <span class="hljs-number">10</span>
+          <span class="hljs-attr">timeoutSeconds:</span> <span class="hljs-number">5</span>
+          <span class="hljs-attr">failureThreshold:</span> <span class="hljs-number">3</span>
+
+        <span class="hljs-comment"># AI-suggested volume mounts</span>
+        <span class="hljs-attr">volumeMounts:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">config-volume</span>
+          <span class="hljs-attr">mountPath:</span> <span class="hljs-string">/app/config</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">logs-volume</span>
+        <span class="hljs-attr">emptyDir:</span> {}
+
+      <span class="hljs-comment"># AI-suggested pod security context</span>
+      <span class="hljs-attr">securityContext:</span>
+        <span class="hljs-attr">runAsNonRoot:</span> <span class="hljs-literal">true</span>
+        <span class="hljs-attr">runAsUser:</span> <span class="hljs-number">1001</span>
+        <span class="hljs-attr">fsGroup:</span> <span class="hljs-number">2000</span>
+
+<span class="hljs-meta">---</span>
+<span class="hljs-comment"># AI-generated service</span>
+<span class="hljs-attr">apiVersion:</span> <span class="hljs-string">v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Service</span>
+<span class="hljs-attr">metadata:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">customer-service</span>
+  <span class="hljs-attr">labels:</span>
+    <span class="hljs-attr">app:</span> <span class="hljs-string">customer-service</span>
+<span class="hljs-attr">spec:</span>
+  <span class="hljs-attr">type:</span> <span class="hljs-string">ClusterIP</span>
+  <span class="hljs-attr">ports:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">port:</span> <span class="hljs-number">80</span>
+    <span class="hljs-attr">targetPort:</span> <span class="hljs-number">8080</span>
+    <span class="hljs-attr">protocol:</span> <span class="hljs-string">TCP</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">http</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">port:</span> <span class="hljs-number">8081</span>
+    <span class="hljs-attr">targetPort:</span> <span class="hljs-number">8081</span>
+    <span class="hljs-attr">protocol:</span> <span class="hljs-string">TCP</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">management</span>
+  <span class="hljs-attr">selector:</span>
+    <span class="hljs-attr">app:</span> <span class="hljs-string">customer-service</span>
+
+<span class="hljs-meta">---</span>
+<span class="hljs-comment"># AI-generated horizontal pod autoscaler</span>
+<span class="hljs-attr">apiVersion:</span> <span class="hljs-string">autoscaling/v2</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">HorizontalPodAutoscaler</span>
+<span class="hljs-attr">metadata:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">customer-service-hpa</span>
+<span class="hljs-attr">spec:</span>
+  <span class="hljs-attr">scaleTargetRef:</span>
+    <span class="hljs-attr">apiVersion:</span> <span class="hljs-string">apps/v1</span>
+    <span class="hljs-attr">kind:</span> <span class="hljs-string">Deployment</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">customer-service</span>
+  <span class="hljs-attr">minReplicas:</span> <span class="hljs-number">3</span>
+  <span class="hljs-attr">maxReplicas:</span> <span class="hljs-number">10</span>
+  <span class="hljs-attr">metrics:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">type:</span> <span class="hljs-string">Resource</span>
+    <span class="hljs-attr">resource:</span>
+      <span class="hljs-attr">name:</span> <span class="hljs-string">cpu</span>
+      <span class="hljs-attr">target:</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">Utilization</span>
+        <span class="hljs-attr">averageUtilization:</span> <span class="hljs-number">70</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">type:</span> <span class="hljs-string">Resource</span>
+    <span class="hljs-attr">resource:</span>
+      <span class="hljs-attr">name:</span> <span class="hljs-string">memory</span>
+      <span class="hljs-attr">target:</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">Utilization</span>
+        <span class="hljs-attr">averageUtilization:</span> <span class="hljs-number">80</span>
+  <span class="hljs-attr">behavior:</span>
+    <span class="hljs-attr">scaleUp:</span>
+      <span class="hljs-attr">stabilizationWindowSeconds:</span> <span class="hljs-number">60</span>
+      <span class="hljs-attr">policies:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">type:</span> <span class="hljs-string">Percent</span>
+        <span class="hljs-attr">value:</span> <span class="hljs-number">100</span>
+        <span class="hljs-attr">periodSeconds:</span> <span class="hljs-number">15</span>
+    <span class="hljs-attr">scaleDown:</span>
+      <span class="hljs-attr">stabilizationWindowSeconds:</span> <span class="hljs-number">300</span>
+      <span class="hljs-attr">policies:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">type:</span> <span class="hljs-string">Percent</span>
+        <span class="hljs-attr">value:</span> <span class="hljs-number">10</span>
+        <span class="hljs-attr">periodSeconds:</span> <span class="hljs-number">60</span>
+
+<span class="hljs-meta">---</span>
+<span class="hljs-comment"># AI-generated pod disruption budget</span>
+<span class="hljs-attr">apiVersion:</span> <span class="hljs-string">policy/v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">PodDisruptionBudget</span>
+<span class="hljs-attr">metadata:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">customer-service-pdb</span>
+<span class="hljs-attr">spec:</span>
+  <span class="hljs-attr">minAvailable:</span> <span class="hljs-number">2</span>
+  <span class="hljs-attr">selector:</span>
+    <span class="hljs-attr">matchLabels:</span>
+      <span class="hljs-attr">app:</span> <span class="hljs-string">customer-service</span>
+
+<span class="hljs-meta">---</span>
+<span class="hljs-comment"># AI-generated network policy for security</span>
+<span class="hljs-attr">apiVersion:</span> <span class="hljs-string">networking.k8s.io/v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">NetworkPolicy</span>
+<span class="hljs-attr">metadata:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">customer-service-netpol</span>
+<span class="hljs-attr">spec:</span>
+  <span class="hljs-attr">podSelector:</span>
+    <span class="hljs-attr">matchLabels:</span>
+      <span class="hljs-attr">app:</span> <span class="hljs-string">customer-service</span>
+  <span class="hljs-attr">policyTypes:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">Ingress</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">Egress</span>
+  <span class="hljs-attr">ingress:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">from:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">podSelector:</span>
+        <span class="hljs-attr">matchLabels:</span>
+          <span class="hljs-attr">app:</span> <span class="hljs-string">api-gateway</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">podSelector:</span>
+        <span class="hljs-attr">matchLabels:</span>
+          <span class="hljs-attr">app:</span> <span class="hljs-string">order-service</span>
+    <span class="hljs-attr">ports:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">protocol:</span> <span class="hljs-string">TCP</span>
+      <span class="hljs-attr">port:</span> <span class="hljs-number">8080</span>
+  <span class="hljs-attr">egress:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">to:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">podSelector:</span>
+        <span class="hljs-attr">matchLabels:</span>
+          <span class="hljs-attr">app:</span> <span class="hljs-string">customer-db</span>
+    <span class="hljs-attr">ports:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">protocol:</span> <span class="hljs-string">TCP</span>
+      <span class="hljs-attr">port:</span> <span class="hljs-number">5432</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">to:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">podSelector:</span>
+        <span class="hljs-attr">matchLabels:</span>
+          <span class="hljs-attr">app:</span> <span class="hljs-string">redis</span>
+    <span class="hljs-attr">ports:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">protocol:</span> <span class="hljs-string">TCP</span>
+      <span class="hljs-attr">port:</span> <span class="hljs-number">6379</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">to:</span> []
+    <span class="hljs-attr">ports:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">protocol:</span> <span class="hljs-string">TCP</span>
+      <span class="hljs-attr">port:</span> <span class="hljs-number">53</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">protocol:</span> <span class="hljs-string">UDP</span>
+      <span class="hljs-attr">port:</span> <span class="hljs-number">53</span>
+
+<span class="hljs-meta">---</span>
+<span class="hljs-comment"># AI-generated ConfigMap</span>
+<span class="hljs-attr">apiVersion:</span> <span class="hljs-string">v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">ConfigMap</span>
+<span class="hljs-attr">metadata:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">customer-service-config</span>
+<span class="hljs-attr">data:</span>
+  <span class="hljs-attr">application.yml:</span> <span class="hljs-string">|
+    server:
+      port: 8080
+</span>
+    <span class="hljs-attr">management:</span>
+      <span class="hljs-attr">server:</span>
+        <span class="hljs-attr">port:</span> <span class="hljs-number">8081</span>
+      <span class="hljs-attr">endpoints:</span>
+        <span class="hljs-attr">web:</span>
+          <span class="hljs-attr">exposure:</span>
+            <span class="hljs-attr">include:</span> <span class="hljs-string">health,info,metrics,prometheus</span>
+      <span class="hljs-attr">endpoint:</span>
+        <span class="hljs-attr">health:</span>
+          <span class="hljs-attr">show-details:</span> <span class="hljs-string">always</span>
+
+    <span class="hljs-attr">spring:</span>
+      <span class="hljs-attr">application:</span>
+        <span class="hljs-attr">name:</span> <span class="hljs-string">customer-service</span>
+
+      <span class="hljs-attr">datasource:</span>
+        <span class="hljs-attr">hikari:</span>
+          <span class="hljs-attr">maximum-pool-size:</span> <span class="hljs-number">20</span>
+          <span class="hljs-attr">minimum-idle:</span> <span class="hljs-number">5</span>
+          <span class="hljs-attr">connection-timeout:</span> <span class="hljs-number">30000</span>
+          <span class="hljs-attr">idle-timeout:</span> <span class="hljs-number">600000</span>
+          <span class="hljs-attr">max-lifetime:</span> <span class="hljs-number">1800000</span>
+
+      <span class="hljs-attr">jpa:</span>
+        <span class="hljs-attr">hibernate:</span>
+          <span class="hljs-attr">ddl-auto:</span> <span class="hljs-string">validate</span>
+        <span class="hljs-attr">properties:</span>
+          <span class="hljs-attr">hibernate:</span>
+            <span class="hljs-attr">dialect:</span> <span class="hljs-string">org.hibernate.dialect.PostgreSQLDialect</span>
+            <span class="hljs-attr">jdbc:</span>
+              <span class="hljs-attr">batch_size:</span> <span class="hljs-number">25</span>
+            <span class="hljs-attr">order_inserts:</span> <span class="hljs-literal">true</span>
+            <span class="hljs-attr">order_updates:</span> <span class="hljs-literal">true</span>
+
+    <span class="hljs-attr">logging:</span>
+      <span class="hljs-attr">level:</span>
+        <span class="hljs-attr">com.company.customerservice:</span> <span class="hljs-string">INFO</span>
+        <span class="hljs-attr">org.springframework.web:</span> <span class="hljs-string">INFO</span>
+        <span class="hljs-attr">org.hibernate.SQL:</span> <span class="hljs-string">WARN</span>
+      <span class="hljs-attr">pattern:</span>
+        <span class="hljs-attr">console:</span> <span class="hljs-string">"%d{yyyy-MM-dd HH:mm:ss} - %msg%n"</span>
+
+    <span class="hljs-comment"># AI-suggested caching configuration</span>
+    <span class="hljs-attr">cache:</span>
+      <span class="hljs-attr">caffeine:</span>
+        <span class="hljs-attr">spec:</span> <span class="hljs-string">maximumSize=1000,expireAfterWrite=10m</span>
+
+    <span class="hljs-comment"># AI-suggested circuit breaker configuration</span>
+    <span class="hljs-attr">resilience4j:</span>
+      <span class="hljs-attr">circuitbreaker:</span>
+        <span class="hljs-attr">instances:</span>
+          <span class="hljs-attr">customer-db:</span>
+            <span class="hljs-attr">sliding-window-size:</span> <span class="hljs-number">100</span>
+            <span class="hljs-attr">minimum-number-of-calls:</span> <span class="hljs-number">10</span>
+            <span class="hljs-attr">failure-rate-threshold:</span> <span class="hljs-number">50</span>
+            <span class="hljs-attr">wait-duration-in-open-state:</span> <span class="hljs-string">30s</span>
+      <span class="hljs-attr">retry:</span>
+        <span class="hljs-attr">instances:</span>
+          <span class="hljs-attr">customer-db:</span>
+            <span class="hljs-attr">max-attempts:</span> <span class="hljs-number">3</span>
+            <span class="hljs-attr">wait-duration:</span> <span class="hljs-string">1s</span>
+            <span class="hljs-attr">exponential-backoff-multiplier:</span> <span class="hljs-number">2</span>
+
+  <span class="hljs-attr">redis.url:</span> <span class="hljs-string">redis://redis:6379</span>
+
+<span class="hljs-meta">---</span>
+<span class="hljs-comment"># AI-generated Secret (values would be base64 encoded in real deployment)</span>
+<span class="hljs-attr">apiVersion:</span> <span class="hljs-string">v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Secret</span>
+<span class="hljs-attr">metadata:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">customer-db-secret</span>
+<span class="hljs-attr">type:</span> <span class="hljs-string">Opaque</span>
+<span class="hljs-attr">data:</span>
+  <span class="hljs-attr">url:</span> <span class="hljs-string">cG9zdGdyZXNxbDovL2N1c3RvbWVyLWRiOjU0MzIvY3VzdG9tZXJkYg==</span> <span class="hljs-comment"># postgresql://customer-db:5432/customerdb</span>
+  <span class="hljs-attr">username:</span> <span class="hljs-string">Y3VzdG9tZXJ1c2Vy</span> <span class="hljs-comment"># customeruser</span>
+  <span class="hljs-attr">password:</span> <span class="hljs-string">Y3VzdG9tZXJwYXNz</span> <span class="hljs-comment"># customerpass</span>
+</code></pre>
+<h4 id="terraform-infrastructure-generation">Terraform Infrastructure Generation</h4>
+<p>AI can generate Terraform configurations for cloud infrastructure:</p>
+<p><strong>AI-Generated Terraform Configuration</strong>:</p>
+<pre><code class="lang-hcl"># AI-generated main.tf for AWS EKS cluster
+terraform {
+  required_version = "&gt;= 1.0"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~&gt; 5.0"
+    }
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = "~&gt; 2.20"
+    }
+    helm = {
+      source  = "hashicorp/helm"
+      version = "~&gt; 2.10"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.aws_region
+}
+
+# AI-suggested VPC configuration
+module "vpc" {
+  source = "terraform-aws-modules/vpc/aws"
+
+  name = "${var.project_name}-vpc"
+  cidr = var.vpc_cidr
+
+  azs             = var.availability_zones
+  private_subnets = var.private_subnet_cidrs
+  public_subnets  = var.public_subnet_cidrs
+
+  enable_nat_gateway = true
+  enable_vpn_gateway = false
+  enable_dns_hostnames = true
+  enable_dns_support = true
+
+  tags = {
+    Environment = var.environment
+    Project     = var.project_name
+    Terraform   = "true"
+  }
+}
+
+# AI-generated EKS cluster
+module "eks" {
+  source = "terraform-aws-modules/eks/aws"
+
+  cluster_name    = "${var.project_name}-${var.environment}"
+  cluster_version = var.kubernetes_version
+
+  vpc_id     = module.vpc.vpc_id
+  subnet_ids = module.vpc.private_subnets
+
+  # AI-suggested security group rules
+  cluster_endpoint_private_access = true
+  cluster_endpoint_public_access  = true
+  cluster_endpoint_public_access_cidrs = var.allowed_cidr_blocks
+
+  # AI-suggested add-ons
+  cluster_addons = {
+    coredns = {
+      resolve_conflicts = "OVERWRITE"
+    }
+    kube-proxy = {}
+    vpc-cni = {
+      resolve_conflicts = "OVERWRITE"
+    }
+    aws-ebs-csi-driver = {
+      resolve_conflicts = "OVERWRITE"
+    }
+  }
+
+  # AI-suggested managed node groups
+  eks_managed_node_groups = {
+    main = {
+      name = "main-nodes"
+
+      instance_types = var.node_instance_types
+      capacity_type  = "ON_DEMAND"
+
+      min_size     = var.node_group_min_size
+      max_size     = var.node_group_max_size
+      desired_size = var.node_group_desired_size
+
+      # AI-suggested disk configuration
+      block_device_mappings = {
+        xvda = {
+          device_name = "/dev/xvda"
+          ebs = {
+            volume_size           = 100
+            volume_type           = "gp3"
+            iops                  = 3000
+            throughput           = 150
+            encrypted             = true
+            delete_on_termination = true
+          }
+        }
+      }
+
+      # AI-suggested labels and taints
+      labels = {
+        Environment = var.environment
+        NodeGroup   = "main"
+      }
+
+      tags = {
+        Environment = var.environment
+        Project     = var.project_name
+      }
+    }
+
+    # AI-suggested spot instances for cost optimization
+    spot = {
+      name = "spot-nodes"
+
+      instance_types = var.spot_instance_types
+      capacity_type  = "SPOT"
+
+      min_size     = 0
+      max_size     = var.spot_max_size
+      desired_size = var.spot_desired_size
+
+      # AI-suggested spot configuration
+      taints = [
+        {
+          key    = "spot-instance"
+          value  = "true"
+          effect = "NO_SCHEDULE"
+        }
+      ]
+
+      labels = {
+        Environment    = var.environment
+        NodeGroup      = "spot"
+        InstanceType   = "spot"
+      }
+    }
+  }
+
+  tags = {
+    Environment = var.environment
+    Project     = var.project_name
+    Terraform   = "true"
+  }
+}
+
+# AI-suggested RDS database
+resource "aws_db_instance" "main" {
+  identifier = "${var.project_name}-${var.environment}-db"
+
+  engine         = "postgres"
+  engine_version = var.postgres_version
+  instance_class = var.db_instance_class
+
+  allocated_storage     = var.db_allocated_storage
+  max_allocated_storage = var.db_max_allocated_storage
+  storage_type          = "gp3"
+  storage_encrypted     = true
+
+  db_name  = var.db_name
+  username = var.db_username
+  password = var.db_password
+
+  vpc_security_group_ids = [aws_security_group.db.id]
+  db_subnet_group_name   = aws_db_subnet_group.main.name
+
+  # AI-suggested backup configuration
+  backup_retention_period = var.db_backup_retention_days
+  backup_window          = "03:00-04:00"
+  maintenance_window     = "Mon:04:00-Mon:05:00"
+
+  # AI-suggested monitoring
+  monitoring_interval = 60
+  monitoring_role_arn = aws_iam_role.rds_monitoring.arn
+
+  # AI-suggested performance insights
+  performance_insights_enabled = true
+  performance_insights_retention_period = 7
+
+  skip_final_snapshot = var.environment != "production"
+  deletion_protection = var.environment == "production"
+
+  tags = {
+    Environment = var.environment
+    Project     = var.project_name
+    Terraform   = "true"
+  }
+}
+
+# AI-suggested ElastiCache for Redis
+resource "aws_elasticache_subnet_group" "main" {
+  name       = "${var.project_name}-${var.environment}-cache-subnet"
+  subnet_ids = module.vpc.private_subnets
+}
+
+resource "aws_elasticache_replication_group" "main" {
+  replication_group_id       = "${var.project_name}-${var.environment}-redis"
+  description                = "Redis cluster for ${var.project_name}"
+
+  node_type                  = var.redis_node_type
+  port                       = 6379
+  parameter_group_name       = "default.redis7"
+
+  num_cache_clusters         = var.redis_num_cache_nodes
+  automatic_failover_enabled = var.redis_num_cache_nodes &gt; 1
+  multi_az_enabled          = var.redis_num_cache_nodes &gt; 1
+
+  subnet_group_name = aws_elasticache_subnet_group.main.name
+  security_group_ids = [aws_security_group.redis.id]
+
+  # AI-suggested backup configuration
+  snapshot_retention_limit = var.redis_snapshot_retention_limit
+  snapshot_window         = "03:00-05:00"
+
+  # AI-suggested encryption
+  at_rest_encryption_enabled = true
+  transit_encryption_enabled = true
+  auth_token                = var.redis_auth_token
+
+  tags = {
+    Environment = var.environment
+    Project     = var.project_name
+    Terraform   = "true"
+  }
+}
+
+# AI-generated security groups
+resource "aws_security_group" "db" {
+  name_prefix = "${var.project_name}-${var.environment}-db"
+  vpc_id      = module.vpc.vpc_id
+
+  ingress {
+    from_port       = 5432
+    to_port         = 5432
+    protocol        = "tcp"
+    security_groups = [module.eks.node_security_group_id]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name        = "${var.project_name}-${var.environment}-db"
+    Environment = var.environment
+    Project     = var.project_name
+  }
+}
+
+resource "aws_security_group" "redis" {
+  name_prefix = "${var.project_name}-${var.environment}-redis"
+  vpc_id      = module.vpc.vpc_id
+
+  ingress {
+    from_port       = 6379
+    to_port         = 6379
+    protocol        = "tcp"
+    security_groups = [module.eks.node_security_group_id]
+  }
+
+  tags = {
+    Name        = "${var.project_name}-${var.environment}-redis"
+    Environment = var.environment
+    Project     = var.project_name
+  }
+}
+
+# AI-suggested IAM roles for monitoring
+resource "aws_iam_role" "rds_monitoring" {
+  name = "${var.project_name}-${var.environment}-rds-monitoring"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Principal = {
+          Service = "monitoring.rds.amazonaws.com"
+        }
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "rds_monitoring" {
+  role       = aws_iam_role.rds_monitoring.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonRDSEnhancedMonitoringRole"
+}
+
+# AI-generated variables.tf
+variable "aws_region" {
+  description = "AWS region"
+  type        = string
+  default     = "us-west-2"
+}
+
+variable "project_name" {
+  description = "Name of the project"
+  type        = string
+}
+
+variable "environment" {
+  description = "Environment (dev, staging, prod)"
+  type        = string
+}
+
+variable "vpc_cidr" {
+  description = "CIDR block for VPC"
+  type        = string
+  default     = "10.0.0.0/16"
+}
+
+variable "availability_zones" {
+  description = "Availability zones"
+  type        = list(string)
+  default     = ["us-west-2a", "us-west-2b", "us-west-2c"]
+}
+
+variable "private_subnet_cidrs" {
+  description = "CIDR blocks for private subnets"
+  type        = list(string)
+  default     = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+}
+
+variable "public_subnet_cidrs" {
+  description = "CIDR blocks for public subnets"
+  type        = list(string)
+  default     = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
+}
+
+variable "kubernetes_version" {
+  description = "Kubernetes version"
+  type        = string
+  default     = "1.27"
+}
+
+variable "node_instance_types" {
+  description = "EC2 instance types for EKS nodes"
+  type        = list(string)
+  default     = ["t3.medium"]
+}
+
+variable "node_group_min_size" {
+  description = "Minimum number of nodes"
+  type        = number
+  default     = 1
+}
+
+variable "node_group_max_size" {
+  description = "Maximum number of nodes"
+  type        = number
+  default     = 10
+}
+
+variable "node_group_desired_size" {
+  description = "Desired number of nodes"
+  type        = number
+  default     = 3
+}
+
+# AI-generated outputs.tf
+output "cluster_endpoint" {
+  description = "Endpoint for EKS control plane"
+  value       = module.eks.cluster_endpoint
+}
+
+output "cluster_security_group_id" {
+  description = "Security group ids attached to the cluster control plane"
+  value       = module.eks.cluster_security_group_id
+}
+
+output "cluster_iam_role_name" {
+  description = "IAM role name associated with EKS cluster"
+  value       = module.eks.cluster_iam_role_name
+}
+
+output "cluster_certificate_authority_data" {
+  description = "Base64 encoded certificate data required to communicate with the cluster"
+  value       = module.eks.cluster_certificate_authority_data
+}
+
+output "database_endpoint" {
+  description = "RDS instance endpoint"
+  value       = aws_db_instance.main.endpoint
+  sensitive   = true
+}
+
+output "redis_endpoint" {
+  description = "Redis cluster endpoint"
+  value       = aws_elasticache_replication_group.main.configuration_endpoint_address
+}
+</code></pre>
+<h4 id="cicd-pipeline-integration">CI/CD Pipeline Integration</h4>
+<p>AI can generate CI/CD pipeline configurations that support the microservices architecture:</p>
+<p><strong>AI-Generated GitHub Actions Workflow</strong>:</p>
+<pre><code class="lang-yaml"><span class="hljs-comment"># AI-generated .github/workflows/microservices-ci-cd.yml</span>
+<span class="hljs-attr">name:</span> <span class="hljs-string">Microservices</span> <span class="hljs-string">CI/CD</span>
+
+<span class="hljs-attr">on:</span>
+  <span class="hljs-attr">push:</span>
+    <span class="hljs-attr">branches:</span> [<span class="hljs-string">main</span>, <span class="hljs-string">develop</span>]
+  <span class="hljs-attr">pull_request:</span>
+    <span class="hljs-attr">branches:</span> [<span class="hljs-string">main</span>]
+
+<span class="hljs-attr">env:</span>
+  <span class="hljs-attr">AWS_REGION:</span> <span class="hljs-string">us-west-2</span>
+  <span class="hljs-attr">EKS_CLUSTER_NAME:</span> <span class="hljs-string">microservices-prod</span>
+  <span class="hljs-attr">ECR_REGISTRY:</span> <span class="hljs-number">123456789012.</span><span class="hljs-string">dkr.ecr.us-west-2.amazonaws.com</span>
+
+<span class="hljs-attr">jobs:</span>
+  <span class="hljs-comment"># AI-suggested service change detection</span>
+  <span class="hljs-attr">detect-changes:</span>
+    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+    <span class="hljs-attr">outputs:</span>
+      <span class="hljs-attr">customer-service:</span> <span class="hljs-string">${{</span> <span class="hljs-string">steps.changes.outputs.customer-service</span> <span class="hljs-string">}}</span>
+      <span class="hljs-attr">order-service:</span> <span class="hljs-string">${{</span> <span class="hljs-string">steps.changes.outputs.order-service</span> <span class="hljs-string">}}</span>
+      <span class="hljs-attr">payment-service:</span> <span class="hljs-string">${{</span> <span class="hljs-string">steps.changes.outputs.payment-service</span> <span class="hljs-string">}}</span>
+      <span class="hljs-attr">infrastructure:</span> <span class="hljs-string">${{</span> <span class="hljs-string">steps.changes.outputs.infrastructure</span> <span class="hljs-string">}}</span>
+    <span class="hljs-attr">steps:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v4</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">dorny/paths-filter@v2</span>
+      <span class="hljs-attr">id:</span> <span class="hljs-string">changes</span>
+      <span class="hljs-attr">with:</span>
+        <span class="hljs-attr">filters:</span> <span class="hljs-string">|
+          customer-service:
+            - 'services/customer-service/**'
+            - 'shared/common/**'
+          order-service:
+            - 'services/order-service/**'
+            - 'shared/common/**'
+          payment-service:
+            - 'services/payment-service/**'
+            - 'shared/common/**'
+          infrastructure:
+            - 'infrastructure/**'
+            - 'k8s/**'
+</span>
+  <span class="hljs-comment"># AI-generated service-specific build jobs</span>
+  <span class="hljs-attr">build-customer-service:</span>
+    <span class="hljs-attr">needs:</span> <span class="hljs-string">detect-changes</span>
+    <span class="hljs-attr">if:</span> <span class="hljs-string">needs.detect-changes.outputs.customer-service</span> <span class="hljs-string">==</span> <span class="hljs-string">'true'</span>
+    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+    <span class="hljs-attr">steps:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v4</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Set</span> <span class="hljs-string">up</span> <span class="hljs-string">JDK</span> <span class="hljs-number">17</span>
+      <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-java@v3</span>
+      <span class="hljs-attr">with:</span>
+        <span class="hljs-attr">java-version:</span> <span class="hljs-string">'17'</span>
+        <span class="hljs-attr">distribution:</span> <span class="hljs-string">'temurin'</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Cache</span> <span class="hljs-string">Maven</span> <span class="hljs-string">dependencies</span>
+      <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/cache@v3</span>
+      <span class="hljs-attr">with:</span>
+        <span class="hljs-attr">path:</span> <span class="hljs-string">~/.m2</span>
+        <span class="hljs-attr">key:</span> <span class="hljs-string">${{</span> <span class="hljs-string">runner.os</span> <span class="hljs-string">}}-m2-${{</span> <span class="hljs-string">hashFiles('**/pom.xml')</span> <span class="hljs-string">}}</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Run</span> <span class="hljs-string">tests</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">|
+        cd services/customer-service
+        mvn clean test
+</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Run</span> <span class="hljs-string">security</span> <span class="hljs-string">scan</span>
+      <span class="hljs-attr">uses:</span> <span class="hljs-string">github/codeql-action/analyze@v2</span>
+      <span class="hljs-attr">with:</span>
+        <span class="hljs-attr">languages:</span> <span class="hljs-string">java</span>
+        <span class="hljs-attr">queries:</span> <span class="hljs-string">security-and-quality</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Build</span> <span class="hljs-string">application</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">|
+        cd services/customer-service
+        mvn clean package -DskipTests
+</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Configure</span> <span class="hljs-string">AWS</span> <span class="hljs-string">credentials</span>
+      <span class="hljs-attr">uses:</span> <span class="hljs-string">aws-actions/configure-aws-credentials@v2</span>
+      <span class="hljs-attr">with:</span>
+        <span class="hljs-attr">aws-access-key-id:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.AWS_ACCESS_KEY_ID</span> <span class="hljs-string">}}</span>
+        <span class="hljs-attr">aws-secret-access-key:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.AWS_SECRET_ACCESS_KEY</span> <span class="hljs-string">}}</span>
+        <span class="hljs-attr">aws-region:</span> <span class="hljs-string">${{</span> <span class="hljs-string">env.AWS_REGION</span> <span class="hljs-string">}}</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Login</span> <span class="hljs-string">to</span> <span class="hljs-string">Amazon</span> <span class="hljs-string">ECR</span>
+      <span class="hljs-attr">uses:</span> <span class="hljs-string">aws-actions/amazon-ecr-login@v1</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Build</span> <span class="hljs-string">and</span> <span class="hljs-string">push</span> <span class="hljs-string">Docker</span> <span class="hljs-string">image</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">|
+        cd services/customer-service
+        docker build -t $ECR_REGISTRY/customer-service:$GITHUB_SHA .
+        docker push $ECR_REGISTRY/customer-service:$GITHUB_SHA
+</span>
+        <span class="hljs-comment"># AI-suggested image vulnerability scanning</span>
+        <span class="hljs-string">docker</span> <span class="hljs-string">run</span> <span class="hljs-string">--rm</span> <span class="hljs-string">-v</span> <span class="hljs-string">/var/run/docker.sock:/var/run/docker.sock</span> <span class="hljs-string">\</span>
+          <span class="hljs-string">aquasec/trivy</span> <span class="hljs-string">image</span> <span class="hljs-string">--exit-code</span> <span class="hljs-number">1</span> <span class="hljs-string">--severity</span> <span class="hljs-string">HIGH,CRITICAL</span> <span class="hljs-string">\</span>
+          <span class="hljs-string">$ECR_REGISTRY/customer-service:$GITHUB_SHA</span>
+
+  <span class="hljs-comment"># AI-suggested parallel testing strategy</span>
+  <span class="hljs-attr">integration-tests:</span>
+    <span class="hljs-attr">needs:</span> [<span class="hljs-string">build-customer-service</span>, <span class="hljs-string">build-order-service</span>, <span class="hljs-string">build-payment-service</span>]
+    <span class="hljs-attr">if:</span> <span class="hljs-string">always()</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-type">!failure()</span>
+    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+    <span class="hljs-attr">services:</span>
+      <span class="hljs-attr">postgres:</span>
+        <span class="hljs-attr">image:</span> <span class="hljs-string">postgres:14</span>
+        <span class="hljs-attr">env:</span>
+          <span class="hljs-attr">POSTGRES_PASSWORD:</span> <span class="hljs-string">testpass</span>
+          <span class="hljs-attr">POSTGRES_DB:</span> <span class="hljs-string">testdb</span>
+        <span class="hljs-attr">options:</span> <span class="hljs-string">&gt;-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+</span>
+      <span class="hljs-attr">redis:</span>
+        <span class="hljs-attr">image:</span> <span class="hljs-string">redis:7</span>
+        <span class="hljs-attr">options:</span> <span class="hljs-string">&gt;-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+</span>
+    <span class="hljs-attr">steps:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v4</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Run</span> <span class="hljs-string">integration</span> <span class="hljs-string">tests</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">|
+        # AI-suggested docker-compose for integration testing
+        docker-compose -f docker-compose.test.yml up --build --abort-on-container-exit
+        docker-compose -f docker-compose.test.yml down
+</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Upload</span> <span class="hljs-string">test</span> <span class="hljs-string">results</span>
+      <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/upload-artifact@v3</span>
+      <span class="hljs-attr">if:</span> <span class="hljs-string">always()</span>
+      <span class="hljs-attr">with:</span>
+        <span class="hljs-attr">name:</span> <span class="hljs-string">integration-test-results</span>
+        <span class="hljs-attr">path:</span> <span class="hljs-string">test-results/</span>
+
+  <span class="hljs-comment"># AI-suggested deployment with blue-green strategy</span>
+  <span class="hljs-attr">deploy-staging:</span>
+    <span class="hljs-attr">needs:</span> [<span class="hljs-string">integration-tests</span>]
+    <span class="hljs-attr">if:</span> <span class="hljs-string">github.ref</span> <span class="hljs-string">==</span> <span class="hljs-string">'refs/heads/develop'</span>
+    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+    <span class="hljs-attr">environment:</span> <span class="hljs-string">staging</span>
+    <span class="hljs-attr">steps:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v4</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Configure</span> <span class="hljs-string">AWS</span> <span class="hljs-string">credentials</span>
+      <span class="hljs-attr">uses:</span> <span class="hljs-string">aws-actions/configure-aws-credentials@v2</span>
+      <span class="hljs-attr">with:</span>
+        <span class="hljs-attr">aws-access-key-id:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.AWS_ACCESS_KEY_ID</span> <span class="hljs-string">}}</span>
+        <span class="hljs-attr">aws-secret-access-key:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.AWS_SECRET_ACCESS_KEY</span> <span class="hljs-string">}}</span>
+        <span class="hljs-attr">aws-region:</span> <span class="hljs-string">${{</span> <span class="hljs-string">env.AWS_REGION</span> <span class="hljs-string">}}</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Update</span> <span class="hljs-string">kubeconfig</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">|
+        aws eks update-kubeconfig --region $AWS_REGION --name $EKS_CLUSTER_NAME
+</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Deploy</span> <span class="hljs-string">to</span> <span class="hljs-string">staging</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">|
+        # AI-suggested deployment with health checks
+        kubectl set image deployment/customer-service-staging \
+          customer-service=$ECR_REGISTRY/customer-service:$GITHUB_SHA \
+          --namespace=staging
+</span>
+        <span class="hljs-string">kubectl</span> <span class="hljs-string">rollout</span> <span class="hljs-string">status</span> <span class="hljs-string">deployment/customer-service-staging</span> <span class="hljs-string">\</span>
+          <span class="hljs-string">--namespace=staging</span> <span class="hljs-string">--timeout=300s</span>
+
+        <span class="hljs-comment"># AI-suggested smoke tests</span>
+        <span class="hljs-string">kubectl</span> <span class="hljs-string">run</span> <span class="hljs-string">smoke-test</span> <span class="hljs-string">--rm</span> <span class="hljs-string">-i</span> <span class="hljs-string">--restart=Never</span> <span class="hljs-string">\</span>
+          <span class="hljs-string">--image=curlimages/curl</span> <span class="hljs-string">--</span> <span class="hljs-string">\</span>
+          <span class="hljs-string">curl</span> <span class="hljs-string">-f</span> <span class="hljs-string">http://customer-service.staging.svc.cluster.local/actuator/health</span>
+
+  <span class="hljs-attr">deploy-production:</span>
+    <span class="hljs-attr">needs:</span> [<span class="hljs-string">integration-tests</span>]
+    <span class="hljs-attr">if:</span> <span class="hljs-string">github.ref</span> <span class="hljs-string">==</span> <span class="hljs-string">'refs/heads/main'</span>
+    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+    <span class="hljs-attr">environment:</span> <span class="hljs-string">production</span>
+    <span class="hljs-attr">steps:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v4</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Configure</span> <span class="hljs-string">AWS</span> <span class="hljs-string">credentials</span>
+      <span class="hljs-attr">uses:</span> <span class="hljs-string">aws-actions/configure-aws-credentials@v2</span>
+      <span class="hljs-attr">with:</span>
+        <span class="hljs-attr">aws-access-key-id:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.AWS_ACCESS_KEY_ID</span> <span class="hljs-string">}}</span>
+        <span class="hljs-attr">aws-secret-access-key:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.AWS_SECRET_ACCESS_KEY</span> <span class="hljs-string">}}</span>
+        <span class="hljs-attr">aws-region:</span> <span class="hljs-string">${{</span> <span class="hljs-string">env.AWS_REGION</span> <span class="hljs-string">}}</span>
+
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Update</span> <span class="hljs-string">kubeconfig</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">|
+        aws eks update-kubeconfig --region $AWS_REGION --name $EKS_CLUSTER_NAME
+</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Blue-Green</span> <span class="hljs-string">Deployment</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">|
+        # AI-suggested blue-green deployment script
+        ./scripts/blue-green-deploy.sh \
+          customer-service \
+          $ECR_REGISTRY/customer-service:$GITHUB_SHA \
+          production
+</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Run</span> <span class="hljs-string">production</span> <span class="hljs-string">smoke</span> <span class="hljs-string">tests</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">|
+        ./scripts/production-smoke-tests.sh
+</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Notify</span> <span class="hljs-string">deployment</span> <span class="hljs-string">success</span>
+      <span class="hljs-attr">uses:</span> <span class="hljs-string">8398a7/action-slack@v3</span>
+      <span class="hljs-attr">with:</span>
+        <span class="hljs-attr">status:</span> <span class="hljs-string">success</span>
+        <span class="hljs-attr">text:</span> <span class="hljs-string">'Customer service deployed successfully to production'</span>
+      <span class="hljs-attr">env:</span>
+        <span class="hljs-attr">SLACK_WEBHOOK_URL:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.SLACK_WEBHOOK_URL</span> <span class="hljs-string">}}</span>
+</code></pre>
+<p>This completes Chapter 6, which provides comprehensive guidance on architecture evolution with AI assistance. The chapter covers the journey from monolithic legacy systems to modern, cloud-native microservices architectures, with practical examples of:</p>
+<ul>
+<li>AI-driven domain boundary identification and service decomposition</li>
+<li>Technology stack assessment and migration planning</li>
+<li>Performance impact analysis and optimization</li>
+<li>Containerization and Kubernetes deployment strategies</li>
+<li>Infrastructure as Code generation</li>
+<li>CI/CD pipeline automation</li>
+</ul>
+<p>The content is designed to help teams like yours at Matilda FoodTech Germany systematically plan and execute architectural transformations, whether moving from MBS5's monolithic structure toward cloudMenu's modern architecture or preparing for future cloud-native deployments.</p>
+<p>Would you like me to continue with Chapter 7 (Code Quality and Standards) or refine any aspects of Chapter 6?
+          mountPath: /app/logs</p>
+<pre><code>  volumes:
+  - name: config-volume
+    configMap:
+      name: customer-service-config
+  - name: logs-volume
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="6-Chapter-5-Refactoring-with-Confidence.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Chapter 5 Refactoring With Confidence">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Chapter 6 Architecture Evolution With AI","level":"1.8","depth":1,"previous":{"title":"Chapter 5 Refactoring With Confidence","level":"1.7","depth":1,"path":"6-Chapter-5-Refactoring-with-Confidence.md","ref":"6-Chapter-5-Refactoring-with-Confidence.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"7-Chapter-6-Architecture-Evolution-with-AI.md","mtime":"2025-05-30T21:09:11.018Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-05-30T21:09:25.818Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
